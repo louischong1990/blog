@@ -1,5 +1,22 @@
 [
   {
+    "path": "posts/2021-01-19-dataviz-makeover-1/",
+    "title": "DataViz Makeover 1",
+    "description": "Below is the submission for the DataViz Makeover 1.",
+    "author": [
+      {
+        "name": "Louis Chong Jia Jun",
+        "url": "https://www.linkedin.com/in/louis-chong-jia-jun"
+      }
+    ],
+    "date": "2021-01-19",
+    "categories": [],
+    "contents": "\r\nDistill is a publication format for scientific and technical writing, native to the web.\r\nLearn more about using Distill at https://rstudio.github.io/distill.\r\n\r\n\r\n\r\n",
+    "preview": {},
+    "last_modified": "2021-01-19T22:15:55+08:00",
+    "input_file": "dataviz-makeover-1.utf8.md"
+  },
+  {
     "path": "posts/2021-01-04-my-first-post/",
     "title": "My first post",
     "description": "A short description of the post.",
