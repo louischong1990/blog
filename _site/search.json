@@ -2,18 +2,18 @@
   "articles": [
     {
       "path": "about.html",
-      "title": "About this blog",
-      "description": "Some additional details about the blog",
+      "title": "Data Visualisation Blog",
+      "description": "Hello. My name is Louis Chong. This blog is created to show all the data visualisations that I've created throughout my visual analytics journey.",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-01-04T20:48:40+08:00"
+      "last_modified": "2021-01-19T21:39:32+08:00"
     },
     {
       "path": "index.html",
       "title": "IDEA",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-01-04T20:48:45+08:00"
+      "last_modified": "2021-01-05T22:13:45+08:00"
     }
   ],
   "collections": ["posts/posts.json"]
