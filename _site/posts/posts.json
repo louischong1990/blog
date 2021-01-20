@@ -1,19 +1,19 @@
 [
   {
     "path": "posts/2021-01-19-dataviz-makeover-1/",
-    "title": "DataViz Makeover 1",
-    "description": "Below is the submission for the DataViz Makeover 1.",
+    "title": "ISSS608 Visual Analytics - DataViz Makeover 1",
+    "description": "This is the submission for the DataViz Makeover 1.",
     "author": [
       {
-        "name": "Louis Chong Jia Jun",
+        "name": "Louis Chong Jia Jun (louis.chong.2019@mitb.smu.edu.sg)",
         "url": "https://www.linkedin.com/in/louis-chong-jia-jun"
       }
     ],
     "date": "2021-01-19",
     "categories": [],
-    "contents": "\r\nDistill is a publication format for scientific and technical writing, native to the web.\r\nLearn more about using Distill at https://rstudio.github.io/distill.\r\n\r\n\r\n\r\n",
+    "contents": "\r\n1.0 Critiques of Data Visualisation\r\nThis is bad. When the data is large, both in terms of the number of observations and the number of variables, Corrgram tend to be used to visually explore and analyse the structure and the patterns of relations among variables.\r\nClarity\r\nGood\r\nBad\r\nOkay\r\nAesthetics\r\nGood\r\nBad\r\nOkay\r\nFirst, you will learn how to create correlation matrix using pairs() of R Graphics. Next, you will learn how to plot corrgram using corrplot package of R.\r\n2.0 Improvements to Current Design\r\nClarity\r\nGood\r\nBad\r\nOkay\r\nAesthetics\r\nGood\r\nBad\r\nOkay\r\nSketch of Proposed Design\r\nInsert image\r\nGood\r\nBad\r\nOkay\r\n3.0 Step-by-Step Description of Data Visualisation Preparation\r\nData source, import into Tableau\r\nData preparation, cleaning\r\nCreate new calculated field, parameter\r\nSheet 1, sheet 2, create charts\r\nTooltips, details, formatting\r\nDashboard, title\r\n4.0 Proposed Data Visualisation Using Tableau\r\nInsert image\r\nMajor Observations\r\nGood\r\nGood\r\nGood\r\n\r\n\r\n\r\n",
     "preview": {},
-    "last_modified": "2021-01-19T22:15:56+08:00",
+    "last_modified": "2021-01-20T23:17:53+08:00",
     "input_file": {}
   },
   {

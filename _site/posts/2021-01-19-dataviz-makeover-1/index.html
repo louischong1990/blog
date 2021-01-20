@@ -20,19 +20,18 @@
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -52,7 +51,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
@@ -86,38 +85,38 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-<title>IDEA: DataViz Makeover 1</title>
+<title>IDEA: ISSS608 Visual Analytics - DataViz Makeover 1</title>
 
-<meta property="description" itemprop="description" content="Below is the submission for the DataViz Makeover 1."/>
+<meta property="description" itemprop="description" content="This is the submission for the DataViz Makeover 1."/>
 
 
 <!--  https://schema.org/Article -->
 <meta property="article:published" itemprop="datePublished" content="2021-01-19"/>
 <meta property="article:created" itemprop="dateCreated" content="2021-01-19"/>
-<meta name="article:author" content="Louis Chong Jia Jun"/>
+<meta name="article:author" content="Louis Chong Jia Jun (louis.chong.2019@mitb.smu.edu.sg)"/>
 
 <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-<meta property="og:title" content="IDEA: DataViz Makeover 1"/>
+<meta property="og:title" content="IDEA: ISSS608 Visual Analytics - DataViz Makeover 1"/>
 <meta property="og:type" content="article"/>
-<meta property="og:description" content="Below is the submission for the DataViz Makeover 1."/>
+<meta property="og:description" content="This is the submission for the DataViz Makeover 1."/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="IDEA"/>
 
 <!--  https://dev.twitter.com/cards/types/summary -->
 <meta property="twitter:card" content="summary"/>
-<meta property="twitter:title" content="IDEA: DataViz Makeover 1"/>
-<meta property="twitter:description" content="Below is the submission for the DataViz Makeover 1."/>
+<meta property="twitter:title" content="IDEA: ISSS608 Visual Analytics - DataViz Makeover 1"/>
+<meta property="twitter:description" content="This is the submission for the DataViz Makeover 1."/>
 
 <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["DataViz Makeover 1"]},{"type":"character","attributes":{},"value":["Below is the submission for the DataViz Makeover 1."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Louis Chong Jia Jun"]},{"type":"character","attributes":{},"value":["https://www.linkedin.com/in/louis-chong-jia-jun"]}]}]},{"type":"character","attributes":{},"value":["01-19-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["ISSS608 Visual Analytics - DataViz Makeover 1"]},{"type":"character","attributes":{},"value":["This is the submission for the DataViz Makeover 1."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Louis Chong Jia Jun (louis.chong.2019@mitb.smu.edu.sg)"]},{"type":"character","attributes":{},"value":["https://www.linkedin.com/in/louis-chong-jia-jun"]}]}]},{"type":"character","attributes":{},"value":["01-19-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"NULL"}
+  {"type":"character","attributes":{},"value":["dataviz-makeover-1_files/anchor-4.2.2/anchor.min.js","dataviz-makeover-1_files/bowser-1.9.3/bowser.min.js","dataviz-makeover-1_files/distill-2.2.21/template.v2.js","dataviz-makeover-1_files/header-attrs-2.6/header-attrs.js","dataviz-makeover-1_files/jquery-1.11.3/jquery.min.js","dataviz-makeover-1_files/popper-2.6.0/popper.min.js","dataviz-makeover-1_files/tippy-6.2.7/tippy-bundle.umd.min.js","dataviz-makeover-1_files/tippy-6.2.7/tippy-light-border.css","dataviz-makeover-1_files/tippy-6.2.7/tippy.css","dataviz-makeover-1_files/tippy-6.2.7/tippy.umd.min.js","dataviz-makeover-1_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2041,7 +2040,12 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <!--/radix_placeholder_distill-->
+  <script src="../../site_libs/header-attrs-2.6/header-attrs.js"></script>
   <script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <script src="../../site_libs/popper-2.6.0/popper.min.js"></script>
+  <link href="../../site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="../../site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="../../site_libs/tippy-6.2.7/tippy.umd.min.js"></script>
   <script src="../../site_libs/anchor-4.2.2/anchor.min.js"></script>
   <script src="../../site_libs/bowser-1.9.3/bowser.min.js"></script>
   <script src="../../site_libs/webcomponents-2.0.0/webcomponents.js"></script>
@@ -2057,7 +2061,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"DataViz Makeover 1","description":"Below is the submission for the DataViz Makeover 1.","authors":[{"author":"Louis Chong Jia Jun","authorURL":"https://www.linkedin.com/in/louis-chong-jia-jun","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-01-19T00:00:00.000+08:00","citationText":"Jun, 2021"}
+{"title":"ISSS608 Visual Analytics - DataViz Makeover 1","description":"This is the submission for the DataViz Makeover 1.","authors":[{"author":"Louis Chong Jia Jun (louis.chong.2019@mitb.smu.edu.sg)","authorURL":"https://www.linkedin.com/in/louis-chong-jia-jun","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-01-19T00:00:00.000+08:00","citationText":"(louis.chong.2019@mitb.smu.edu.sg), 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2082,21 +2086,71 @@ document.addEventListener('DOMContentLoaded', function() {
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>DataViz Makeover 1</h1>
+<h1>ISSS608 Visual Analytics - DataViz Makeover 1</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>Below is the submission for the DataViz Makeover 1.</p></p>
+<p><p>This is the submission for the DataViz Makeover 1.</p></p>
 </div>
 
 <div class="d-byline">
-  Louis Chong Jia Jun <a href="https://www.linkedin.com/in/louis-chong-jia-jun" class="uri">https://www.linkedin.com/in/louis-chong-jia-jun</a> 
+  Louis Chong Jia Jun (<a href="mailto:louis.chong.2019@mitb.smu.edu.sg" class="email">louis.chong.2019@mitb.smu.edu.sg</a>) <a href="https://www.linkedin.com/in/louis-chong-jia-jun" class="uri">https://www.linkedin.com/in/louis-chong-jia-jun</a> 
   
 <br/>01-19-2021
 </div>
 
 <div class="d-article">
-<p>Distill is a publication format for scientific and technical writing, native to the web.</p>
-<p>Learn more about using Distill at <a href="https://rstudio.github.io/distill" class="uri">https://rstudio.github.io/distill</a>.</p>
+<h1 id="critiques-of-data-visualisation">1.0 Critiques of Data Visualisation</h1>
+<p>This is bad. When the data is large, both in terms of the number of observations and the number of variables, <a href="http://www.datavis.ca/papers/corrgram.pdf">Corrgram</a> tend to be used to visually explore and analyse the structure and the patterns of relations among variables.</p>
+<h2 id="clarity">Clarity</h2>
+<ul>
+<li>Good</li>
+<li>Bad</li>
+<li>Okay</li>
+</ul>
+<h2 id="aesthetics">Aesthetics</h2>
+<ul>
+<li>Good</li>
+<li>Bad</li>
+<li>Okay</li>
+</ul>
+<p>First, you will learn how to create correlation matrix using <a href="https://www.rdocumentation.org/packages/graphics/versions/3.6.0/topics/pairs"><em>pairs()</em></a> of R Graphics. Next, you will learn how to plot corrgram using <strong>corrplot</strong> package of R.</p>
+<h1 id="improvements-to-current-design">2.0 Improvements to Current Design</h1>
+<h2 id="clarity-1">Clarity</h2>
+<ul>
+<li>Good</li>
+<li>Bad</li>
+<li>Okay</li>
+</ul>
+<h2 id="aesthetics-1">Aesthetics</h2>
+<ul>
+<li>Good</li>
+<li>Bad</li>
+<li>Okay</li>
+</ul>
+<h2 id="sketch-of-proposed-design">Sketch of Proposed Design</h2>
+<p>Insert image</p>
+<ul>
+<li>Good</li>
+<li>Bad</li>
+<li>Okay</li>
+</ul>
+<h1 id="step-by-step-description-of-data-visualisation-preparation">3.0 Step-by-Step Description of Data Visualisation Preparation</h1>
+<ul>
+<li>Data source, import into Tableau</li>
+<li>Data preparation, cleaning</li>
+<li>Create new calculated field, parameter</li>
+<li>Sheet 1, sheet 2, create charts</li>
+<li>Tooltips, details, formatting</li>
+<li>Dashboard, title</li>
+</ul>
+<h1 id="proposed-data-visualisation-using-tableau">4.0 Proposed Data Visualisation Using Tableau</h1>
+<p>Insert image</p>
+<h2 id="major-observations">Major Observations</h2>
+<ul>
+<li>Good</li>
+<li>Good</li>
+<li>Good</li>
+</ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->

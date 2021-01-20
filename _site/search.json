@@ -9,11 +9,25 @@
       "last_modified": "2021-01-20T22:48:58+08:00"
     },
     {
+      "path": "dataviz.html",
+      "title": "DataViz Makeover",
+      "author": [],
+      "contents": "\r\n\r\n\r\n\r\n",
+      "last_modified": "2021-01-20T23:17:53+08:00"
+    },
+    {
       "path": "index.html",
       "title": "IDEA",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-01-20T22:49:04+08:00"
+      "last_modified": "2021-01-20T23:22:30+08:00"
+    },
+    {
+      "path": "vap.html",
+      "title": "Visual Analytics Project",
+      "author": [],
+      "contents": "\r\n\r\n\r\n\r\n",
+      "last_modified": "2021-01-20T23:19:46+08:00"
     }
   ],
   "collections": ["posts/posts.json"]
