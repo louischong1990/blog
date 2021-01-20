@@ -1,0 +1,5 @@
+---
+title: "Visual Analytics Project"
+site: distill::distill_website
+listing: posts
+---
