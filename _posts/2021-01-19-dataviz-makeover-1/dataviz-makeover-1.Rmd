@@ -1,5 +1,5 @@
 ---
-title: "ISSS608 Visual Analytics - DataViz Makeover 1"
+title: "DataViz Makeover 1"
 description: |
   Below is the submission for the DataViz Makeover 1.
 author:
@@ -18,62 +18,59 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # 1.0 Critiques of Data Visualisation
 
-This is bad
+This is bad. When the data is large, both in terms of the number of observations and the number of variables, [Corrgram](http://www.datavis.ca/papers/corrgram.pdf) tend to be used to visually explore and analyse the structure and the patterns of relations among variables.
 
-### Clarity
+## Clarity
 
-1. Good
-2. Bad
+- Good
+- Bad
+- Okay
 
-When the data is large, both in terms of the number of observations and the number of variables, [Corrgram](http://www.datavis.ca/papers/corrgram.pdf) tend to be used to visually explore and analyse the structure and the patterns of relations among variables.  It is designed based on two main schemes:
+## Aesthetics
 
-- Rendering the value of a correlation to depict its sign and magnitude, and
-- Reordering the variables in a correlation matrix so that "similar" variables are positioned adjacently, facilitating perception. 
+- Good
+- Bad
+- Okay
 
-In this hands-on exercise, you will learn how to plot data visualisation for visualising correlation matrix with R.  It consists of three main sections.  First, you will learn how to create correlation matrix using [*pairs()*](https://www.rdocumentation.org/packages/graphics/versions/3.6.0/topics/pairs) of R Graphics.  Next, you will learn how to plot corrgram using **corrplot** package of R Lastly, you will learn how to create an interactive correlation matrix using plotly R.   .  
-
-
-#  2.0 Installing and Launching R Packages
-
-Before you get started, you are required:
-
-- to start a new R project, and
-- to create a new R Markdown document.
-
-Next, you will use the code chunk below to install and launch **corrplot**,  **ggpubr**, **plotly** and **tidyverse** in RStudio.
-
-```{r, echo=TRUE, eval=TRUE, message=FALSE, warning=FALSE}
-
-packages = c('ggpubr', 'tidyverse')
-
-for(p in packages){library
-  if(!require(p, character.only = T)){
-    install.packages(p)
-  }
-  library(p, character.only = T)
-}
-```
-
-# 3.0 Importing and Preparing The Data Set 
-
-In this hands-on exercise, the [Wine Quality Data Set](https://archive.ics.uci.edu/ml/datasets/wine+quality) of UCI Machine Learning Repository will be used.  The data set consists of 13 variables and 6497 observations.  For the purpose of this exercise, we have combined the red wine and white wine data into one data file.  It is called wine_quality and is in csv file format.  
+First, you will learn how to create correlation matrix using [*pairs()*](https://www.rdocumentation.org/packages/graphics/versions/3.6.0/topics/pairs) of R Graphics.  Next, you will learn how to plot corrgram using **corrplot** package of R.
 
 
-## 3.1 Importing Data
+# 2.0 Improvements to Current Design
 
-First, let us import the data into R by using *read_csv()*  of **readr** package.  
+## Clarity
+
+- Good
+- Bad
+- Okay
+
+## Aesthetics
+
+- Good
+- Bad
+- Okay
+
+## Sketch of Proposed Design
+
+Insert image
+
+- Good
+- Bad
+- Okay
 
 
-```{r, echo=TRUE, message=FALSE}
-wine <- read_csv("data/wine_quality.csv")
-```
+# 3.0 Step-by-Step Description of Data Visualisation Preparation
 
-Notice that beside quality and type, the rest of the variables are numerical and continuous data type. 
+- Data source, import into Tableau
+- Data preparation, cleaning
+- Create new calculated field, parameter
+- Sheet 1, sheet 2, create charts
+- Tooltips, details, formatting
+- Dashboard, title
 
 
-# 4.0 Univariate EDA with Histogram
+# 4.0 Proposed Data Visualisation Using Tableau
 
-In the figure below, multiple histograms are plottted to reveal the distribution of the selected variables in the wine quality data sets.  
+Insert image
 
 ```{r, echo=FALSE, message=FALSE, layout="l-body-outset", fig.width=12, fig.height=6}
 fa <- ggplot(data=wine, aes(x= `fixed acidity`)) +
@@ -103,37 +100,9 @@ ggarrange(fa, va, ca, rs, ch, fSO2, tSO2, density, pH, sulphates, alcohol,
           ncol = 4, nrow = 3)
 ```
 
-The code chunks used to create the data visualisation consists of two main parts.  First, we will create the individual histograms using the code chunk below.
 
-```{r, echo=TRUE, eval=FALSE, message=FALSE}
-fa <- ggplot(data=wine, aes(x= `fixed acidity`)) +
-  geom_histogram(bins=20, color="black", fill="light blue")
-va <- ggplot(data=wine, aes(x= `volatile acidity`)) +
-  geom_histogram(bins=20, color="black", fill="light blue")
-ca <- ggplot(data=wine, aes(x= `citric acid`)) +
-  geom_histogram(bins=20, color="black", fill="light blue")
-rs <- ggplot(data=wine, aes(x= `residual sugar`)) +
-  geom_histogram(bins=20, color="black", fill="light blue")
-ch <- ggplot(data=wine, aes(x= `chlorides`)) +
-  geom_histogram(bins=20, color="black", fill="light blue")
-fSO2 <- ggplot(data=wine, aes(x= `free sulfur dioxide`)) +
-  geom_histogram(bins=20, color="black", fill="light blue")
-tSO2 <- ggplot(data=wine, aes(x= `total sulfur dioxide`)) +
-  geom_histogram(bins=20, color="black", fill="light blue")
-density <- ggplot(data=wine, aes(x= density)) +
-  geom_histogram(bins=20, color="black", fill="light blue")
-pH <- ggplot(data=wine, aes(x= pH)) +
-  geom_histogram(bins=20, color="black", fill="light blue")
-sulphates <- ggplot(data=wine, aes(x= sulphates)) +
-  geom_histogram(bins=20, color="black", fill="light blue")
-alcohol <- ggplot(data=wine, aes(x= alcohol)) +
-  geom_histogram(bins=20, color="black", fill="light blue")
-```
+## Major Observations
 
-Next, the *ggarrange* function of **ggpur** package is used to group these histograms together.
-
-```{r, echo=TRUE, eval=FALSE, message=FALSE, fig.width=12, fig.height=6}
-ggarrange(fa, va, ca, rs, ch, fSO2, tSO2, density, pH, sulphates, alcohol, 
-          ncol = 4, nrow = 3)
-```
-
+- Good
+- Good
+- Good

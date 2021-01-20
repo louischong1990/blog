@@ -1,5 +1,0 @@
----
-title: "DataViz Makeover"
-site: distill::distill_website
-listing: posts
----
