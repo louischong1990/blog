@@ -1,7 +1,7 @@
 ---
 title: "ISSS608 Visual Analytics - DataViz Makeover 1"
 description: |
-  This is the submission for the DataViz Makeover 1.
+  Analysis of Data Visualisation in MOM's Report on Labour Force in Singapore.
 author:
   - name: Louis Chong Jia Jun (louis.chong.2019@mitb.smu.edu.sg)
     url: https://www.linkedin.com/in/louis-chong-jia-jun
@@ -18,7 +18,9 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # 1.0 Critiques and Improvements of Data Visualisation
 
-The Report on Labour Force in Singapore (https://stats.mom.gov.sg/Pages/Labour-Force-In-Singapore-2019.aspx) is a key annual report on Singapore's labour market. Below is a critique of the data visualisation on the resident labour force and how it could be improved. The data is available at https://stats.mom.gov.sg/Pages/Labour-Force-Tables2019.aspx, Table 5, Resident Labour Force Participation Rate by Age and Sex, 2009 - 2019 (June).
+The Report on Labour Force in Singapore (https://stats.mom.gov.sg/Pages/Labour-Force-In-Singapore-2019.aspx) is a key annual report on Singapore's labour market. Below is a critique of MOM's data visualisation on the resident labour force and how it can be improved. The data is available at https://stats.mom.gov.sg/Pages/Labour-Force-Tables2019.aspx, Table 5, Resident Labour Force Participation Rate by Age and Sex, 2009 - 2019 (June).
+
+![Figure 1: MOM's Data Visualisation](/Distill/blog/Makeover1/DataViz1.png)
 
 ## Clarity
 
@@ -40,7 +42,7 @@ The Report on Labour Force in Singapore (https://stats.mom.gov.sg/Pages/Labour-F
   + For the improved data visualisation, we can similarly use two contrasting colours for the dot chart and data.
 
 * The multiple labelling of "June 2009" and "June 2019" is not necessary, given the use of colours to differentiate the years.
-  + The multiple labels can be removed and a legend can be created to show the colours (for the dot chart and data) that belong to each year.
+  + The multiple labels can be removed and a legend can be created to show the colours (for the dot chart and data) that represent each year.
 
 * The tick marks on the x-axis are wrongly placed, inappropriate and confusing, as age range should be a categorical rather than a continuous variable. This makes it difficult to find the value at each age range on the line chart and gives the wrong impression that we can interpolate and find the value at each age.
   + The tick marks on the x-axis can be removed.
@@ -50,29 +52,54 @@ The Report on Labour Force in Singapore (https://stats.mom.gov.sg/Pages/Labour-F
 
 ## Sketch of Proposed Design
 
-Insert image
+![Figure 2: Sketch of Design](/Distill/blog/Makeover1/Sketch1.jpg)
 
 * The dot chart can show the share of residents in the labour force at each age range without confusing readers that the values can be interpolated at each age.
 * The labour force participation rate can be easily compared by looking at the size of the dots for the two years.
+* For each dot (or data point), the exact values of the share of resident labour force and labour force participation rate can be found under tooltip.
 
 
 # 2.0 Step-by-Step Description of Data Visualisation Preparation
 
-- Data source, import into Tableau
-- Data preparation, cleaning
-- Create new calculated field, parameter
-- Sheet 1, sheet 2, create charts
-- Tooltips, details, formatting
-- Dashboard, title
+* Data Preparation
+  + The relevant data values i.e. Share of Resident Labour Force (RLF) and Labour Force Participation Rate (LFPR) at all age ranges in 2009 and 2019 are collated in Excel and imported onto Tableau.
+  ![Figure 3: Collated Data Values on Excel](/Distill/blog/Makeover1/Picture1.png)
+  ![Figure 4: Imported Data Values](/Distill/blog/Makeover1/Picture2.png)
+  + Each column is renamed to appropriately represent the data values i.e. Age Range, RLF 2009, RLF 2019, LFPR 2009, LFPR 2019.
+  ![Figure 5: Imported Data Values with Renamed Columns](/Distill/blog/Makeover1/Picture3.png)
+
+* Dot Chart
+  + "Age Range" is placed under Columns and "RLF 2009" and "RLF 2019" are placed under Rows.
+  ![Figure 6: Dot Chart Part 1](/Distill/blog/Makeover1/Picture4.png)
+  + The bar charts are converted into dot chart by clicking on dual axis. The axes are also synchronised.
+  ![Figure 7: Dot Chart Part 2](/Distill/blog/Makeover1/Picture5.png)
+  + As the x-axis (Age Range) is vertically oriented, it's not easily readable. Thus, the axis is rotated and the chart is set to fit the width.
+  ![Figure 8: Dot Chart Part 3](/Distill/blog/Makeover1/Picture6.png)
+  + To allow comparison of the labour force participation rate, "LFPR 2009" and "LFPR 2019" are placed under Size. The size of the dots will reflect the labour force participation rate i.e. larger dot will indicate higher labour force participation rate.
+  ![Figure 9: Dot Chart Part 4](/Distill/blog/Makeover1/Picture7.png)
+  + As there are overlaps of the dots, the opacity is set at 50% to allow easier comparison between the data values in 2009 and 2019.
+  ![Figure 10: Dot Chart Part 5](/Distill/blog/Makeover1/Picture8.png)
+  + To further facilitate comparison of labour force participation rate between 2009 and 2019, the size of the dots is increased.
+  ![Figure 11: Dot Chart Part 6](/Distill/blog/Makeover1/Picture9.png)
+  + Age Range, RLF, LFPR and the relevant period are added to Tooltip to let readers find the exact data values at each dot if required.
+  ![Figure 12: Dot Chart Part 7](/Distill/blog/Makeover1/Picture10.png)
+  + A legend is created to show the colours that represent each year and therefore, multiple labelling is not required. The headers are also hidden to simplify the chart for readers.
+  ![Figure 13: Dot Chart (Final)](/Distill/blog/Makeover1/Picture11.png)
+
+* Data on Share of Resident Labour Force
+  + "Age Range" is placed under Columns and "RLF 2009" and "RLF 2019" are placed under Rows. "Show Me" is clicked to generate the data table for share of resident labour force. "Measure Names" is placed under Color to change the font color to match the year.
+  ![Figure 14: RLF Data](/Distill/blog/Makeover1/Picture12.png)
+
+* Dashboard
+  + A dashboard is created. The title, lead-in paragraph and source are added as text. The dot chart and RLF data are added.
 
 
 # 3.0 Proposed Data Visualisation Using Tableau
 
-Insert image
-
+![Figure 15: Tableau Design](/Distill/blog/Makeover1/Tableau1.png)
 
 ## Major Observations
 
-* The share of residents aged 55 & over in the labour force rose from 15.6% in 2009 to 24.7% in 2019, with notable rise from 4.60% in 2009 to 7.30% in 2019 for residents aged 60 to 64 and from 1.80% in 2009 to 4.50% in 2019 for residents aged 65 to 69.
-* This was partly due to the higher labour force participation rate for residents aged 55 & over, most notably 63.90% in 2019 as compared to 50.60% in 2009 for residents aged 60 to 64, and 46.10% in 2019 as compared to 29.90% in 2009 for residents aged 65 to 69.
-* The labour force participation rate was generally higher in 2019 than 2009 for all age ranges except 20 to 24, which was 61.00% in 2019 as compared to 63.50% in 2009. Despite this, the overall share of resident labour force aged 25 to 54 declined from 75.3% to 67.5%.
+* The share of resident labour force aged 55 & over rose from 15.6% in 2009 to 24.7% in 2019, with notable rise from 4.60% in 2009 to 7.30% in 2019 for residents aged 60 to 64 and from 1.80% in 2009 to 4.50% in 2019 for residents aged 65 to 69.
+* This was partly due to the higher labour force participation rate for residents aged 55 & over, most notably 63.90% in 2019 vs 50.60% in 2009 for residents aged 60 to 64, and 46.10% in 2019 vs 29.90% in 2009 for residents aged 65 to 69.
+* The labour force participation rate was generally higher in 2019 than 2009 for all age ranges except 20 to 24, which was 61.00% in 2019 vs 63.50% in 2009. Despite this, the overall share of resident labour force aged 25 to 54 declined from 75.3% to 67.5%.
