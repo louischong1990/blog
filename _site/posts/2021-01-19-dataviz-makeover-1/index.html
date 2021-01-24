@@ -2099,42 +2099,53 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 
 <div class="d-article">
-<h1 id="critiques-of-data-visualisation">1.0 Critiques of Data Visualisation</h1>
-<p>This is bad. When the data is large, both in terms of the number of observations and the number of variables, <a href="http://www.datavis.ca/papers/corrgram.pdf">Corrgram</a> tend to be used to visually explore and analyse the structure and the patterns of relations among variables.</p>
+<h1 id="critiques-and-improvements-of-data-visualisation">1.0 Critiques and Improvements of Data Visualisation</h1>
+<p>The Report on Labour Force in Singapore (<a href="https://stats.mom.gov.sg/Pages/Labour-Force-In-Singapore-2019.aspx" class="uri">https://stats.mom.gov.sg/Pages/Labour-Force-In-Singapore-2019.aspx</a>) is a key annual report on Singapore’s labour market. Below is a critique of the data visualisation on the resident labour force and how it could be improved. The data is available at <a href="https://stats.mom.gov.sg/Pages/Labour-Force-Tables2019.aspx" class="uri">https://stats.mom.gov.sg/Pages/Labour-Force-Tables2019.aspx</a>, Table 5, Resident Labour Force Participation Rate by Age and Sex, 2009 - 2019 (June).</p>
 <h2 id="clarity">Clarity</h2>
 <ul>
-<li>Good</li>
-<li>Bad</li>
-<li>Okay</li>
+<li>By looking at the two lines in the data visualisation, we can clearly tell that the share of residents aged 55 &amp; over in the labour force rose in 2019 as compared to 2009 and fell for residents aged 25 to 54. However, a line chart should not be used, as data was aggregated at each age range and we will imply that we can interpolate and find the value at each age.
+<ul>
+<li>A dot chart can be used instead, with each point showing the share of residents in the labour force at each age range.</li>
+</ul></li>
+<li>The reference lines cleared showed that the median age of residents in the labour force was higher in 2019 than 2009. However, it also gives a wrong impression that the value at each age can be interpolated and found. Furthermore, the median age cannot be calculated using the data used in this exercise.
+<ul>
+<li>The reference lines can be removed to avoid confusion.</li>
+</ul></li>
+<li>The lead-in paragraph talks about the labour force participation rate. However, we cannot tell from the data visualisation how the labour force participation rate in 2019 differs from 2009.
+<ul>
+<li>The labour force participation rate can be used as the size for each point on the dot chart i.e. bigger point implies higher labour force participation rate at the age range. We can also include the data values under tooltip.</li>
+</ul></li>
+<li>The title of the data visualisation should not be “resident labour force by age”. It will also give the false impression that we can interpolate and find the value at each age.
+<ul>
+<li>The title can be changed to “Resident Labour Force (%) and Labour Force Participation Rate (%) by Age Range” to illustrate the data given.</li>
+</ul></li>
 </ul>
 <h2 id="aesthetics">Aesthetics</h2>
 <ul>
-<li>Good</li>
-<li>Bad</li>
-<li>Okay</li>
-</ul>
-<p>First, you will learn how to create correlation matrix using <a href="https://www.rdocumentation.org/packages/graphics/versions/3.6.0/topics/pairs"><em>pairs()</em></a> of R Graphics. Next, you will learn how to plot corrgram using <strong>corrplot</strong> package of R.</p>
-<h1 id="improvements-to-current-design">2.0 Improvements to Current Design</h1>
-<h2 id="clarity-1">Clarity</h2>
+<li>The use of two contrasting colours (blue and grey) for the lines and table rows clearly showed the data belonging to the two years.
 <ul>
-<li>Good</li>
-<li>Bad</li>
-<li>Okay</li>
-</ul>
-<h2 id="aesthetics-1">Aesthetics</h2>
+<li>For the improved data visualisation, we can similarly use two contrasting colours for the dot chart and data.</li>
+</ul></li>
+<li>The multiple labelling of “June 2009” and “June 2019” is not necessary, given the use of colours to differentiate the years.
 <ul>
-<li>Good</li>
-<li>Bad</li>
-<li>Okay</li>
+<li>The multiple labels can be removed and a legend can be created to show the colours (for the dot chart and data) that belong to each year.</li>
+</ul></li>
+<li>The tick marks on the x-axis are wrongly placed, inappropriate and confusing, as age range should be a categorical rather than a continuous variable. This makes it difficult to find the value at each age range on the line chart and gives the wrong impression that we can interpolate and find the value at each age.
+<ul>
+<li>The tick marks on the x-axis can be removed.</li>
+</ul></li>
+<li>The data source is properly and clearly labelled at the bottom of the data visualisation.
+<ul>
+<li>Similarly, we can label the data source clearly in the improved data visualisation.</li>
+</ul></li>
 </ul>
 <h2 id="sketch-of-proposed-design">Sketch of Proposed Design</h2>
 <p>Insert image</p>
 <ul>
-<li>Good</li>
-<li>Bad</li>
-<li>Okay</li>
+<li>The dot chart can show the share of residents in the labour force at each age range without confusing readers that the values can be interpolated at each age.</li>
+<li>The labour force participation rate can be easily compared by looking at the size of the dots for the two years.</li>
 </ul>
-<h1 id="step-by-step-description-of-data-visualisation-preparation">3.0 Step-by-Step Description of Data Visualisation Preparation</h1>
+<h1 id="step-by-step-description-of-data-visualisation-preparation">2.0 Step-by-Step Description of Data Visualisation Preparation</h1>
 <ul>
 <li>Data source, import into Tableau</li>
 <li>Data preparation, cleaning</li>
@@ -2143,13 +2154,13 @@ document.addEventListener('DOMContentLoaded', function() {
 <li>Tooltips, details, formatting</li>
 <li>Dashboard, title</li>
 </ul>
-<h1 id="proposed-data-visualisation-using-tableau">4.0 Proposed Data Visualisation Using Tableau</h1>
+<h1 id="proposed-data-visualisation-using-tableau">3.0 Proposed Data Visualisation Using Tableau</h1>
 <p>Insert image</p>
 <h2 id="major-observations">Major Observations</h2>
 <ul>
-<li>Good</li>
-<li>Good</li>
-<li>Good</li>
+<li>The share of residents aged 55 &amp; over in the labour force rose from 15.6% in 2009 to 24.7% in 2019, with notable rise from 4.60% in 2009 to 7.30% in 2019 for residents aged 60 to 64 and from 1.80% in 2009 to 4.50% in 2019 for residents aged 65 to 69.</li>
+<li>This was partly due to the higher labour force participation rate for residents aged 55 &amp; over, most notably 63.90% in 2019 as compared to 50.60% in 2009 for residents aged 60 to 64, and 46.10% in 2019 as compared to 29.90% in 2009 for residents aged 65 to 69.</li>
+<li>The labour force participation rate was generally higher in 2019 than 2009 for all age ranges except 20 to 24, which was 61.00% in 2019 as compared to 63.50% in 2009. Despite this, the overall share of resident labour force aged 25 to 54 declined from 75.3% to 67.5%.</li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
