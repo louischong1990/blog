@@ -2144,7 +2144,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </ul>
 <h2 id="sketch-of-proposed-design">Sketch of Proposed Design</h2>
 <figure>
-<img src="C:/Distill/blog/Makeover1/Sketch1.jpg" alt="Figure 2: Sketch of Design" /><figcaption aria-hidden="true">Figure 2: Sketch of Design</figcaption>
+<img src="C:/Distill/blog/Makeover1/Sketch1.jpg" style="width:70.0%" alt="Figure 2: Sketch of Design" /><figcaption aria-hidden="true">Figure 2: Sketch of Design</figcaption>
 </figure>
 <ul>
 <li>The dot chart can show the share of residents in the labour force at each age range without confusing readers that the values can be interpolated at each age.</li>
@@ -2152,31 +2152,81 @@ document.addEventListener('DOMContentLoaded', function() {
 <li>For each dot (or data point), the exact values of the share of resident labour force and labour force participation rate can be found under tooltip.</li>
 </ul>
 <h1 id="step-by-step-description-of-data-visualisation-preparation">2.0 Step-by-Step Description of Data Visualisation Preparation</h1>
+<h2 id="data-preparation">Data Preparation</h2>
 <ul>
-<li>Data Preparation
+<li>The relevant data values i.e. Share of Resident Labour Force (RLF) and Labour Force Participation Rate (LFPR) at all age ranges in 2009 and 2019 are collated in Excel and imported onto Tableau.</li>
+</ul>
+<figure>
+<img src="C:/Distill/blog/Makeover1/Picture1.png" style="width:30.0%" alt="Figure 3: Collated Data Values on Excel" /><figcaption aria-hidden="true">Figure 3: Collated Data Values on Excel</figcaption>
+</figure>
+<figure>
+<img src="C:/Distill/blog/Makeover1/Picture2.png" style="width:40.0%" alt="Figure 4: Imported Data Values" /><figcaption aria-hidden="true">Figure 4: Imported Data Values</figcaption>
+</figure>
 <ul>
-<li>The relevant data values i.e. Share of Resident Labour Force (RLF) and Labour Force Participation Rate (LFPR) at all age ranges in 2009 and 2019 are collated in Excel and imported onto Tableau. <img src="C:/Distill/blog/Makeover1/Picture1.png" alt="Figure 3: Collated Data Values on Excel" /> <img src="C:/Distill/blog/Makeover1/Picture2.png" alt="Figure 4: Imported Data Values" /></li>
-<li>Each column is renamed to appropriately represent the data values i.e. Age Range, RLF 2009, RLF 2019, LFPR 2009, LFPR 2019. <img src="C:/Distill/blog/Makeover1/Picture3.png" alt="Figure 5: Imported Data Values with Renamed Columns" /></li>
-</ul></li>
-<li>Dot Chart
+<li>Each column is renamed to appropriately represent the data values i.e. Age Range, RLF 2009, RLF 2019, LFPR 2009, LFPR 2019.</li>
+</ul>
+<figure>
+<img src="C:/Distill/blog/Makeover1/Picture3.png" style="width:50.0%" alt="Figure 5: Imported Data Values with Renamed Columns" /><figcaption aria-hidden="true">Figure 5: Imported Data Values with Renamed Columns</figcaption>
+</figure>
+<h2 id="dot-chart">Dot Chart</h2>
 <ul>
-<li>“Age Range” is placed under Columns and “RLF 2009” and “RLF 2019” are placed under Rows. <img src="C:/Distill/blog/Makeover1/Picture4.png" alt="Figure 6: Dot Chart Part 1" /></li>
-<li>The bar charts are converted into dot chart by clicking on dual axis. The axes are also synchronised. <img src="C:/Distill/blog/Makeover1/Picture5.png" alt="Figure 7: Dot Chart Part 2" /></li>
-<li>As the x-axis (Age Range) is vertically oriented, it’s not easily readable. Thus, the axis is rotated and the chart is set to fit the width. <img src="C:/Distill/blog/Makeover1/Picture6.png" alt="Figure 8: Dot Chart Part 3" /></li>
-<li>To allow comparison of the labour force participation rate, “LFPR 2009” and “LFPR 2019” are placed under Size. The size of the dots will reflect the labour force participation rate i.e. larger dot will indicate higher labour force participation rate. <img src="C:/Distill/blog/Makeover1/Picture7.png" alt="Figure 9: Dot Chart Part 4" /></li>
-<li>As there are overlaps of the dots, the opacity is set at 50% to allow easier comparison between the data values in 2009 and 2019. <img src="C:/Distill/blog/Makeover1/Picture8.png" alt="Figure 10: Dot Chart Part 5" /></li>
-<li>To further facilitate comparison of labour force participation rate between 2009 and 2019, the size of the dots is increased. <img src="C:/Distill/blog/Makeover1/Picture9.png" alt="Figure 11: Dot Chart Part 6" /></li>
-<li>Age Range, RLF, LFPR and the relevant period are added to Tooltip to let readers find the exact data values at each dot if required. <img src="C:/Distill/blog/Makeover1/Picture10.png" alt="Figure 12: Dot Chart Part 7" /></li>
-<li>A legend is created to show the colours that represent each year and therefore, multiple labelling is not required. The headers are also hidden to simplify the chart for readers. <img src="C:/Distill/blog/Makeover1/Picture11.png" alt="Figure 13: Dot Chart (Final)" /></li>
-</ul></li>
-<li>Data on Share of Resident Labour Force
+<li>“Age Range” is placed under Columns and “RLF 2009” and “RLF 2019” are placed under Rows.</li>
+</ul>
+<figure>
+<img src="C:/Distill/blog/Makeover1/Picture4.png" style="width:60.0%" alt="Figure 6: Dot Chart Part 1" /><figcaption aria-hidden="true">Figure 6: Dot Chart Part 1</figcaption>
+</figure>
 <ul>
-<li>“Age Range” is placed under Columns and “RLF 2009” and “RLF 2019” are placed under Rows. “Show Me” is clicked to generate the data table for share of resident labour force. “Measure Names” is placed under Color to change the font color to match the year. <img src="C:/Distill/blog/Makeover1/Picture12.png" alt="Figure 14: RLF Data" /></li>
-</ul></li>
-<li>Dashboard
+<li>The bar charts are converted into dot chart by clicking on dual axis. The axes are also synchronised.</li>
+</ul>
+<figure>
+<img src="C:/Distill/blog/Makeover1/Picture5.png" style="width:50.0%" alt="Figure 7: Dot Chart Part 2" /><figcaption aria-hidden="true">Figure 7: Dot Chart Part 2</figcaption>
+</figure>
+<ul>
+<li>As the x-axis (Age Range) is vertically oriented, it’s not easily readable. Thus, the axis is rotated and the chart is set to fit the width.</li>
+</ul>
+<figure>
+<img src="C:/Distill/blog/Makeover1/Picture6.png" style="width:70.0%" alt="Figure 8: Dot Chart Part 3" /><figcaption aria-hidden="true">Figure 8: Dot Chart Part 3</figcaption>
+</figure>
+<ul>
+<li>To allow comparison of the labour force participation rate, “LFPR 2009” and “LFPR 2019” are placed under Size. The size of the dots will reflect the labour force participation rate i.e. larger dot will indicate higher labour force participation rate.</li>
+</ul>
+<figure>
+<img src="C:/Distill/blog/Makeover1/Picture7.png" style="width:80.0%" alt="Figure 9: Dot Chart Part 4" /><figcaption aria-hidden="true">Figure 9: Dot Chart Part 4</figcaption>
+</figure>
+<ul>
+<li>As there are overlaps of the dots, the opacity is set at 50% to allow easier comparison between the data values in 2009 and 2019.</li>
+</ul>
+<figure>
+<img src="C:/Distill/blog/Makeover1/Picture8.png" style="width:80.0%" alt="Figure 10: Dot Chart Part 5" /><figcaption aria-hidden="true">Figure 10: Dot Chart Part 5</figcaption>
+</figure>
+<ul>
+<li>To further facilitate comparison of labour force participation rate between 2009 and 2019, the size of the dots is increased.</li>
+</ul>
+<figure>
+<img src="C:/Distill/blog/Makeover1/Picture9.png" style="width:90.0%" alt="Figure 11: Dot Chart Part 6" /><figcaption aria-hidden="true">Figure 11: Dot Chart Part 6</figcaption>
+</figure>
+<ul>
+<li>Age Range, RLF, LFPR and the relevant period are added to Tooltip to let readers find the exact data values at each dot if required.</li>
+</ul>
+<figure>
+<img src="C:/Distill/blog/Makeover1/Picture10.png" style="width:90.0%" alt="Figure 12: Dot Chart Part 7" /><figcaption aria-hidden="true">Figure 12: Dot Chart Part 7</figcaption>
+</figure>
+<ul>
+<li>A legend is created to show the colours that represent each year and therefore, multiple labelling is not required. The headers are also hidden to simplify the chart for readers.</li>
+</ul>
+<figure>
+<img src="C:/Distill/blog/Makeover1/Picture11.png" style="width:80.0%" alt="Figure 13: Dot Chart (Final)" /><figcaption aria-hidden="true">Figure 13: Dot Chart (Final)</figcaption>
+</figure>
+<h2 id="data-on-share-of-resident-labour-force">Data on Share of Resident Labour Force</h2>
+<ul>
+<li>“Age Range” is placed under Columns and “RLF 2009” and “RLF 2019” are placed under Rows. “Show Me” is clicked to generate the data table for share of resident labour force. “Measure Names” is placed under Color to change the font color to match the year.</li>
+</ul>
+<figure>
+<img src="C:/Distill/blog/Makeover1/Picture12.png" style="width:90.0%" alt="Figure 14: RLF Data" /><figcaption aria-hidden="true">Figure 14: RLF Data</figcaption>
+</figure>
+<h2 id="dashboard">Dashboard</h2>
 <ul>
 <li>A dashboard is created. The title, lead-in paragraph and source are added as text. The dot chart and RLF data are added.</li>
-</ul></li>
 </ul>
 <h1 id="proposed-data-visualisation-using-tableau">3.0 Proposed Data Visualisation Using Tableau</h1>
 <figure>
