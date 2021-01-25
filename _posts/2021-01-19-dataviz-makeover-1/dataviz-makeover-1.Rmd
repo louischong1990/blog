@@ -20,7 +20,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 The Report on Labour Force in Singapore (https://stats.mom.gov.sg/Pages/Labour-Force-In-Singapore-2019.aspx) is a key annual report on Singapore's labour market. Below is a critique of MOM's data visualisation on the resident labour force and how it can be improved. The data is available at https://stats.mom.gov.sg/Pages/Labour-Force-Tables2019.aspx, Table 5, Resident Labour Force Participation Rate by Age and Sex, 2009 - 2019 (June).
 
-![Figure 1: MOM's Data Visualisation](/Distill/blog/Makeover1/DataViz1.png)
+![Figure 1: MOM's Data Visualisation](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover1/DataViz1.png)
 
 ## Clarity
 
