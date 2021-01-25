@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>IDEA</title>
+    <link>https://affectionate-dijkstra-f71bd4.netlify.app/</link>
+    <atom:link href="https://affectionate-dijkstra-f71bd4.netlify.app/index.xml" rel="self" type="application/rss+xml"/>
+    <description>IDEA
+</description>
+    <generator>Distill</generator>
+    <lastBuildDate>Mon, 18 Jan 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>ISSS608 Visual Analytics - DataViz Makeover 1</title>
+      <dc:creator>Louis Chong Jia Jun (louis.chong.2019@mitb.smu.edu.sg)</dc:creator>
+      <link>https://affectionate-dijkstra-f71bd4.netlify.app/posts/2021-01-19-dataviz-makeover-1</link>
+      <description>Analysis of Data Visualisation in MOM's Report on Labour Force in Singapore.</description>
+      <guid>https://affectionate-dijkstra-f71bd4.netlify.app/posts/2021-01-19-dataviz-makeover-1</guid>
+      <pubDate>Mon, 18 Jan 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>My first post</title>
+      <dc:creator>Louis Chong Jia Jun</dc:creator>
+      <link>https://affectionate-dijkstra-f71bd4.netlify.app/posts/2021-01-04-my-first-post</link>
+      <description>A short description of the post.</description>
+      <guid>https://affectionate-dijkstra-f71bd4.netlify.app/posts/2021-01-04-my-first-post</guid>
+      <pubDate>Mon, 04 Jan 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://affectionate-dijkstra-f71bd4.netlify.app/posts/2021-01-04-my-first-post/my-first-post_files/figure-html5/unnamed-chunk-3-1.png" medium="image" type="image/png"/>
+    </item>
+    <item>
+      <title>Welcome to IDEA</title>
+      <dc:creator>Louis Chong Jia Jun</dc:creator>
+      <link>https://affectionate-dijkstra-f71bd4.netlify.app/posts/welcome</link>
+      <description>Welcome to our new blog, IDEA. We hope you enjoy 
+reading what we have to say!</description>
+      <guid>https://affectionate-dijkstra-f71bd4.netlify.app/posts/welcome</guid>
+      <pubDate>Mon, 04 Jan 2021 00:00:00 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

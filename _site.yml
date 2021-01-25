@@ -2,6 +2,7 @@ name: "blog"
 title: "IDEA"
 description: |
   IDEA
+base_url: https://affectionate-dijkstra-f71bd4.netlify.app/
 output_dir: "_site"
 navbar:
   right:
