@@ -37,7 +37,7 @@ The Report on Labour Force in Singapore (https://stats.mom.gov.sg/Pages/Labour-F
   + The labour force participation rate can be used as the size for each point on the scatter plot i.e. bigger point implies higher labour force participation rate at the age range.
 
 * The title of the data visualisation should not be "resident labour force by age". It gives a false impression that we can interpolate and find the share of resident labour force at each age.
-  + The title can be changed to "How did the Resident Labour Force (%) at each Age Range change from 2009 to 2019?" to correctly represent the data given and make it appealing.
+  + The title can be changed to "How did the Resident Labour Force (%) at each Age Range change from 2009 to 2019?" to correctly represent the data given and make it appealing to readers.
 
 ## Aesthetics
 
@@ -70,26 +70,26 @@ The Report on Labour Force in Singapore (https://stats.mom.gov.sg/Pages/Labour-F
 * The 2009 and 2019 values for four age ranges (15 to 24, 25 to 54, 55 to 64, 65 & over) are collated in Excel. Additional calculations are required to convert LFPR from thousands to percentage (%).
 * The data values are then imported onto Tableau. The columns are renamed to appropriately represent the data values i.e. Age Range, RLF2009, RLF2019, LFPR2009, LFPR2019.
 
-![Figure 3: Collated Data Values on Excel](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover1/Picture1.png){width=30%}
+![Figure 3: Collated Data Values on Excel](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover1/Picture1.png){width=80%}
 
-![Figure 4: Imported Data Values](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover1/Picture2.png){width=40%}
+![Figure 4: Imported Data Values](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover1/Picture2.png){width=50%}
 
 ## Scatter Plot
 
 * "Age Range" is placed under Columns and "RLF2009" and "RLF2019" are placed under Rows.
 * The bar charts are converted into scatter plot by clicking on dual axis. The axes are also synchronised.
 
-![Figure 5: Scatter Plot Part 1](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover1/Picture3.png){width=60%}
+![Figure 5: Scatter Plot Part 1](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover1/Picture3.png){width=80%}
 
 * To allow comparison of the labour force participation rate, "LFPR2009" and "LFPR2019" are placed under Size. The size of the points will reflect the labour force participation rate i.e. larger dot will indicate higher labour force participation rate.
 * As there are overlaps of the points, the opacity is set at 50% to allow easier comparison between the data values in 2009 and 2019. To further facilitate comparison, the size of the points is increased and contrasting colours (grey and blue) are used for 2009 and 2019 points after placing "Measure Names" under Colour.
 
-![Figure 6: Scatter Plot Part 2](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover1/Picture4.png){width=80%}
+![Figure 6: Scatter Plot Part 2](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover1/Picture4.png){width=60%}
 
 * "RLF2009" and "RLF2019" are placed under Label to show the RLF data values for 2009 and 2019. The labels are properly aligned and coloured according to the year.
 * A legend is created using Annotation to show the colours that represent each year and therefore, multiple labelling is not required. The headers and field label for columns are also hidden to simplify the chart for readers and the dimensions of the chart are adjusted.
 
-![Figure 7: Scatter Plot (Final)](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover1/Picture5.png){width=80%}
+![Figure 7: Scatter Plot (Final)](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover1/Picture5.png){width=50%}
 
 ## Data Table on Labour Force Participation Rate
 
@@ -97,7 +97,7 @@ The Report on Labour Force in Singapore (https://stats.mom.gov.sg/Pages/Labour-F
 * "Measure Names" is placed under Colour and the font colours are changed to match the year.
 * The headers and field label for columns are hidden to simplify the chart for readers and reduce redundancy.
   
-![Figure 8: LFPR Data](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover1/Picture6.png){width=90%}
+![Figure 8: LFPR Data](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover1/Picture6.png){width=50%}
 
 ## Dashboard
 
