@@ -6,6 +6,7 @@
     <AutoCreateAndUpdateDSDPhoneLayouts />
     <_.fcp.MarkAnimation.true...MarkAnimation />
     <_.fcp.ObjectModelEncapsulateLegacy.true...ObjectModelEncapsulateLegacy />
+    <_.fcp.ObjectModelExtractV2.true...ObjectModelExtractV2 />
     <_.fcp.ObjectModelTableType.true...ObjectModelTableType />
     <_.fcp.SchemaViewerObjectModel.true...SchemaViewerObjectModel />
     <_.fcp.SetMembershipControl.true...SetMembershipControl />
@@ -391,7 +392,151 @@
           <groupfilter function='level-members' level='[Country]' />
         </groupfilter>
       </group>
-      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' _.fcp.SchemaViewerObjectModel.true...common-percentage='0.864865' _.fcp.SchemaViewerObjectModel.true...user-set-layout-v2='true' dim-ordering='alphabetic' measure-ordering='alphabetic' parameter-percentage='0.135135' show-aliased-fields='true' show-structure='true' />
+      <extract _.fcp.ObjectModelExtractV2.true...object-id='' count='-1' enabled='true' units='records'>
+        <connection access_mode='readonly' authentication='auth-none' author-locale='en_US' class='hyper' dbname='C:/Users/louis/Documents/My Tableau Repository/Datasources/cleaned (cleaned).hyper' default-settings='yes' schema='Extract' sslmode='' tablename='Extract' update-time='02/18/2021 08:55:39 AM' username='tableau_internal_user'>
+          <_.fcp.ObjectModelEncapsulateLegacy.false...relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <_.fcp.ObjectModelEncapsulateLegacy.true...relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <refresh>
+            <refresh-event add-from-file-path='cleaned (cleaned)' increment-value='%null%' refresh-type='create' rows-inserted='204156' timestamp-start='2021-02-18 08:55:39.049' />
+          </refresh>
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>Country</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Country]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Country</remote-alias>
+              <ordinal>0</ordinal>
+              <family>cleaned</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>15</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RSG_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cleaned_1CC108A0CED14935A6202B694FB4CA4B]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>RecordNo</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[RecordNo]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>RecordNo</remote-alias>
+              <ordinal>1</ordinal>
+              <family>cleaned</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>38517</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RSG_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cleaned_1CC108A0CED14935A6202B694FB4CA4B]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>age</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[age]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>age</remote-alias>
+              <ordinal>2</ordinal>
+              <family>cleaned</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>105</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cleaned_1CC108A0CED14935A6202B694FB4CA4B]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>gender</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[gender]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>gender</remote-alias>
+              <ordinal>3</ordinal>
+              <family>cleaned</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RSG_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cleaned_1CC108A0CED14935A6202B694FB4CA4B]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>household_size</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[household_size]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>household_size</remote-alias>
+              <ordinal>4</ordinal>
+              <family>cleaned</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>9</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RSG_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cleaned_1CC108A0CED14935A6202B694FB4CA4B]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>household_children</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[household_children]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>household_children</remote-alias>
+              <ordinal>5</ordinal>
+              <family>cleaned</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>7</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RSG_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cleaned_1CC108A0CED14935A6202B694FB4CA4B]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>employment_status</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[employment_status]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>employment_status</remote-alias>
+              <ordinal>6</ordinal>
+              <family>cleaned</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>7</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RSG_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cleaned_1CC108A0CED14935A6202B694FB4CA4B]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Pivot Field Names</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Pivot Field Names]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Pivot Field Names</remote-alias>
+              <ordinal>7</ordinal>
+              <family>Pivot</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>6</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='binary' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cleaned_1CC108A0CED14935A6202B694FB4CA4B]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Pivot Field Values</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Pivot Field Values]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Pivot Field Values</remote-alias>
+              <ordinal>8</ordinal>
+              <family>Pivot</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>5</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cleaned_1CC108A0CED14935A6202B694FB4CA4B]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' _.fcp.SchemaViewerObjectModel.true...common-percentage='0.866554' _.fcp.SchemaViewerObjectModel.true...user-set-layout-v2='true' dim-ordering='alphabetic' measure-ordering='alphabetic' parameter-percentage='0.133446' show-aliased-fields='true' show-structure='true' />
       <style>
         <style-rule element='mark'>
           <encoding attr='color' field='[none:Pivot Field Values:ok]' type='palette'>
@@ -479,6 +624,9 @@
                   </columns>
                 </relation>
               </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Extract' table='[Extract].[Extract]' type='table' />
             </properties>
           </object>
         </objects>
@@ -1361,7 +1509,7 @@
             <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='97826' id='41' w='98618' x='691' y='1087'>
               <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='57701' id='7' param='horz' w='98618' x='691' y='1087'>
                 <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='57701' id='5' w='98618' x='691' y='1087'>
-                  <zone h='8096' id='3' name='Title' w='68322' x='15773' y='1087'>
+                  <zone h='8096' id='3' name='Title' w='68322' x='15772' y='1087'>
                     <zone-style>
                       <format attr='border-color' value='#000000' />
                       <format attr='border-style' value='none' />
@@ -1369,7 +1517,7 @@
                       <format attr='margin' value='4' />
                     </zone-style>
                   </zone>
-                  <zone h='49605' id='10' name='Dot Plot with Error Bars' w='45183' x='691' y='9183'>
+                  <zone h='49605' id='10' name='Dot Plot with Error Bars' w='45182' x='691' y='9183'>
                     <zone-style>
                       <format attr='border-color' value='#000000' />
                       <format attr='border-style' value='none' />
@@ -1377,7 +1525,7 @@
                       <format attr='margin' value='4' />
                     </zone-style>
                   </zone>
-                  <zone h='49605' id='21' name='Diverging Stacked Bar Chart' w='53435' x='45874' y='9183'>
+                  <zone h='49605' id='21' name='Diverging Stacked Bar Chart' w='53436' x='45873' y='9183'>
                     <zone-style>
                       <format attr='border-color' value='#000000' />
                       <format attr='border-style' value='none' />
@@ -1385,7 +1533,7 @@
                       <format attr='margin' value='4' />
                     </zone-style>
                   </zone>
-                  <zone _.fcp.SetMembershipControl.false...type='empty' _.fcp.SetMembershipControl.true...type-v2='empty' h='8096' id='30' w='15214' x='84095' y='1087'>
+                  <zone _.fcp.SetMembershipControl.false...type='empty' _.fcp.SetMembershipControl.true...type-v2='empty' h='8096' id='30' w='15215' x='84094' y='1087'>
                     <zone-style>
                       <format attr='border-color' value='#000000' />
                       <format attr='border-style' value='none' />
@@ -1393,7 +1541,7 @@
                       <format attr='margin' value='4' />
                     </zone-style>
                   </zone>
-                  <zone _.fcp.SetMembershipControl.false...type='empty' _.fcp.SetMembershipControl.true...type-v2='empty' h='8096' id='31' w='15082' x='691' y='1087'>
+                  <zone _.fcp.SetMembershipControl.false...type='empty' _.fcp.SetMembershipControl.true...type-v2='empty' h='8096' id='31' w='15081' x='691' y='1087'>
                     <zone-style>
                       <format attr='border-color' value='#000000' />
                       <format attr='border-style' value='none' />
@@ -1403,7 +1551,7 @@
                   </zone>
                 </zone>
               </zone>
-              <zone h='40125' id='22' name='Breakdown' w='53435' x='45874' y='58788'>
+              <zone h='40125' id='22' name='Breakdown' w='53436' x='45873' y='58788'>
                 <zone-style>
                   <format attr='border-color' value='#000000' />
                   <format attr='border-style' value='none' />
@@ -1411,7 +1559,7 @@
                   <format attr='margin' value='4' />
                 </zone-style>
               </zone>
-              <zone _.fcp.SetMembershipControl.false...type='empty' _.fcp.SetMembershipControl.true...type-v2='empty' h='40125' id='26' w='45183' x='691' y='58788'>
+              <zone _.fcp.SetMembershipControl.false...type='empty' _.fcp.SetMembershipControl.true...type-v2='empty' h='40125' id='26' w='45182' x='691' y='58788'>
                 <zone-style>
                   <format attr='border-color' value='#000000' />
                   <format attr='border-style' value='none' />
@@ -1492,8 +1640,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='2150' minheight='2150' sizing-mode='vscroll' />
           <zones>
-            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='75' w='100000' x='0' y='0'>
-              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='97826' id='74' param='vert' w='98618' x='691' y='1087'>
+            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='77' w='100000' x='0' y='0'>
+              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='97826' id='76' param='vert' w='98618' x='691' y='1087'>
                 <zone _.fcp.SetMembershipControl.false...type='filter' _.fcp.SetMembershipControl.true...type-v2='filter' h='7065' id='9' mode='dropdown' name='Title' param='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[usr:Calculation_1369375773469884427:ok]' show-all='false' w='14495' x='84556' y='1495'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
@@ -1503,7 +1651,7 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone fixed-size='56' h='8096' id='3' is-fixed='true' name='Title' w='68322' x='15773' y='1087'>
+                <zone fixed-size='56' h='8096' id='3' is-fixed='true' name='Title' w='68322' x='15772' y='1087'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -1599,7 +1747,7 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone fixed-size='280' h='49605' id='10' is-fixed='true' name='Dot Plot with Error Bars' w='45183' x='691' y='9183'>
+                <zone fixed-size='280' h='49605' id='10' is-fixed='true' name='Dot Plot with Error Bars' w='45182' x='691' y='9183'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -1608,7 +1756,7 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone fixed-size='280' h='49605' id='21' is-fixed='true' name='Diverging Stacked Bar Chart' w='53435' x='45874' y='9183'>
+                <zone fixed-size='280' h='49605' id='21' is-fixed='true' name='Diverging Stacked Bar Chart' w='53436' x='45873' y='9183'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -1638,7 +1786,7 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone fixed-size='280' h='40125' id='22' is-fixed='true' name='Breakdown' w='53435' x='45874' y='58788'>
+                <zone fixed-size='280' h='40125' id='22' is-fixed='true' name='Breakdown' w='53436' x='45873' y='58788'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
