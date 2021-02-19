@@ -1,0 +1,2052 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20204.21.0114.0916                               -->
+<workbook source-build='2020.4.1 (20204.21.0114.0916)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AutoCreateAndUpdateDSDPhoneLayouts />
+    <_.fcp.MarkAnimation.true...MarkAnimation />
+    <_.fcp.ObjectModelEncapsulateLegacy.true...ObjectModelEncapsulateLegacy />
+    <_.fcp.ObjectModelExtractV2.true...ObjectModelExtractV2 />
+    <_.fcp.ObjectModelTableType.true...ObjectModelTableType />
+    <_.fcp.SchemaViewerObjectModel.true...SchemaViewerObjectModel />
+    <_.fcp.SetMembershipControl.true...SetMembershipControl />
+    <SheetIdentifierTracking />
+    <SortTagCleanup />
+    <WindowsPersistSimpleIdentifiers />
+    <WorksheetBackgroundTransparency />
+    <ZoneBackgroundTransparency />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <style>
+    <_.fcp.MarkAnimation.true...style-rule element='animation'>
+      <format attr='animation-on' value='ao-on' />
+      <format attr='animation-duration' value='1' />
+    </_.fcp.MarkAnimation.true...style-rule>
+  </style>
+  <datasources>
+    <datasource hasconnection='false' inline='true' name='Parameters' version='18.1'>
+      <aliases enabled='yes' />
+      <column caption='Confidence Interval' datatype='string' name='[Parameter 1]' param-domain-type='list' role='measure' type='nominal' value='&quot;95\%&quot;'>
+        <calculation class='tableau' formula='&quot;95%&quot;' />
+        <members>
+          <member value='&quot;95\%&quot;' />
+          <member value='&quot;99\%&quot;' />
+        </members>
+      </column>
+      <column caption='Demographic' datatype='string' name='[Parameter 2]' param-domain-type='list' role='measure' type='nominal' value='&quot;Employment Status&quot;'>
+        <calculation class='tableau' formula='&quot;Employment Status&quot;' />
+        <members>
+          <member value='&quot;Gender&quot;' />
+          <member value='&quot;Household Size&quot;' />
+          <member value='&quot;Household Children&quot;' />
+          <member value='&quot;Employment Status&quot;' />
+        </members>
+      </column>
+      <column caption='Sort By' datatype='string' name='[Parameter 3]' param-domain-type='list' role='measure' type='nominal' value='&quot;Alphabetical&quot;'>
+        <calculation class='tableau' formula='&quot;Alphabetical&quot;' />
+        <members>
+          <member value='&quot;Alphabetical&quot;' />
+          <member value='&quot;Percentage&quot;' />
+        </members>
+      </column>
+      <column alias='Ascending' caption='Sort Order' datatype='integer' name='[Parameter 4]' param-domain-type='list' role='measure' type='quantitative' value='1'>
+        <calculation class='tableau' formula='1' />
+        <aliases>
+          <alias key='-1' value='Descending' />
+          <alias key='1' value='Ascending' />
+        </aliases>
+        <members>
+          <member alias='Ascending' value='1' />
+          <member alias='Descending' value='-1' />
+        </members>
+      </column>
+    </datasource>
+    <datasource caption='cleaned (cleaned)' inline='true' name='federated.0d1u3bh0jer3c51bthc6y0dm1oxb' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='cleaned' name='excel-direct.1hptd1d0woc7tv15ljrxj1p7or7f'>
+            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='C:/Distill/blog/Makeover2/covid-19-tracker/data/cleaned.xlsx' interpretationMode='0' password='' server='' validate='no' />
+          </named-connection>
+        </named-connections>
+        <_.fcp.ObjectModelEncapsulateLegacy.false...relation name='Pivot' type='pivot'>
+          <columns>
+            <column datatype='string' name='Pivot Field Names' />
+            <column datatype='integer' name='Pivot Field Values' />
+          </columns>
+          <tag name='Pivot Field Names'>
+            <value name='[I am worried about getting Covid-19]' />
+            <value name='[I am worried about potential side effects of a Covid-19 vaccine]' />
+            <value name='[I believe government health authorities in my country will provide me with an effective Covid-19 vaccine]' />
+            <value name='[If I do not get a Covid-19 vaccine when it is available, I will regret it]' />
+            <value name='[If a Covid-19 vaccine were made available to me this week, I would definitely get it]' />
+            <value name='[If a Covid-19 vaccine becomes available to me in 2021, I definitely intend to get it]' />
+          </tag>
+          <groups>
+            <group name='Pivot Field Values'>
+              <field name='[cleaned].[vac2_1]' />
+              <field name='[cleaned].[vac2_2]' />
+              <field name='[cleaned].[vac2_3]' />
+              <field name='[cleaned].[vac2_6]' />
+              <field name='[cleaned].[vac_1]' />
+              <field name='[cleaned].[vac_3]' />
+            </group>
+          </groups>
+          <relation connection='excel-direct.1hptd1d0woc7tv15ljrxj1p7or7f' name='cleaned' table='[cleaned$]' type='table'>
+            <columns gridOrigin='A1:M10001:no:A1:M2147483647:0' header='yes' outcome='2'>
+              <column datatype='string' name='Country' ordinal='0' />
+              <column datatype='string' name='RecordNo' ordinal='1' />
+              <column datatype='integer' name='age' ordinal='2' />
+              <column datatype='string' name='gender' ordinal='3' />
+              <column datatype='string' name='household_size' ordinal='4' />
+              <column datatype='string' name='household_children' ordinal='5' />
+              <column datatype='string' name='employment_status' ordinal='6' />
+              <column datatype='integer' name='vac_1' ordinal='7' />
+              <column datatype='integer' name='vac2_1' ordinal='8' />
+              <column datatype='integer' name='vac2_2' ordinal='9' />
+              <column datatype='integer' name='vac2_3' ordinal='10' />
+              <column datatype='integer' name='vac2_6' ordinal='11' />
+              <column datatype='integer' name='vac_3' ordinal='12' />
+            </columns>
+          </relation>
+        </_.fcp.ObjectModelEncapsulateLegacy.false...relation>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...relation name='Pivot' type='pivot'>
+          <columns>
+            <column datatype='string' name='Pivot Field Names' />
+            <column datatype='integer' name='Pivot Field Values' />
+          </columns>
+          <tag name='Pivot Field Names'>
+            <value name='[I am worried about getting Covid-19]' />
+            <value name='[I am worried about potential side effects of a Covid-19 vaccine]' />
+            <value name='[I believe government health authorities in my country will provide me with an effective Covid-19 vaccine]' />
+            <value name='[If I do not get a Covid-19 vaccine when it is available, I will regret it]' />
+            <value name='[If a Covid-19 vaccine were made available to me this week, I would definitely get it]' />
+            <value name='[If a Covid-19 vaccine becomes available to me in 2021, I definitely intend to get it]' />
+          </tag>
+          <groups>
+            <group name='Pivot Field Values'>
+              <field name='[cleaned].[vac2_1]' />
+              <field name='[cleaned].[vac2_2]' />
+              <field name='[cleaned].[vac2_3]' />
+              <field name='[cleaned].[vac2_6]' />
+              <field name='[cleaned].[vac_1]' />
+              <field name='[cleaned].[vac_3]' />
+            </group>
+          </groups>
+          <relation connection='excel-direct.1hptd1d0woc7tv15ljrxj1p7or7f' name='cleaned' table='[cleaned$]' type='table'>
+            <columns gridOrigin='A1:M10001:no:A1:M2147483647:0' header='yes' outcome='2'>
+              <column datatype='string' name='Country' ordinal='0' />
+              <column datatype='string' name='RecordNo' ordinal='1' />
+              <column datatype='integer' name='age' ordinal='2' />
+              <column datatype='string' name='gender' ordinal='3' />
+              <column datatype='string' name='household_size' ordinal='4' />
+              <column datatype='string' name='household_children' ordinal='5' />
+              <column datatype='string' name='employment_status' ordinal='6' />
+              <column datatype='integer' name='vac_1' ordinal='7' />
+              <column datatype='integer' name='vac2_1' ordinal='8' />
+              <column datatype='integer' name='vac2_2' ordinal='9' />
+              <column datatype='integer' name='vac2_3' ordinal='10' />
+              <column datatype='integer' name='vac2_6' ordinal='11' />
+              <column datatype='integer' name='vac_3' ordinal='12' />
+            </columns>
+          </relation>
+        </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[cleaned]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>3</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:M10001:no:A1:M2147483647:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>2</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Country</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Country]</local-name>
+            <parent-name>[cleaned]</parent-name>
+            <remote-alias>Country</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RSG_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cleaned_1CC108A0CED14935A6202B694FB4CA4B]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>RecordNo</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[RecordNo]</local-name>
+            <parent-name>[cleaned]</parent-name>
+            <remote-alias>RecordNo</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RSG_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cleaned_1CC108A0CED14935A6202B694FB4CA4B]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>age</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[age]</local-name>
+            <parent-name>[cleaned]</parent-name>
+            <remote-alias>age</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cleaned_1CC108A0CED14935A6202B694FB4CA4B]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>gender</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[gender]</local-name>
+            <parent-name>[cleaned]</parent-name>
+            <remote-alias>gender</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RSG_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cleaned_1CC108A0CED14935A6202B694FB4CA4B]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>household_size</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[household_size]</local-name>
+            <parent-name>[cleaned]</parent-name>
+            <remote-alias>household_size</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RSG_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cleaned_1CC108A0CED14935A6202B694FB4CA4B]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>household_children</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[household_children]</local-name>
+            <parent-name>[cleaned]</parent-name>
+            <remote-alias>household_children</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RSG_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cleaned_1CC108A0CED14935A6202B694FB4CA4B]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>employment_status</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[employment_status]</local-name>
+            <parent-name>[cleaned]</parent-name>
+            <remote-alias>employment_status</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RSG_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cleaned_1CC108A0CED14935A6202B694FB4CA4B]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Pivot Field Names</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Pivot Field Names]</local-name>
+            <parent-name>[Pivot]</parent-name>
+            <remote-alias>Pivot Field Names</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cleaned_1CC108A0CED14935A6202B694FB4CA4B]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Pivot Field Values</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Pivot Field Values]</local-name>
+            <parent-name>[Pivot]</parent-name>
+            <remote-alias>Pivot Field Values</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cleaned_1CC108A0CED14935A6202B694FB4CA4B]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Number of Records' datatype='integer' name='[Calculation_1369375773300355072]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Total Count' datatype='integer' name='[Calculation_1369375773300412417]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='TOTAL(SUM([Calculation_1369375773300355072]))'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column caption='Count Negative' datatype='real' name='[Calculation_1369375773300465666]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='IF [Pivot Field Values]&gt;3 THEN 1&#13;&#10;ELSEIF [Pivot Field Values]=3 THEN 0.5&#13;&#10;ELSE 0&#13;&#10;END' />
+      </column>
+      <column caption='Total Count Negative' datatype='real' name='[Calculation_1369375773300916227]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='TOTAL(SUM([Calculation_1369375773300465666]))'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column caption='Percentage' datatype='real' name='[Calculation_1369375773300981764]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='SUM([Calculation_1369375773300355072])/[Calculation_1369375773300412417]'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column caption='Gantt Start' datatype='real' name='[Calculation_1369375773301039109]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='-[Calculation_1369375773300916227]/[Calculation_1369375773300412417]'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column caption='Gantt Percent' datatype='real' name='[Calculation_1369375773301174278]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='PREVIOUS_VALUE([Calculation_1369375773301039109])+ZN(LOOKUP([Calculation_1369375773300981764],-1))'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column caption='Z' datatype='real' name='[Calculation_1369375773464772615]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='IF [Parameters].[Parameter 1]=&quot;95%&quot; THEN 1.959964&#13;&#10;ELSEIF [Parameters].[Parameter 1]=&quot;99%&quot; THEN 2.575829&#13;&#10;END' />
+      </column>
+      <column caption='Margin' datatype='real' name='[Calculation_1369375773466636296]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[Calculation_1369375773464772615]*SQRT(([Calculation_1369375773300981764]*(1-[Calculation_1369375773300981764]))/[Calculation_1369375773300412417])'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column caption='Upper Limit' datatype='real' name='[Calculation_1369375773468540937]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[Calculation_1369375773300981764]+[Calculation_1369375773466636296]'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column caption='Lower Limit' datatype='real' name='[Calculation_1369375773468663818]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[Calculation_1369375773300981764]-[Calculation_1369375773466636296]'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column caption='Filter (Survey Response)' datatype='integer' name='[Calculation_1369375773469884427]' role='measure' type='ordinal'>
+        <calculation class='tableau' formula='LOOKUP(ATTR([Pivot Field Values]), 0)'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column caption='Demographic' datatype='string' name='[Calculation_1369375773497200656]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='IF [Parameters].[Parameter 2]=&quot;Gender&quot; THEN [gender]&#13;&#10;ELSEIF [Parameters].[Parameter 2]=&quot;Household Children&quot; THEN [household_children]&#13;&#10;ELSEIF [Parameters].[Parameter 2]=&quot;Household Size&quot; THEN [household_size]&#13;&#10;ELSEIF [Parameters].[Parameter 2]=&quot;Employment Status&quot; THEN [employment_status]&#13;&#10;END' />
+      </column>
+      <column caption='Sort Field' datatype='real' name='[Calculation_1369375773672800275]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='CASE [Parameters].[Parameter 3]&#13;&#10;WHEN &quot;Percentage&quot; THEN [Calculation_1369375773300981764]*[Parameters].[Parameter 4]&#13;&#10;WHEN &quot;Alphabetical&quot; THEN MIN(ASCII([Country]))*[Parameters].[Parameter 4]&#13;&#10;END'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column datatype='string' name='[Country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+      <column caption='Survey Question' datatype='string' name='[Pivot Field Names]' role='dimension' type='nominal' />
+      <column aggregation='Sum' caption='Survey Response' datatype='integer' name='[Pivot Field Values]' role='dimension' type='ordinal'>
+        <aliases>
+          <alias key='1' value='Strongly Agree' />
+          <alias key='2' value='Agree' />
+          <alias key='3' value='Neutral' />
+          <alias key='4' value='Disagree' />
+          <alias key='5' value='Strongly Disagree' />
+        </aliases>
+      </column>
+      <column caption='Record No' datatype='string' default-role='measure' default-type='quantitative' name='[RecordNo]' role='dimension' type='nominal' />
+      <_.fcp.ObjectModelTableType.true...column caption='cleaned' datatype='table' name='[__tableau_internal_object_id__].[cleaned_1CC108A0CED14935A6202B694FB4CA4B]' role='measure' type='quantitative' />
+      <column aggregation='Sum' caption='Age' datatype='integer' name='[age]' role='dimension' type='ordinal' />
+      <column caption='Employment Status' datatype='string' name='[employment_status]' role='dimension' type='nominal' />
+      <column caption='Gender' datatype='string' name='[gender]' role='dimension' type='nominal' />
+      <column caption='Household Children' datatype='string' name='[household_children]' role='dimension' type='nominal' />
+      <column caption='Household Size' datatype='string' name='[household_size]' role='dimension' type='nominal' />
+      <column-instance column='[Pivot Field Values]' derivation='None' name='[none:Pivot Field Values:ok]' pivot='key' type='ordinal' />
+      <group caption='Action (Country)' hidden='true' name='[Action (Country)]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[Country]' />
+        </groupfilter>
+      </group>
+      <extract _.fcp.ObjectModelExtractV2.true...object-id='' count='-1' enabled='false' units='records'>
+        <connection access_mode='readonly' authentication='auth-none' author-locale='en_US' class='hyper' dbname='C:/Users/louis/Documents/My Tableau Repository/Datasources/cleaned (cleaned).hyper' default-settings='yes' schema='Extract' sslmode='' tablename='Extract' update-time='02/18/2021 08:55:39 AM' username='tableau_internal_user'>
+          <_.fcp.ObjectModelEncapsulateLegacy.false...relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <_.fcp.ObjectModelEncapsulateLegacy.true...relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <refresh>
+            <refresh-event add-from-file-path='cleaned (cleaned)' increment-value='%null%' refresh-type='create' rows-inserted='204156' timestamp-start='2021-02-18 08:55:39.049' />
+          </refresh>
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>Country</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Country]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Country</remote-alias>
+              <ordinal>0</ordinal>
+              <family>cleaned</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>15</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RSG_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cleaned_1CC108A0CED14935A6202B694FB4CA4B]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>RecordNo</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[RecordNo]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>RecordNo</remote-alias>
+              <ordinal>1</ordinal>
+              <family>cleaned</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>38517</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RSG_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cleaned_1CC108A0CED14935A6202B694FB4CA4B]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>age</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[age]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>age</remote-alias>
+              <ordinal>2</ordinal>
+              <family>cleaned</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>105</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cleaned_1CC108A0CED14935A6202B694FB4CA4B]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>gender</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[gender]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>gender</remote-alias>
+              <ordinal>3</ordinal>
+              <family>cleaned</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RSG_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cleaned_1CC108A0CED14935A6202B694FB4CA4B]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>household_size</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[household_size]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>household_size</remote-alias>
+              <ordinal>4</ordinal>
+              <family>cleaned</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>9</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RSG_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cleaned_1CC108A0CED14935A6202B694FB4CA4B]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>household_children</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[household_children]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>household_children</remote-alias>
+              <ordinal>5</ordinal>
+              <family>cleaned</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>7</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RSG_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cleaned_1CC108A0CED14935A6202B694FB4CA4B]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>employment_status</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[employment_status]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>employment_status</remote-alias>
+              <ordinal>6</ordinal>
+              <family>cleaned</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>7</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RSG_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cleaned_1CC108A0CED14935A6202B694FB4CA4B]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Pivot Field Names</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Pivot Field Names]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Pivot Field Names</remote-alias>
+              <ordinal>7</ordinal>
+              <family>Pivot</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>6</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='binary' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cleaned_1CC108A0CED14935A6202B694FB4CA4B]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Pivot Field Values</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Pivot Field Values]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Pivot Field Values</remote-alias>
+              <ordinal>8</ordinal>
+              <family>Pivot</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>5</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cleaned_1CC108A0CED14935A6202B694FB4CA4B]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' _.fcp.SchemaViewerObjectModel.true...common-percentage='0.866554' _.fcp.SchemaViewerObjectModel.true...user-set-layout-v2='true' dim-ordering='alphabetic' measure-ordering='alphabetic' parameter-percentage='0.133446' show-aliased-fields='true' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:Pivot Field Values:ok]' type='palette'>
+            <map to='#000091'>
+              <bucket>1</bucket>
+            </map>
+            <map to='#6abaff'>
+              <bucket>2</bucket>
+            </map>
+            <map to='#b93739'>
+              <bucket>5</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>3</bucket>
+            </map>
+            <map to='#ff6c93'>
+              <bucket>4</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Singapore&quot;' />
+      </semantic-values>
+      <datasource-dependencies datasource='Parameters'>
+        <column caption='Confidence Interval' datatype='string' name='[Parameter 1]' param-domain-type='list' role='measure' type='nominal' value='&quot;95\%&quot;'>
+          <calculation class='tableau' formula='&quot;95%&quot;' />
+        </column>
+        <column caption='Demographic' datatype='string' name='[Parameter 2]' param-domain-type='list' role='measure' type='nominal' value='&quot;Employment Status&quot;'>
+          <calculation class='tableau' formula='&quot;Employment Status&quot;' />
+        </column>
+        <column caption='Sort By' datatype='string' name='[Parameter 3]' param-domain-type='list' role='measure' type='nominal' value='&quot;Alphabetical&quot;'>
+          <calculation class='tableau' formula='&quot;Alphabetical&quot;' />
+        </column>
+        <column alias='Ascending' caption='Sort Order' datatype='integer' name='[Parameter 4]' param-domain-type='list' role='measure' type='quantitative' value='1'>
+          <calculation class='tableau' formula='1' />
+          <aliases>
+            <alias key='-1' value='Descending' />
+            <alias key='1' value='Ascending' />
+          </aliases>
+        </column>
+      </datasource-dependencies>
+      <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+        <objects>
+          <object caption='cleaned' id='cleaned_1CC108A0CED14935A6202B694FB4CA4B'>
+            <properties context=''>
+              <relation name='Pivot' type='pivot'>
+                <columns>
+                  <column datatype='string' name='Pivot Field Names' />
+                  <column datatype='integer' name='Pivot Field Values' />
+                </columns>
+                <tag name='Pivot Field Names'>
+                  <value name='[I am worried about getting Covid-19]' />
+                  <value name='[I am worried about potential side effects of a Covid-19 vaccine]' />
+                  <value name='[I believe government health authorities in my country will provide me with an effective Covid-19 vaccine]' />
+                  <value name='[If I do not get a Covid-19 vaccine when it is available, I will regret it]' />
+                  <value name='[If a Covid-19 vaccine were made available to me this week, I would definitely get it]' />
+                  <value name='[If a Covid-19 vaccine becomes available to me in 2021, I definitely intend to get it]' />
+                </tag>
+                <groups>
+                  <group name='Pivot Field Values'>
+                    <field name='[cleaned].[vac2_1]' />
+                    <field name='[cleaned].[vac2_2]' />
+                    <field name='[cleaned].[vac2_3]' />
+                    <field name='[cleaned].[vac2_6]' />
+                    <field name='[cleaned].[vac_1]' />
+                    <field name='[cleaned].[vac_3]' />
+                  </group>
+                </groups>
+                <relation connection='excel-direct.1hptd1d0woc7tv15ljrxj1p7or7f' name='cleaned' table='[cleaned$]' type='table'>
+                  <columns gridOrigin='A1:M10001:no:A1:M2147483647:0' header='yes' outcome='2'>
+                    <column datatype='string' name='Country' ordinal='0' />
+                    <column datatype='string' name='RecordNo' ordinal='1' />
+                    <column datatype='integer' name='age' ordinal='2' />
+                    <column datatype='string' name='gender' ordinal='3' />
+                    <column datatype='string' name='household_size' ordinal='4' />
+                    <column datatype='string' name='household_children' ordinal='5' />
+                    <column datatype='string' name='employment_status' ordinal='6' />
+                    <column datatype='integer' name='vac_1' ordinal='7' />
+                    <column datatype='integer' name='vac2_1' ordinal='8' />
+                    <column datatype='integer' name='vac2_2' ordinal='9' />
+                    <column datatype='integer' name='vac2_3' ordinal='10' />
+                    <column datatype='integer' name='vac2_6' ordinal='11' />
+                    <column datatype='integer' name='vac_3' ordinal='12' />
+                  </columns>
+                </relation>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Extract' table='[Extract].[Extract]' type='table' />
+            </properties>
+          </object>
+        </objects>
+      </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+    </datasource>
+  </datasources>
+  <shared-views>
+    <shared-view name='federated.0d1u3bh0jer3c51bthc6y0dm1oxb'>
+      <datasources>
+        <datasource caption='cleaned (cleaned)' name='federated.0d1u3bh0jer3c51bthc6y0dm1oxb' />
+      </datasources>
+      <datasource-dependencies datasource='federated.0d1u3bh0jer3c51bthc6y0dm1oxb'>
+        <column caption='Survey Question' datatype='string' name='[Pivot Field Names]' role='dimension' type='nominal' />
+        <column aggregation='Sum' caption='Age' datatype='integer' name='[age]' role='dimension' type='ordinal' />
+        <column caption='Employment Status' datatype='string' name='[employment_status]' role='dimension' type='nominal' />
+        <column caption='Gender' datatype='string' name='[gender]' role='dimension' type='nominal' />
+        <column caption='Household Children' datatype='string' name='[household_children]' role='dimension' type='nominal' />
+        <column caption='Household Size' datatype='string' name='[household_size]' role='dimension' type='nominal' />
+        <column-instance column='[Pivot Field Names]' derivation='None' name='[none:Pivot Field Names:nk]' pivot='key' type='nominal' />
+        <column-instance column='[age]' derivation='None' name='[none:age:qk]' pivot='key' type='quantitative' />
+        <column-instance column='[employment_status]' derivation='None' name='[none:employment_status:nk]' pivot='key' type='nominal' />
+        <column-instance column='[gender]' derivation='None' name='[none:gender:nk]' pivot='key' type='nominal' />
+        <column-instance column='[household_children]' derivation='None' name='[none:household_children:nk]' pivot='key' type='nominal' />
+        <column-instance column='[household_size]' derivation='None' name='[none:household_size:nk]' pivot='key' type='nominal' />
+      </datasource-dependencies>
+      <filter class='categorical' column='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:Pivot Field Names:nk]'>
+        <groupfilter function='member' level='[none:Pivot Field Names:nk]' member='&quot;If a Covid-19 vaccine were made available to me this week, I would definitely get it&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+        <target field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:Pivot Field Names:nk]' />
+      </filter>
+      <filter class='quantitative' column='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:age:qk]' included-values='in-range'>
+        <min>18</min>
+        <max>99</max>
+        <target field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:age:qk]' />
+      </filter>
+      <filter class='categorical' column='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:employment_status:nk]'>
+        <groupfilter function='level-members' level='[none:employment_status:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+        <target field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:employment_status:nk]' />
+      </filter>
+      <filter class='categorical' column='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:gender:nk]'>
+        <groupfilter function='level-members' level='[none:gender:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+        <target field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:gender:nk]' />
+      </filter>
+      <filter class='categorical' column='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:household_children:nk]'>
+        <groupfilter from='&quot;0&quot;' function='range' level='[none:household_children:nk]' to='&quot;Prefer not to say&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+        <target field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:household_children:nk]' />
+      </filter>
+      <filter class='categorical' column='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:household_size:nk]'>
+        <groupfilter from='&quot;1&quot;' function='range' level='[none:household_size:nk]' to='&quot;Prefer not to say&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+        <target field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:household_size:nk]' />
+      </filter>
+    </shared-view>
+  </shared-views>
+  <actions>
+    <action caption='Country Filter' name='[Action1]'>
+      <activation auto-clear='true' type='on-select' />
+      <source datasource='federated.0d1u3bh0jer3c51bthc6y0dm1oxb' type='datasource'>
+        <exclude-sheet name='Breakdown' />
+        <exclude-sheet name='Title' />
+      </source>
+      <link caption='Country Filter' delimiter=',' escape='\' expression='tsl:Breakdown?%5Bfederated.0d1u3bh0jer3c51bthc6y0dm1oxb%5D.%5BCountry%5D~s0=&lt;[Country]~na&gt;' include-null='true' multi-select='true' url-escape='true' />
+      <command command='tsc:tsl-filter'>
+        <param name='target' value='Breakdown' />
+      </command>
+    </action>
+    <datasources>
+      <datasource caption='cleaned (cleaned)' name='federated.0d1u3bh0jer3c51bthc6y0dm1oxb' />
+    </datasources>
+    <datasource-dependencies datasource='federated.0d1u3bh0jer3c51bthc6y0dm1oxb'>
+      <column datatype='string' name='[Country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+    </datasource-dependencies>
+  </actions>
+  <worksheets>
+    <worksheet name='Breakdown'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontsize='8'><![CDATA[<Sheet Name> of Survey Respondents by <]]></run>
+            <run bold='true' fontsize='8'>[Parameters].[Parameter 2]</run>
+            <run bold='true' fontsize='8'>&gt; in &lt;</run>
+            <run bold='true' fontsize='8'>[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[Country]</run>
+            <run bold='true' fontsize='8'>&gt;</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='cleaned (cleaned)' name='federated.0d1u3bh0jer3c51bthc6y0dm1oxb' />
+            <datasource name='Parameters' />
+          </datasources>
+          <datasource-dependencies datasource='Parameters'>
+            <column caption='Demographic' datatype='string' name='[Parameter 2]' param-domain-type='list' role='measure' type='nominal' value='&quot;Employment Status&quot;'>
+              <calculation class='tableau' formula='&quot;Employment Status&quot;' />
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.0d1u3bh0jer3c51bthc6y0dm1oxb'>
+            <column caption='Number of Records' datatype='integer' name='[Calculation_1369375773300355072]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column caption='Total Count' datatype='integer' name='[Calculation_1369375773300412417]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='TOTAL(SUM([Calculation_1369375773300355072]))'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column caption='Percentage' datatype='real' name='[Calculation_1369375773300981764]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='SUM([Calculation_1369375773300355072])/[Calculation_1369375773300412417]'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column caption='Demographic' datatype='string' name='[Calculation_1369375773497200656]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='IF [Parameters].[Parameter 2]=&quot;Gender&quot; THEN [gender]&#13;&#10;ELSEIF [Parameters].[Parameter 2]=&quot;Household Children&quot; THEN [household_children]&#13;&#10;ELSEIF [Parameters].[Parameter 2]=&quot;Household Size&quot; THEN [household_size]&#13;&#10;ELSEIF [Parameters].[Parameter 2]=&quot;Employment Status&quot; THEN [employment_status]&#13;&#10;END' />
+            </column>
+            <column datatype='string' name='[Country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+            <column caption='Survey Question' datatype='string' name='[Pivot Field Names]' role='dimension' type='nominal' />
+            <column aggregation='Sum' caption='Survey Response' datatype='integer' name='[Pivot Field Values]' role='dimension' type='ordinal'>
+              <aliases>
+                <alias key='1' value='Strongly Agree' />
+                <alias key='2' value='Agree' />
+                <alias key='3' value='Neutral' />
+                <alias key='4' value='Disagree' />
+                <alias key='5' value='Strongly Disagree' />
+              </aliases>
+            </column>
+            <column aggregation='Sum' caption='Age' datatype='integer' name='[age]' role='dimension' type='ordinal' />
+            <column caption='Employment Status' datatype='string' name='[employment_status]' role='dimension' type='nominal' />
+            <column caption='Gender' datatype='string' name='[gender]' role='dimension' type='nominal' />
+            <column caption='Household Children' datatype='string' name='[household_children]' role='dimension' type='nominal' />
+            <column caption='Household Size' datatype='string' name='[household_size]' role='dimension' type='nominal' />
+            <column-instance column='[Calculation_1369375773497200656]' derivation='None' name='[none:Calculation_1369375773497200656:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Pivot Field Names]' derivation='None' name='[none:Pivot Field Names:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Pivot Field Values]' derivation='None' name='[none:Pivot Field Values:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[age]' derivation='None' name='[none:age:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[employment_status]' derivation='None' name='[none:employment_status:nk]' pivot='key' type='nominal' />
+            <column-instance column='[gender]' derivation='None' name='[none:gender:nk]' pivot='key' type='nominal' />
+            <column-instance column='[household_children]' derivation='None' name='[none:household_children:nk]' pivot='key' type='nominal' />
+            <column-instance column='[household_size]' derivation='None' name='[none:household_size:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_1369375773300355072]' derivation='Sum' name='[sum:Calculation_1369375773300355072:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_1369375773300981764]' derivation='User' name='[usr:Calculation_1369375773300981764:qk:8]' pivot='key' type='quantitative'>
+              <table-calc ordering-field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:Calculation_1369375773497200656:nk]' ordering-type='Field' />
+              <table-calc field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[Calculation_1369375773300412417]' ordering-field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:Calculation_1369375773497200656:nk]' ordering-type='Field' />
+            </column-instance>
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[Action (Country)]'>
+            <groupfilter function='level-members' level='[Country]' user:ui-action-filter='[Action1]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <manual-sort column='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:Calculation_1369375773497200656:nk]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;Full time employment&quot;</bucket>
+              <bucket>&quot;Part time employment&quot;</bucket>
+              <bucket>&quot;Full time student&quot;</bucket>
+              <bucket>&quot;Retired&quot;</bucket>
+              <bucket>&quot;Unemployed&quot;</bucket>
+              <bucket>&quot;Not working&quot;</bucket>
+              <bucket>&quot;Other&quot;</bucket>
+            </dictionary>
+          </manual-sort>
+          <filter class='categorical' column='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:Pivot Field Values:ok]'>
+            <groupfilter function='level-members' level='[none:Pivot Field Values:ok]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:Pivot Field Names:nk]</column>
+            <column>[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:Pivot Field Values:ok]</column>
+            <column>[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:gender:nk]</column>
+            <column>[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:age:qk]</column>
+            <column>[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:household_size:nk]</column>
+            <column>[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:household_children:nk]</column>
+            <column>[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:employment_status:nk]</column>
+            <column>[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[Action (Country)]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[usr:Calculation_1369375773300981764:qk:8]' field-type='quantitative' major-origin='0.0' major-spacing='0.10000000000000001' minor-origin='0.0' minor-show='false' minor-spacing='0.01' scope='cols' type='space' />
+            <format attr='height' field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[usr:Calculation_1369375773300981764:qk:8]' value='24' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='height' field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:Calculation_1369375773497200656:nk]' value='23' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='text-format' field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[usr:Calculation_1369375773300981764:qk:8]' value='p0%' />
+            <format attr='font-size' field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[usr:Calculation_1369375773300981764:qk:8]' value='8' />
+            <format attr='font-size' field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:Calculation_1369375773497200656:nk]' value='8' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='rows' value='false' />
+          </style-rule>
+          <style-rule element='quick-filter'>
+            <format attr='title' field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:Pivot Field Values:ok]' value='Survey Response'>
+              <formatted-text>
+                <run fontsize='8'>Survey Response</run>
+              </formatted-text>
+            </format>
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <lod column='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[sum:Calculation_1369375773300355072:qk]' />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run fontcolor='#787878'>Demographic:&#9;</run>
+                <run bold='true'><![CDATA[<[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:Calculation_1369375773497200656:nk]>]]></run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#787878'>Percentage:&#9;</run>
+                <run bold='true'><![CDATA[<[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[usr:Calculation_1369375773300981764:qk:8]>]]></run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#787878'>Count:&#9;</run>
+                <run bold='true' fontcolor='#000000'><![CDATA[<[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[sum:Calculation_1369375773300355072:qk]>]]></run>
+              </formatted-text>
+            </customized-tooltip>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-color' value='#499894' />
+                <format attr='has-stroke' value='true' />
+                <format attr='stroke-color' value='#000000' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:Calculation_1369375773497200656:nk]</rows>
+        <cols>[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[usr:Calculation_1369375773300981764:qk:8]</cols>
+      </table>
+      <simple-id uuid='{B0E842F8-9073-4D01-BB9E-3593EC5B73B0}' />
+    </worksheet>
+    <worksheet name='Diverging Stacked Bar Chart'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontsize='8'>Responses from Each Country: </run>
+            <run bold='true' fontcolor='#b93739' fontsize='8'>Strongly Disagree(5)</run>
+            <run bold='true' fontsize='8'>|</run>
+            <run bold='true' fontcolor='#ff6c93' fontsize='8'>Disagree(4)</run>
+            <run bold='true' fontsize='8'>|</run>
+            <run bold='true' fontcolor='#bab0ac' fontsize='8'>Neutral(3)</run>
+            <run bold='true' fontsize='8'>|</run>
+            <run bold='true' fontcolor='#6abaff' fontsize='8'>Agree(2)</run>
+            <run bold='true' fontsize='8'>|</run>
+            <run bold='true' fontcolor='#000091' fontsize='8'>Strongly Agree(1)</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='cleaned (cleaned)' name='federated.0d1u3bh0jer3c51bthc6y0dm1oxb' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0d1u3bh0jer3c51bthc6y0dm1oxb'>
+            <column caption='Number of Records' datatype='integer' name='[Calculation_1369375773300355072]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column caption='Total Count' datatype='integer' name='[Calculation_1369375773300412417]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='TOTAL(SUM([Calculation_1369375773300355072]))'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column caption='Count Negative' datatype='real' name='[Calculation_1369375773300465666]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='IF [Pivot Field Values]&gt;3 THEN 1&#13;&#10;ELSEIF [Pivot Field Values]=3 THEN 0.5&#13;&#10;ELSE 0&#13;&#10;END' />
+            </column>
+            <column caption='Total Count Negative' datatype='real' name='[Calculation_1369375773300916227]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='TOTAL(SUM([Calculation_1369375773300465666]))'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column caption='Percentage' datatype='real' name='[Calculation_1369375773300981764]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='SUM([Calculation_1369375773300355072])/[Calculation_1369375773300412417]'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column caption='Gantt Start' datatype='real' name='[Calculation_1369375773301039109]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='-[Calculation_1369375773300916227]/[Calculation_1369375773300412417]'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column caption='Gantt Percent' datatype='real' name='[Calculation_1369375773301174278]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='PREVIOUS_VALUE([Calculation_1369375773301039109])+ZN(LOOKUP([Calculation_1369375773300981764],-1))'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column datatype='string' name='[Country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+            <column caption='Survey Question' datatype='string' name='[Pivot Field Names]' role='dimension' type='nominal' />
+            <column aggregation='Sum' caption='Survey Response' datatype='integer' name='[Pivot Field Values]' role='dimension' type='ordinal'>
+              <aliases>
+                <alias key='1' value='Strongly Agree' />
+                <alias key='2' value='Agree' />
+                <alias key='3' value='Neutral' />
+                <alias key='4' value='Disagree' />
+                <alias key='5' value='Strongly Disagree' />
+              </aliases>
+            </column>
+            <column aggregation='Sum' caption='Age' datatype='integer' name='[age]' role='dimension' type='ordinal' />
+            <column caption='Employment Status' datatype='string' name='[employment_status]' role='dimension' type='nominal' />
+            <column caption='Gender' datatype='string' name='[gender]' role='dimension' type='nominal' />
+            <column caption='Household Children' datatype='string' name='[household_children]' role='dimension' type='nominal' />
+            <column caption='Household Size' datatype='string' name='[household_size]' role='dimension' type='nominal' />
+            <column-instance column='[Country]' derivation='None' name='[none:Country:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Pivot Field Names]' derivation='None' name='[none:Pivot Field Names:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Pivot Field Values]' derivation='None' name='[none:Pivot Field Values:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[age]' derivation='None' name='[none:age:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[employment_status]' derivation='None' name='[none:employment_status:nk]' pivot='key' type='nominal' />
+            <column-instance column='[gender]' derivation='None' name='[none:gender:nk]' pivot='key' type='nominal' />
+            <column-instance column='[household_children]' derivation='None' name='[none:household_children:nk]' pivot='key' type='nominal' />
+            <column-instance column='[household_size]' derivation='None' name='[none:household_size:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_1369375773300355072]' derivation='Sum' name='[sum:Calculation_1369375773300355072:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_1369375773300981764]' derivation='User' name='[usr:Calculation_1369375773300981764:qk:1]' pivot='key' type='quantitative'>
+              <table-calc ordering-field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[Pivot Field Values]' ordering-type='Field' />
+              <table-calc field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[Calculation_1369375773300412417]' ordering-field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[Pivot Field Values]' ordering-type='Field' />
+            </column-instance>
+            <column-instance column='[Calculation_1369375773301174278]' derivation='User' name='[usr:Calculation_1369375773301174278:qk:2]' pivot='key' type='quantitative'>
+              <table-calc ordering-field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[Pivot Field Values]' ordering-type='Field' />
+              <table-calc field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[Calculation_1369375773301039109]' ordering-field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[Pivot Field Values]' ordering-type='Field' />
+              <table-calc field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[Calculation_1369375773300916227]' ordering-field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[Pivot Field Values]' ordering-type='Field' />
+              <table-calc field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[Calculation_1369375773300412417]' ordering-field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[Pivot Field Values]' ordering-type='Field' />
+              <table-calc field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[Calculation_1369375773300981764]' ordering-field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[Pivot Field Values]' ordering-type='Field' />
+            </column-instance>
+          </datasource-dependencies>
+          <manual-sort column='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:Pivot Field Values:ok]' direction='ASC'>
+            <dictionary>
+              <bucket>5</bucket>
+              <bucket>4</bucket>
+              <bucket>3</bucket>
+              <bucket>2</bucket>
+              <bucket>1</bucket>
+            </dictionary>
+          </manual-sort>
+          <slices>
+            <column>[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:Pivot Field Names:nk]</column>
+            <column>[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:gender:nk]</column>
+            <column>[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:age:qk]</column>
+            <column>[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:household_size:nk]</column>
+            <column>[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:household_children:nk]</column>
+            <column>[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:employment_status:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[usr:Calculation_1369375773301174278:qk:2]' field-type='quantitative' major-origin='0.0' major-spacing='0.10000000000000001' minor-origin='0.0' minor-show='false' minor-spacing='0.10000000000000001' scope='cols' type='space' />
+            <format attr='height' field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[usr:Calculation_1369375773301174278:qk:2]' value='24' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='height' field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:Country:nk]' value='20' />
+            <format attr='text-format' field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[usr:Calculation_1369375773300981764:qk:1]' value='p0%' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='text-format' field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[usr:Calculation_1369375773301174278:qk:2]' value='p0%' />
+            <format attr='font-size' field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[usr:Calculation_1369375773301174278:qk:2]' value='8' />
+            <format attr='font-size' field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:Country:nk]' value='8' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='rows' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='GanttBar' />
+            <encodings>
+              <color column='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:Pivot Field Values:ok]' />
+              <size column='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[usr:Calculation_1369375773300981764:qk:1]' />
+              <lod column='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:Pivot Field Values:ok]' />
+              <lod column='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[sum:Calculation_1369375773300355072:qk]' />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run fontcolor='#787878'>Country:&#9;</run>
+                <run bold='true' fontcolor='#000000'><![CDATA[<[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:Country:nk]>]]></run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#787878'>Survey Response:&#9;</run>
+                <run bold='true' fontcolor='#000000'><![CDATA[<[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:Pivot Field Values:ok]>]]></run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#787878'>Percentage:&#9;</run>
+                <run bold='true' fontcolor='#000000'><![CDATA[<[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[usr:Calculation_1369375773300981764:qk:1]>]]></run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#787878'>Count:&#9;</run>
+                <run bold='true' fontcolor='#000000'><![CDATA[<[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[sum:Calculation_1369375773300355072:qk]>]]></run>
+              </formatted-text>
+            </customized-tooltip>
+            <style>
+              <style-rule element='cell'>
+                <format attr='text-align' value='center' />
+              </style-rule>
+              <style-rule element='datalabel'>
+                <format attr='color-mode' value='auto' />
+                <format attr='font-size' value='8' />
+                <format attr='font-weight' value='normal' />
+              </style-rule>
+              <style-rule element='mark'>
+                <format attr='mark-labels-mode' value='all' />
+                <format attr='mark-labels-cull' value='false' />
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows onTop='true'>[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:Country:nk]</rows>
+        <cols>[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[usr:Calculation_1369375773301174278:qk:2]</cols>
+      </table>
+      <simple-id uuid='{88F4A026-5CDA-4261-97E0-D6B4BBAE4D13}' />
+    </worksheet>
+    <worksheet name='Dot Plot with Error Bars'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontsize='8'>% &lt;</run>
+            <run bold='true' fontsize='8'>[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:Pivot Field Values:ok]</run>
+            <run bold='true' fontsize='8'>&gt;</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='cleaned (cleaned)' name='federated.0d1u3bh0jer3c51bthc6y0dm1oxb' />
+            <datasource name='Parameters' />
+          </datasources>
+          <datasource-dependencies datasource='Parameters'>
+            <column caption='Confidence Interval' datatype='string' name='[Parameter 1]' param-domain-type='list' role='measure' type='nominal' value='&quot;95\%&quot;'>
+              <calculation class='tableau' formula='&quot;95%&quot;' />
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.0d1u3bh0jer3c51bthc6y0dm1oxb'>
+            <column caption='Number of Records' datatype='integer' name='[Calculation_1369375773300355072]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column caption='Total Count' datatype='integer' name='[Calculation_1369375773300412417]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='TOTAL(SUM([Calculation_1369375773300355072]))'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column caption='Percentage' datatype='real' name='[Calculation_1369375773300981764]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='SUM([Calculation_1369375773300355072])/[Calculation_1369375773300412417]'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column caption='Z' datatype='real' name='[Calculation_1369375773464772615]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='IF [Parameters].[Parameter 1]=&quot;95%&quot; THEN 1.959964&#13;&#10;ELSEIF [Parameters].[Parameter 1]=&quot;99%&quot; THEN 2.575829&#13;&#10;END' />
+            </column>
+            <column caption='Margin' datatype='real' name='[Calculation_1369375773466636296]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[Calculation_1369375773464772615]*SQRT(([Calculation_1369375773300981764]*(1-[Calculation_1369375773300981764]))/[Calculation_1369375773300412417])'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column caption='Upper Limit' datatype='real' name='[Calculation_1369375773468540937]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[Calculation_1369375773300981764]+[Calculation_1369375773466636296]'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column caption='Lower Limit' datatype='real' name='[Calculation_1369375773468663818]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[Calculation_1369375773300981764]-[Calculation_1369375773466636296]'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column caption='Filter (Survey Response)' datatype='integer' name='[Calculation_1369375773469884427]' role='measure' type='ordinal'>
+              <calculation class='tableau' formula='LOOKUP(ATTR([Pivot Field Values]), 0)'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column datatype='string' name='[Country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+            <column caption='Survey Question' datatype='string' name='[Pivot Field Names]' role='dimension' type='nominal' />
+            <column aggregation='Sum' caption='Survey Response' datatype='integer' name='[Pivot Field Values]' role='dimension' type='ordinal'>
+              <aliases>
+                <alias key='1' value='Strongly Agree' />
+                <alias key='2' value='Agree' />
+                <alias key='3' value='Neutral' />
+                <alias key='4' value='Disagree' />
+                <alias key='5' value='Strongly Disagree' />
+              </aliases>
+            </column>
+            <column aggregation='Sum' caption='Age' datatype='integer' name='[age]' role='dimension' type='ordinal' />
+            <column caption='Employment Status' datatype='string' name='[employment_status]' role='dimension' type='nominal' />
+            <column caption='Gender' datatype='string' name='[gender]' role='dimension' type='nominal' />
+            <column caption='Household Children' datatype='string' name='[household_children]' role='dimension' type='nominal' />
+            <column caption='Household Size' datatype='string' name='[household_size]' role='dimension' type='nominal' />
+            <column-instance column='[Country]' derivation='None' name='[none:Country:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Pivot Field Names]' derivation='None' name='[none:Pivot Field Names:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Pivot Field Values]' derivation='None' name='[none:Pivot Field Values:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[age]' derivation='None' name='[none:age:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[employment_status]' derivation='None' name='[none:employment_status:nk]' pivot='key' type='nominal' />
+            <column-instance column='[gender]' derivation='None' name='[none:gender:nk]' pivot='key' type='nominal' />
+            <column-instance column='[household_children]' derivation='None' name='[none:household_children:nk]' pivot='key' type='nominal' />
+            <column-instance column='[household_size]' derivation='None' name='[none:household_size:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_1369375773300355072]' derivation='Sum' name='[sum:Calculation_1369375773300355072:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_1369375773300981764]' derivation='User' name='[usr:Calculation_1369375773300981764:qk:1]' pivot='key' type='quantitative'>
+              <table-calc ordering-field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[Pivot Field Values]' ordering-type='Field' />
+              <table-calc field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[Calculation_1369375773300412417]' ordering-field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[Pivot Field Values]' ordering-type='Field' />
+            </column-instance>
+            <column-instance column='[Calculation_1369375773468540937]' derivation='User' name='[usr:Calculation_1369375773468540937:qk:2]' pivot='key' type='quantitative'>
+              <table-calc ordering-field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[Pivot Field Values]' ordering-type='Field' />
+              <table-calc field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[Calculation_1369375773300981764]' ordering-field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[Pivot Field Values]' ordering-type='Field' />
+              <table-calc field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[Calculation_1369375773300412417]' ordering-field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[Pivot Field Values]' ordering-type='Field' />
+              <table-calc field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[Calculation_1369375773466636296]' ordering-field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[Pivot Field Values]' ordering-type='Field' />
+            </column-instance>
+            <column-instance column='[Calculation_1369375773468663818]' derivation='User' name='[usr:Calculation_1369375773468663818:qk:2]' pivot='key' type='quantitative'>
+              <table-calc ordering-field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[Pivot Field Values]' ordering-type='Field' />
+              <table-calc field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[Calculation_1369375773300981764]' ordering-field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[Pivot Field Values]' ordering-type='Field' />
+              <table-calc field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[Calculation_1369375773300412417]' ordering-field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[Pivot Field Values]' ordering-type='Field' />
+              <table-calc field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[Calculation_1369375773466636296]' ordering-field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[Pivot Field Values]' ordering-type='Field' />
+            </column-instance>
+            <column-instance column='[Calculation_1369375773469884427]' derivation='User' name='[usr:Calculation_1369375773469884427:ok]' pivot='key' type='ordinal'>
+              <table-calc ordering-type='Columns' />
+            </column-instance>
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[usr:Calculation_1369375773468663818:qk:2]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[usr:Calculation_1369375773468540937:qk:2]&quot;' />
+            </groupfilter>
+          </filter>
+          <filter class='categorical' column='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[usr:Calculation_1369375773469884427:ok]'>
+            <groupfilter function='member' level='[usr:Calculation_1369375773469884427:ok]' member='1' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:Pivot Field Names:nk]</column>
+            <column>[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[usr:Calculation_1369375773469884427:ok]</column>
+            <column>[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[:Measure Names]</column>
+            <column>[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:gender:nk]</column>
+            <column>[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:age:qk]</column>
+            <column>[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:household_size:nk]</column>
+            <column>[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:household_children:nk]</column>
+            <column>[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:employment_status:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[Multiple Values]' field-type='quantitative' fold='true' scope='cols' synchronized='true' type='space' />
+            <format attr='display' class='0' field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[Multiple Values]' scope='cols' value='false' />
+            <encoding attr='space' class='0' field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[usr:Calculation_1369375773300981764:qk:1]' field-type='quantitative' major-origin='0.0' major-spacing='0.10000000000000001' minor-origin='0.0' minor-show='false' minor-spacing='0.01' scope='cols' type='space' />
+            <format attr='height' field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[usr:Calculation_1369375773300981764:qk:1]' value='24' />
+            <format attr='height' field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[Multiple Values]' value='24' />
+            <format attr='render-fold-reversed' value='true' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='text-format' field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[usr:Calculation_1369375773468663818:qk:2]' value='p0%' />
+            <format attr='text-format' field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[usr:Calculation_1369375773468540937:qk:2]' value='p0%' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='text-format' field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[usr:Calculation_1369375773300981764:qk:1]' value='p0%' />
+            <format attr='font-size' field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[usr:Calculation_1369375773300981764:qk:1]' value='8' />
+            <format attr='font-size' field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:Country:nk]' value='8' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='rows' value='false' />
+          </style-rule>
+          <style-rule element='quick-filter'>
+            <format attr='title' field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[usr:Calculation_1369375773469884427:ok]' value='Survey Response by Country'>
+              <formatted-text>
+                <run fontsize='8'>Survey Response by Country</run>
+              </formatted-text>
+            </format>
+            <format attr='title' field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:gender:nk]' value='Gender'>
+              <formatted-text>
+                <run fontsize='8'>Gender</run>
+              </formatted-text>
+            </format>
+            <format attr='title' field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:age:qk]' value='Age'>
+              <formatted-text>
+                <run fontsize='8'>Age</run>
+              </formatted-text>
+            </format>
+            <format attr='title' field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:employment_status:nk]' value='Employment Status'>
+              <formatted-text>
+                <run fontsize='8'>Employment Status</run>
+              </formatted-text>
+            </format>
+            <format attr='title' field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:household_size:nk]' value='Household Size'>
+              <formatted-text>
+                <run fontsize='8'>Household Size</run>
+              </formatted-text>
+            </format>
+            <format attr='title' field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:household_children:nk]' value='Household Children'>
+              <formatted-text>
+                <run fontsize='8'>Household Children</run>
+              </formatted-text>
+            </format>
+            <format attr='background-color' value='#00000000' />
+            <format attr='title' field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:Pivot Field Names:nk]' value='Survey Question'>
+              <formatted-text>
+                <run fontsize='8'>Survey Question</run>
+              </formatted-text>
+            </format>
+          </style-rule>
+          <style-rule element='quick-filter-title'>
+            <format attr='text-align' value='left' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <encodings>
+              <lod column='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:Pivot Field Values:ok]' />
+              <lod column='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[:Measure Names]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' x-axis-name='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[usr:Calculation_1369375773300981764:qk:1]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <encodings>
+              <lod column='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:Pivot Field Values:ok]' />
+              <lod column='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[:Measure Names]' />
+              <lod column='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[sum:Calculation_1369375773300355072:qk]' />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run fontcolor='#787878'>Country:&#9;</run>
+                <run bold='true'><![CDATA[<[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:Country:nk]>]]></run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#787878'>Survey Response:&#9;</run>
+                <run bold='true'><![CDATA[<[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:Pivot Field Values:ok]>]]></run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#787878'>Percentage:&#9;</run>
+                <run bold='true'><![CDATA[<[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[usr:Calculation_1369375773300981764:qk:1]>]]></run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#787878'>Count:&#9;</run>
+                <run bold='true' fontcolor='#000000'><![CDATA[<[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[sum:Calculation_1369375773300355072:qk]>]]></run>
+              </formatted-text>
+            </customized-tooltip>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='false' />
+                <format attr='mark-color' value='#000000' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='3' selection-relaxation-option='selection-relaxation-allow' x-axis-name='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[Multiple Values]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+            <encodings>
+              <lod column='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:Pivot Field Values:ok]' />
+              <lod column='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[:Measure Names]' />
+              <path column='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[:Measure Names]' />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run fontcolor='#787878'>Country:&#9;</run>
+                <run bold='true'><![CDATA[<[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:Country:nk]>]]></run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#787878'>Survey Response:&#9;</run>
+                <run bold='true'><![CDATA[<[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:Pivot Field Values:ok]>]]></run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#787878'><![CDATA[<[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[:Measure Names]>:	]]></run>
+                <run bold='true'><![CDATA[<[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[Multiple Values]>]]></run>
+                <run>Æ&#10;</run>
+              </formatted-text>
+            </customized-tooltip>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='false' />
+                <format attr='mark-color' value='#75a1c7' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:Country:nk]</rows>
+        <cols>([federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[usr:Calculation_1369375773300981764:qk:1] + [federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[Multiple Values])</cols>
+      </table>
+      <simple-id uuid='{7E76CC44-6ED2-4A56-AB53-B90D90A13448}' />
+    </worksheet>
+    <worksheet name='Title'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontalignment='1' fontsize='11'><![CDATA[<[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:Pivot Field Names:nk]>]]></run>
+            <run fontalignment='1'>Æ&#10;</run>
+            <run bold='true' fontalignment='1' fontcolor='#0000ff' fontsize='11'><![CDATA[<[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[usr:Calculation_1369375773300981764:qk:2]>]]></run>
+            <run bold='true' fontalignment='1' fontsize='11'> of </run>
+            <run bold='true' fontalignment='1' fontcolor='#0000ff' fontsize='11'><![CDATA[<[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[usr:Calculation_1369375773300412417:qk:3]>]]></run>
+            <run bold='true' fontalignment='1' fontsize='11'> Survey Respondents </run>
+            <run bold='true' fontalignment='1' fontcolor='#0000ff' fontsize='11'><![CDATA[<[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:Pivot Field Values:ok]>]]></run>
+            <run bold='true' fontalignment='1' fontsize='11'> to This Statement</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='cleaned (cleaned)' name='federated.0d1u3bh0jer3c51bthc6y0dm1oxb' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0d1u3bh0jer3c51bthc6y0dm1oxb'>
+            <column caption='Number of Records' datatype='integer' name='[Calculation_1369375773300355072]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column caption='Total Count' datatype='integer' name='[Calculation_1369375773300412417]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='TOTAL(SUM([Calculation_1369375773300355072]))'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column caption='Percentage' datatype='real' name='[Calculation_1369375773300981764]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='SUM([Calculation_1369375773300355072])/[Calculation_1369375773300412417]'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column caption='Filter (Survey Response)' datatype='integer' name='[Calculation_1369375773469884427]' role='measure' type='ordinal'>
+              <calculation class='tableau' formula='LOOKUP(ATTR([Pivot Field Values]), 0)'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column caption='Survey Question' datatype='string' name='[Pivot Field Names]' role='dimension' type='nominal' />
+            <column aggregation='Sum' caption='Survey Response' datatype='integer' name='[Pivot Field Values]' role='dimension' type='ordinal'>
+              <aliases>
+                <alias key='1' value='Strongly Agree' />
+                <alias key='2' value='Agree' />
+                <alias key='3' value='Neutral' />
+                <alias key='4' value='Disagree' />
+                <alias key='5' value='Strongly Disagree' />
+              </aliases>
+            </column>
+            <column aggregation='Sum' caption='Age' datatype='integer' name='[age]' role='dimension' type='ordinal' />
+            <column caption='Employment Status' datatype='string' name='[employment_status]' role='dimension' type='nominal' />
+            <column caption='Gender' datatype='string' name='[gender]' role='dimension' type='nominal' />
+            <column caption='Household Children' datatype='string' name='[household_children]' role='dimension' type='nominal' />
+            <column caption='Household Size' datatype='string' name='[household_size]' role='dimension' type='nominal' />
+            <column-instance column='[Pivot Field Names]' derivation='None' name='[none:Pivot Field Names:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Pivot Field Values]' derivation='None' name='[none:Pivot Field Values:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[age]' derivation='None' name='[none:age:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[employment_status]' derivation='None' name='[none:employment_status:nk]' pivot='key' type='nominal' />
+            <column-instance column='[gender]' derivation='None' name='[none:gender:nk]' pivot='key' type='nominal' />
+            <column-instance column='[household_children]' derivation='None' name='[none:household_children:nk]' pivot='key' type='nominal' />
+            <column-instance column='[household_size]' derivation='None' name='[none:household_size:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_1369375773300412417]' derivation='User' name='[usr:Calculation_1369375773300412417:qk:3]' pivot='key' type='quantitative'>
+              <table-calc ordering-type='Columns' />
+            </column-instance>
+            <column-instance column='[Calculation_1369375773300981764]' derivation='User' name='[usr:Calculation_1369375773300981764:qk:2]' pivot='key' type='quantitative'>
+              <table-calc ordering-type='Columns' />
+              <table-calc field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[Calculation_1369375773300412417]' ordering-type='Columns' />
+            </column-instance>
+            <column-instance column='[Calculation_1369375773469884427]' derivation='User' name='[usr:Calculation_1369375773469884427:ok]' pivot='key' type='ordinal'>
+              <table-calc ordering-type='Columns' />
+            </column-instance>
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[usr:Calculation_1369375773469884427:ok]'>
+            <groupfilter function='member' level='[usr:Calculation_1369375773469884427:ok]' member='1' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:Pivot Field Names:nk]</column>
+            <column>[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[usr:Calculation_1369375773469884427:ok]</column>
+            <column>[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:gender:nk]</column>
+            <column>[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:age:qk]</column>
+            <column>[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:household_size:nk]</column>
+            <column>[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:household_children:nk]</column>
+            <column>[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:employment_status:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='text-format' field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[usr:Calculation_1369375773300981764:qk:2]' value='p0%' />
+          </style-rule>
+          <style-rule element='quick-filter'>
+            <format attr='title' field='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[usr:Calculation_1369375773469884427:ok]' value='Overall Survey Response'>
+              <formatted-text>
+                <run fontsize='8'>Overall Survey Response</run>
+              </formatted-text>
+            </format>
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <lod column='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:Pivot Field Values:ok]' />
+              <lod column='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[usr:Calculation_1369375773300981764:qk:2]' />
+              <lod column='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[usr:Calculation_1369375773300412417:qk:3]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{207F60D0-ACE1-41BF-943D-6F2EB300D525}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard name='Dashboard'>
+      <style />
+      <size sizing-mode='automatic' />
+      <datasources>
+        <datasource name='Parameters' />
+        <datasource caption='cleaned (cleaned)' name='federated.0d1u3bh0jer3c51bthc6y0dm1oxb' />
+      </datasources>
+      <datasource-dependencies datasource='Parameters'>
+        <column caption='Confidence Interval' datatype='string' name='[Parameter 1]' param-domain-type='list' role='measure' type='nominal' value='&quot;95\%&quot;'>
+          <calculation class='tableau' formula='&quot;95%&quot;' />
+          <members>
+            <member value='&quot;95\%&quot;' />
+            <member value='&quot;99\%&quot;' />
+          </members>
+        </column>
+        <column caption='Demographic' datatype='string' name='[Parameter 2]' param-domain-type='list' role='measure' type='nominal' value='&quot;Employment Status&quot;'>
+          <calculation class='tableau' formula='&quot;Employment Status&quot;' />
+          <members>
+            <member value='&quot;Gender&quot;' />
+            <member value='&quot;Household Size&quot;' />
+            <member value='&quot;Household Children&quot;' />
+            <member value='&quot;Employment Status&quot;' />
+          </members>
+        </column>
+        <column caption='Sort By' datatype='string' name='[Parameter 3]' param-domain-type='list' role='measure' type='nominal' value='&quot;Alphabetical&quot;'>
+          <calculation class='tableau' formula='&quot;Alphabetical&quot;' />
+          <members>
+            <member value='&quot;Alphabetical&quot;' />
+            <member value='&quot;Percentage&quot;' />
+          </members>
+        </column>
+        <column alias='Ascending' caption='Sort Order' datatype='integer' name='[Parameter 4]' param-domain-type='list' role='measure' type='quantitative' value='1'>
+          <calculation class='tableau' formula='1' />
+          <aliases>
+            <alias key='-1' value='Descending' />
+            <alias key='1' value='Ascending' />
+          </aliases>
+          <members>
+            <member alias='Ascending' value='1' />
+            <member alias='Descending' value='-1' />
+          </members>
+        </column>
+      </datasource-dependencies>
+      <datasource-dependencies datasource='federated.0d1u3bh0jer3c51bthc6y0dm1oxb'>
+        <column caption='Filter (Survey Response)' datatype='integer' name='[Calculation_1369375773469884427]' role='measure' type='ordinal'>
+          <calculation class='tableau' formula='LOOKUP(ATTR([Pivot Field Values]), 0)'>
+            <table-calc ordering-type='Rows' />
+          </calculation>
+        </column>
+        <column caption='Survey Question' datatype='string' name='[Pivot Field Names]' role='dimension' type='nominal' />
+        <column aggregation='Sum' caption='Survey Response' datatype='integer' name='[Pivot Field Values]' role='dimension' type='ordinal'>
+          <aliases>
+            <alias key='1' value='Strongly Agree' />
+            <alias key='2' value='Agree' />
+            <alias key='3' value='Neutral' />
+            <alias key='4' value='Disagree' />
+            <alias key='5' value='Strongly Disagree' />
+          </aliases>
+        </column>
+        <column aggregation='Sum' caption='Age' datatype='integer' name='[age]' role='dimension' type='ordinal' />
+        <column caption='Employment Status' datatype='string' name='[employment_status]' role='dimension' type='nominal' />
+        <column caption='Gender' datatype='string' name='[gender]' role='dimension' type='nominal' />
+        <column caption='Household Children' datatype='string' name='[household_children]' role='dimension' type='nominal' />
+        <column caption='Household Size' datatype='string' name='[household_size]' role='dimension' type='nominal' />
+        <column-instance column='[Pivot Field Names]' derivation='None' name='[none:Pivot Field Names:nk]' pivot='key' type='nominal' />
+        <column-instance column='[Pivot Field Values]' derivation='None' name='[none:Pivot Field Values:ok]' pivot='key' type='ordinal' />
+        <column-instance column='[age]' derivation='None' name='[none:age:qk]' pivot='key' type='quantitative' />
+        <column-instance column='[employment_status]' derivation='None' name='[none:employment_status:nk]' pivot='key' type='nominal' />
+        <column-instance column='[gender]' derivation='None' name='[none:gender:nk]' pivot='key' type='nominal' />
+        <column-instance column='[household_children]' derivation='None' name='[none:household_children:nk]' pivot='key' type='nominal' />
+        <column-instance column='[household_size]' derivation='None' name='[none:household_size:nk]' pivot='key' type='nominal' />
+        <column-instance column='[Calculation_1369375773469884427]' derivation='User' name='[usr:Calculation_1369375773469884427:ok]' pivot='key' type='ordinal'>
+          <table-calc ordering-type='Columns' />
+        </column-instance>
+      </datasource-dependencies>
+      <zones>
+        <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='4' w='100000' x='0' y='0'>
+          <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='97826' id='43' param='horz' w='98618' x='691' y='1087'>
+            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='97826' id='41' w='98618' x='691' y='1087'>
+              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='57697' id='7' param='horz' w='98618' x='691' y='1087'>
+                <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='57697' id='5' w='98618' x='691' y='1087'>
+                  <zone h='8092' id='3' name='Title' w='68323' x='15767' y='1087'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                  <zone h='49605' id='10' name='Dot Plot with Error Bars' w='45178' x='691' y='9179'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                  <zone h='49605' id='21' name='Diverging Stacked Bar Chart' w='53440' x='45869' y='9179'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                  <zone _.fcp.SetMembershipControl.false...type='empty' _.fcp.SetMembershipControl.true...type-v2='empty' h='8092' id='30' w='15219' x='84090' y='1087'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                  <zone _.fcp.SetMembershipControl.false...type='empty' _.fcp.SetMembershipControl.true...type-v2='empty' h='8092' id='31' w='15076' x='691' y='1087'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                </zone>
+              </zone>
+              <zone h='40129' id='22' name='Breakdown' w='53440' x='45869' y='58784'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone _.fcp.SetMembershipControl.false...type='empty' _.fcp.SetMembershipControl.true...type-v2='empty' h='40129' id='26' w='45178' x='691' y='58784'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+        <zone _.fcp.SetMembershipControl.false...type='filter' _.fcp.SetMembershipControl.true...type-v2='filter' h='7065' id='15' mode='checkdropdown' name='Dot Plot with Error Bars' param='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:household_size:nk]' w='14495' x='15789' y='86685' />
+        <zone _.fcp.SetMembershipControl.false...type='filter' _.fcp.SetMembershipControl.true...type-v2='filter' h='8424' id='14' name='Dot Plot with Error Bars' param='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:age:qk]' show-domain='false' show-null-ctrls='false' w='14495' x='15703' y='77989' />
+        <zone _.fcp.SetMembershipControl.false...type='filter' _.fcp.SetMembershipControl.true...type-v2='filter' h='7065' id='13' mode='dropdown' name='Dot Plot with Error Bars' param='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:gender:nk]' w='14495' x='30544' y='77853' />
+        <zone _.fcp.SetMembershipControl.false...type='filter' _.fcp.SetMembershipControl.true...type-v2='filter' h='7065' id='12' mode='dropdown' name='Dot Plot with Error Bars' param='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[usr:Calculation_1369375773469884427:ok]' show-all='false' w='14495' x='30630' y='61413' />
+        <zone _.fcp.SetMembershipControl.false...type='filter' _.fcp.SetMembershipControl.true...type-v2='filter' h='7065' id='16' mode='checkdropdown' name='Dot Plot with Error Bars' param='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:household_children:nk]' w='14495' x='1122' y='86685' />
+        <zone _.fcp.SetMembershipControl.false...type='filter' _.fcp.SetMembershipControl.true...type-v2='filter' h='7065' id='17' mode='checkdropdown' name='Dot Plot with Error Bars' param='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:employment_status:nk]' w='14495' x='30544' y='86685' />
+        <zone _.fcp.SetMembershipControl.false...type='paramctrl' _.fcp.SetMembershipControl.true...type-v2='paramctrl' custom-title='true' h='5978' id='18' mode='compact' param='[Parameters].[Parameter 1]' w='13805' x='15876' y='61413'>
+          <formatted-text>
+            <run fontsize='8'>Confidence Interval</run>
+          </formatted-text>
+        </zone>
+        <zone _.fcp.SetMembershipControl.false...type='paramctrl' _.fcp.SetMembershipControl.true...type-v2='paramctrl' custom-title='true' h='5978' id='24' mode='compact' param='[Parameters].[Parameter 2]' w='13805' x='15789' y='69973'>
+          <formatted-text>
+            <run fontsize='8'>Demographic</run>
+          </formatted-text>
+        </zone>
+        <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='5163' id='27' w='9318' x='949' y='59918'>
+          <formatted-text>
+            <run bold='true' fontcolor='#000000' fontsize='8' underline='true'>Show in Dot Plot:</run>
+          </formatted-text>
+        </zone>
+        <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='5163' id='28' w='10785' x='863' y='69429'>
+          <formatted-text>
+            <run bold='true' fontcolor='#000000' fontsize='8' underline='true'>Show in Breakdown Chart:</run>
+          </formatted-text>
+        </zone>
+        <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='5163' id='29' w='9318' x='949' y='76630'>
+          <formatted-text>
+            <run bold='true' fontcolor='#000000' fontsize='8' underline='true'>Filter:</run>
+          </formatted-text>
+        </zone>
+        <zone _.fcp.SetMembershipControl.false...type='filter' _.fcp.SetMembershipControl.true...type-v2='filter' h='7065' id='11' mode='dropdown' name='Dot Plot with Error Bars' param='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:Pivot Field Names:nk]' show-all='false' w='14495' x='949' y='1766' />
+        <zone _.fcp.SetMembershipControl.false...type='filter' _.fcp.SetMembershipControl.true...type-v2='filter' h='7065' id='9' mode='dropdown' name='Title' param='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[usr:Calculation_1369375773469884427:ok]' show-all='false' w='14495' x='84556' y='1495' />
+        <zone _.fcp.SetMembershipControl.false...type='paramctrl' _.fcp.SetMembershipControl.true...type-v2='paramctrl' custom-title='true' h='5978' id='19' mode='compact' param='[Parameters].[Parameter 3]' w='13805' x='18119' y='7880'>
+          <formatted-text>
+            <run fontsize='8'>Sort By</run>
+          </formatted-text>
+        </zone>
+        <zone _.fcp.SetMembershipControl.false...type='paramctrl' _.fcp.SetMembershipControl.true...type-v2='paramctrl' custom-title='true' h='5978' id='20' mode='compact' param='[Parameters].[Parameter 4]' w='13805' x='31838' y='7880'>
+          <formatted-text>
+            <run fontsize='8'>Sort Order</run>
+          </formatted-text>
+        </zone>
+        <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='5435' id='25' w='36324' x='949' y='93614'>
+          <formatted-text>
+            <run fontcolor='#000000' fontsize='8'>Source: Imperial College London YouGov Covid 19 Behaviour Tracker Data Hub</run>
+          </formatted-text>
+        </zone>
+        <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='5435' id='38' w='15272' x='84038' y='94022'>
+          <formatted-text>
+            <run fontalignment='2' fontcolor='#000000' fontsize='8'>Author: Louis Chong</run>
+          </formatted-text>
+        </zone>
+        <zone _.fcp.SetMembershipControl.false...type='filter' _.fcp.SetMembershipControl.true...type-v2='filter' h='5978' id='44' mode='dropdown' name='Breakdown' param='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:Pivot Field Values:ok]' values='database' w='13805' x='30716' y='69973' />
+        <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='5435' id='45' w='10717' x='88678' y='58560'>
+          <formatted-text>
+            <run fontalignment='2' fontsize='8'>(click each country above to learn more)</run>
+          </formatted-text>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='2150' minheight='2150' sizing-mode='vscroll' />
+          <zones>
+            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='85' w='100000' x='0' y='0'>
+              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='97826' id='84' param='vert' w='98618' x='691' y='1087'>
+                <zone _.fcp.SetMembershipControl.false...type='filter' _.fcp.SetMembershipControl.true...type-v2='filter' h='7065' id='9' mode='dropdown' name='Title' param='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[usr:Calculation_1369375773469884427:ok]' show-all='false' w='14495' x='84556' y='1495'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='56' h='8092' id='3' is-fixed='true' name='Title' w='68323' x='15767' y='1087'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone _.fcp.SetMembershipControl.false...type='paramctrl' _.fcp.SetMembershipControl.true...type-v2='paramctrl' custom-title='true' h='5978' id='19' mode='compact' param='[Parameters].[Parameter 3]' w='13805' x='18119' y='7880'>
+                  <formatted-text>
+                    <run fontsize='8'>Sort By</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone _.fcp.SetMembershipControl.false...type='paramctrl' _.fcp.SetMembershipControl.true...type-v2='paramctrl' custom-title='true' h='5978' id='20' mode='compact' param='[Parameters].[Parameter 4]' w='13805' x='31838' y='7880'>
+                  <formatted-text>
+                    <run fontsize='8'>Sort Order</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone _.fcp.SetMembershipControl.false...type='filter' _.fcp.SetMembershipControl.true...type-v2='filter' h='7065' id='15' mode='checkdropdown' name='Dot Plot with Error Bars' param='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:household_size:nk]' w='14495' x='15789' y='86685'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone _.fcp.SetMembershipControl.false...type='filter' _.fcp.SetMembershipControl.true...type-v2='filter' h='8424' id='14' name='Dot Plot with Error Bars' param='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:age:qk]' show-domain='false' show-null-ctrls='false' w='14495' x='15703' y='77989'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone _.fcp.SetMembershipControl.false...type='filter' _.fcp.SetMembershipControl.true...type-v2='filter' h='7065' id='13' mode='dropdown' name='Dot Plot with Error Bars' param='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:gender:nk]' w='14495' x='30544' y='77853'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone _.fcp.SetMembershipControl.false...type='filter' _.fcp.SetMembershipControl.true...type-v2='filter' h='7065' id='12' mode='dropdown' name='Dot Plot with Error Bars' param='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[usr:Calculation_1369375773469884427:ok]' show-all='false' w='14495' x='30630' y='61413'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone _.fcp.SetMembershipControl.false...type='filter' _.fcp.SetMembershipControl.true...type-v2='filter' h='7065' id='16' mode='checkdropdown' name='Dot Plot with Error Bars' param='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:household_children:nk]' w='14495' x='1122' y='86685'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone _.fcp.SetMembershipControl.false...type='filter' _.fcp.SetMembershipControl.true...type-v2='filter' h='7065' id='17' mode='checkdropdown' name='Dot Plot with Error Bars' param='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:employment_status:nk]' w='14495' x='30544' y='86685'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone _.fcp.SetMembershipControl.false...type='filter' _.fcp.SetMembershipControl.true...type-v2='filter' h='7065' id='11' mode='dropdown' name='Dot Plot with Error Bars' param='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:Pivot Field Names:nk]' show-all='false' w='14495' x='949' y='1766'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='49605' id='10' is-fixed='true' name='Dot Plot with Error Bars' w='45178' x='691' y='9179'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='49605' id='21' is-fixed='true' name='Diverging Stacked Bar Chart' w='53440' x='45869' y='9179'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='5435' id='45' w='10717' x='88678' y='58560'>
+                  <formatted-text>
+                    <run fontalignment='2' fontsize='8'>(click each country above to learn more)</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone _.fcp.SetMembershipControl.false...type='filter' _.fcp.SetMembershipControl.true...type-v2='filter' h='5978' id='44' mode='dropdown' name='Breakdown' param='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:Pivot Field Values:ok]' values='database' w='13805' x='30716' y='69973'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='40129' id='22' is-fixed='true' name='Breakdown' w='53440' x='45869' y='58784'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='5163' id='27' w='9318' x='949' y='59918'>
+                  <formatted-text>
+                    <run bold='true' fontcolor='#000000' fontsize='8' underline='true'>Show in Dot Plot:</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone _.fcp.SetMembershipControl.false...type='paramctrl' _.fcp.SetMembershipControl.true...type-v2='paramctrl' custom-title='true' h='5978' id='18' mode='compact' param='[Parameters].[Parameter 1]' w='13805' x='15876' y='61413'>
+                  <formatted-text>
+                    <run fontsize='8'>Confidence Interval</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='5163' id='28' w='10785' x='863' y='69429'>
+                  <formatted-text>
+                    <run bold='true' fontcolor='#000000' fontsize='8' underline='true'>Show in Breakdown Chart:</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone _.fcp.SetMembershipControl.false...type='paramctrl' _.fcp.SetMembershipControl.true...type-v2='paramctrl' custom-title='true' h='5978' id='24' mode='compact' param='[Parameters].[Parameter 2]' w='13805' x='15789' y='69973'>
+                  <formatted-text>
+                    <run fontsize='8'>Demographic</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='5163' id='29' w='9318' x='949' y='76630'>
+                  <formatted-text>
+                    <run bold='true' fontcolor='#000000' fontsize='8' underline='true'>Filter:</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='5435' id='25' w='36324' x='949' y='93614'>
+                  <formatted-text>
+                    <run fontcolor='#000000' fontsize='8'>Source: Imperial College London YouGov Covid 19 Behaviour Tracker Data Hub</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='5435' id='38' w='15272' x='84038' y='94022'>
+                  <formatted-text>
+                    <run fontalignment='2' fontcolor='#000000' fontsize='8'>Author: Louis Chong</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{DC926686-3578-4990-B509-83EF17D75342}' />
+    </dashboard>
+  </dashboards>
+  <windows source-height='30'>
+    <window class='worksheet' name='Diverging Stacked Bar Chart'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:Pivot Field Values:ok]' type='color' />
+            <card mode='dropdown' param='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:Pivot Field Names:nk]' show-all='false' type='filter' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='fit-height' />
+      </viewpoint>
+      <simple-id uuid='{A414EBDA-B070-4E47-9857-87AFD77BF0A0}' />
+    </window>
+    <window class='worksheet' name='Dot Plot with Error Bars'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card mode='compact' param='[Parameters].[Parameter 1]' type='parameter' />
+            <card mode='dropdown' param='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:Pivot Field Names:nk]' type='filter' />
+            <card mode='dropdown' param='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[usr:Calculation_1369375773469884427:ok]' show-all='false' show-morefewerbutton='false' type='filter' />
+            <card mode='dropdown' param='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:gender:nk]' type='filter' />
+            <card param='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:age:qk]' show-domain='false' show-null-ctrls='false' type='filter' />
+            <card mode='checkdropdown' param='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:household_size:nk]' type='filter' />
+            <card mode='checkdropdown' param='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:household_children:nk]' type='filter' />
+            <card mode='checkdropdown' param='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:employment_status:nk]' type='filter' />
+            <card mode='compact' param='[Parameters].[Parameter 3]' type='parameter' />
+            <card mode='compact' param='[Parameters].[Parameter 4]' type='parameter' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='fit-height' />
+      </viewpoint>
+      <simple-id uuid='{7E5F3EE7-559E-4176-8D15-E9D6FCAB6B37}' />
+    </window>
+    <window class='worksheet' name='Title'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card mode='dropdown' param='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:Pivot Field Names:nk]' show-all='false' type='filter' />
+            <card mode='dropdown' param='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[usr:Calculation_1369375773469884427:ok]' show-all='false' show-morefewerbutton='false' type='filter' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='fit-width' />
+      </viewpoint>
+      <simple-id uuid='{DC9456EC-48E7-4B79-AF32-6928A2E483D0}' />
+    </window>
+    <window class='worksheet' name='Breakdown'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card mode='compact' param='[Parameters].[Parameter 2]' type='parameter' />
+            <card mode='dropdown' param='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:Pivot Field Names:nk]' show-all='false' type='filter' />
+            <card mode='dropdown' param='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[none:Pivot Field Values:ok]' type='filter' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='fit-height' />
+      </viewpoint>
+      <simple-id uuid='{81BF964F-DCD5-40F5-B2A8-A0A5C42B95CF}' />
+    </window>
+    <window class='dashboard' maximized='true' name='Dashboard'>
+      <viewpoints>
+        <viewpoint name='Breakdown' />
+        <viewpoint name='Diverging Stacked Bar Chart'>
+          <zoom type='fit-height' />
+        </viewpoint>
+        <viewpoint name='Dot Plot with Error Bars'>
+          <zoom type='fit-height' />
+        </viewpoint>
+        <viewpoint name='Title'>
+          <zoom type='fit-width' />
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+      <simple-id uuid='{96A8AC21-A981-4EF0-9EB4-E098D3E0C3DB}' />
+    </window>
+  </windows>
+</workbook>

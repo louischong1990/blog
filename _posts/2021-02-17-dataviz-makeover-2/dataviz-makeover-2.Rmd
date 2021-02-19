@@ -1,7 +1,7 @@
 ---
 title: "ISSS608 Visual Analytics - DataViz Makeover 2"
 description: |
-  A short description of the post.
+  Analysis of Data Visualisation on Public Willingness on Covid-19 Vaccination.
 author:
   - name: Louis Chong Jia Jun (louis.chong.2019@mitb.smu.edu.sg)
     url: https://www.linkedin.com/in/louis-chong-jia-jun
@@ -63,7 +63,7 @@ Figure 2 shows the sketch of the proposed data visualisation to replace the one 
 * Data files containing responses to the 6 surveys (vac_1, vac2_1, vac2_2, vac2_3, vac2_6, vac_3) and the attributes (gender, age, household_size, household_children, employment_status) are used. This include data from Australia, Canada, Denmark, Finland, France, Germany, Italy, Japan, Netherlands, Norway, Singapore, South Korea, Spain, Sweden and United Kingdom. The relevant columns are extracted via Excel.
 * Each country's data file is filtered on Excel and only rows containing responses to the 6 surveys are extracted (Figure 3).
 
-![Figure 3: Rows with Survey Responses](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture2.png)
+![Figure 3: Rows with Survey Responses](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture2.png){width=70%}
 
 * For Denmark, Finland, Norway and Sweden, the responses to employment status are separated into many columns. IF formula is used on Excel to collate the survey respondent's employment status in a single column and rename to the respective employment status (Full time employment, Part time employment, Full time student, Retired, Unemployed, Not working, Others) (Figure 4).
 
@@ -80,11 +80,11 @@ Figure 2 shows the sketch of the proposed data visualisation to replace the one 
 
 * The cleaned.xlsx is imported into Tableau (Figure 6).
 
-![Figure 6: Import into Tableau Type](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture5.png)
+![Figure 6: Import into Tableau Type](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture5.png){width=50%}
 
 * The data types of Record No, Household Size and Household Children are changed to String (Figure 7).
 
-![Figure 7: Change of Data Type](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture6.png)
+![Figure 7: Change of Data Type](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture6.png){width=80%}
 
 * The vac_1, vac2_1, vac2_2, vac2_3, vac2_6 and vac_3 columns are renamed to the respective survey questions (Figure 8). The columns are clicked and pivoted (Figure 9). This will form two columns, one for Survey Question and another for Survey Response. The two columns are renamed accordingly. Figure 10 shows the data table used for subsequent data visualisations.
 
@@ -96,11 +96,11 @@ Figure 2 shows the sketch of the proposed data visualisation to replace the one 
 
 * Moving on to the Worksheet, the Age, Country, Employment Status, Gender, Household Children, Household Size, Survey Question and Survey Response should be under Dimensions (Figure 11).
 
-![Figure 11: Dimensions](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture10.png)
+![Figure 11: Dimensions](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture10.png){width=30%}
 
 * Next, we right click Survey Response to edit the aliases to the respective Survey Response (Strongly Agree, Agree, Neutral, Disagree, Strongly Disagree) to be clear to readers, as seen in Figure 12.
 
-![Figure 12: Aliases for Survey Response](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture11.png)
+![Figure 12: Aliases for Survey Response](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture11.png){width=70%}
 
 ## Diverging Stacked Bar Chart
 
@@ -113,7 +113,7 @@ Figure 2 shows the sketch of the proposed data visualisation to replace the one 
   + Gantt Start: -[Total Count Negative]/[Total Count]
   + Gantt Percent: PREVIOUS_VALUE([Gantt Start])+ZN(LOOKUP([Percentage],-1))
 
-![Figure 13: Create Calculated Field](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture12.png)
+![Figure 13: Create Calculated Field](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture12.png){width=50%}
 
 * Next, Survey Response is placed under Detail and Color, Gantt Percent under Columns (Compute Using Survey Response) and Country under Rows. This is shown in Figure 14.
 
@@ -121,7 +121,7 @@ Figure 2 shows the sketch of the proposed data visualisation to replace the one 
 
 * The data visualisation or chart is changed to Gantt Bar (Figure 15).
 
-![Figure 15: Diverging Stacked Bar Chart Part 2](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture14.png)
+![Figure 15: Diverging Stacked Bar Chart Part 2](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture14.png){width=30%}
 
 * Percentage is then placed under Size, computed using Survey Response. The colours for Survey Response are edited to diverging colours. This is shown in Figure 16.
 
@@ -129,7 +129,7 @@ Figure 2 shows the sketch of the proposed data visualisation to replace the one 
 
 * As it's a good practice for negative (strongly disagree and disagree) survey responses to be on the left and positive (strongly agree and agree) survey responses to be on the right, Survey Response is manually sorted, as seen in Figure 17.
 
-![Figure 17: Diverging Stacked Bar Chart Part 4](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture16.png)
+![Figure 17: Diverging Stacked Bar Chart Part 4](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture16.png){width=70%}
 
 * We will standardise the axis labels for Percentage to 0 decimal place, with 0.1 tick interval. We will right click to edit axis and format, as shown in Figure 18.
 
@@ -147,9 +147,9 @@ Figure 2 shows the sketch of the proposed data visualisation to replace the one 
 
 ![Figure 21: Diverging Stacked Bar Chart Part 8](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture20.png)
 
-![Figure 22: Diverging Stacked Bar Chart Part 9](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture21.png)
+![Figure 22: Diverging Stacked Bar Chart Part 9](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture21.png){width=30%}
 
-![Figure 23: Diverging Stacked Bar Chart Part 10](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture30.png)
+![Figure 23: Diverging Stacked Bar Chart Part 10](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture30.png){width=70%}
 
 * Figure 24 shows the diverging stacked bar chart.
 
@@ -174,7 +174,7 @@ Figure 2 shows the sketch of the proposed data visualisation to replace the one 
 * The following calculated field is also created to ensure that the Survey Response can be filtered without changing the percentage. We will right click this field to convert it to Discrete (Figure 27).
   + Filter (Survey Response): LOOKUP(ATTR([Survey Responses]), 0)
 
-![Figure 27: Dot Plot Part 3](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture25.png)
+![Figure 27: Dot Plot Part 3](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture25.png){width=50%}
 
 * Similar to the diverging stacked bar chart, Survey Question is placed under Filters, as well as Filter (Survey Response). We will right click to Show Filter and the filters will appear on the right of the worksheet. The filters are changed to Single Value (dropdown) and customised to not show "All" value, as it's not useful to show all options together. The steps were described in Figure 19 earlier. The title of Filter (Survey Response) is edited to Survey Response by Country, as seen in Figure 28.
 
@@ -182,11 +182,11 @@ Figure 2 shows the sketch of the proposed data visualisation to replace the one 
 
 * Next, Measure Values is placed under Columns and only Lower Limit and Upper Limit are kept (Figure 29). They are formatted to show the Percentage in 0 decimal place (as explained in Figure 18).
 
-![Figure 29: Dot Plot Part 5](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture27.png)
+![Figure 29: Dot Plot Part 5](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture27.png){width=50%}
 
 * The data visualisation or chart for Percentage is changed to Circle and that of Measure Values is changed to Line. Measure Names is placed under Path under Measure Values. This is shown in Figure 30.
 
-![Figure 30: Dot Plot Part 6](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture28.png)
+![Figure 30: Dot Plot Part 6](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture28.png){width=80%}
 
 * Dual Axis is created and the axes are synchronised, as seen in Figure 31. The axis titled "Value", which represents the upper and lower limit percentages, is hidden, as the percentage can be seen in the bottom axis as well. The field label for row (Country) is also hidden to save space and because they should be easily understood by readers (as explained in Figure 23).
 
@@ -194,7 +194,7 @@ Figure 2 shows the sketch of the proposed data visualisation to replace the one 
 
 * To bring the dots in front of the lines, we right click the Percentage Axis and clicked Move marks to front (Figure 32). As explained earlier in Figure 18, We will also standardise the axis labels for Percentage to 0 decimal place, with 0.1 tick interval.
 
-![Figure 32: Dot Plot Part 8](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture31.png)
+![Figure 32: Dot Plot Part 8](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture31.png){width=30%}
 
 * Number of Records is placed under Detail under Percentage to show the number of survey respondents. The Tooltip for Percentage and Measure Values are edited, as seen in Figure 33. The Title is edited, as seen in Figure 34, to indicate the Survey Response represented by the dot plot.
 
@@ -211,7 +211,7 @@ Figure 2 shows the sketch of the proposed data visualisation to replace the one 
 * Next, we wish to have a title or lead-in paragraph to allow indicate the relevant survey question, overall survey response percentage and number of survey respondents.
 * A new worksheet is created. Survey Response, Percentage and Total Count are placed under Detail (Figure 36).
 
-![Figure 36: Title Part 1](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture35.png)
+![Figure 36: Title Part 1](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture35.png){width=30%}
 
 * Survey Question and Filter (Survey Response) are placed under Filters. We will right click to Show Filter and the filters will appear on the right of the worksheet. The Survey Question and Filter (Survey Response) filters are changed to Single Value (dropdown) and customised to not show "All" value, as it's not useful to show all options together. The steps were described in Figure 19 earlier. The title of Filter (Survey Response) is edited to Overall Survey Response, as explained in Figure 28.
 * The title is edited and Figure 37 shows the interactive title or lead-in paragraph that will be used for the dashboard.
@@ -223,7 +223,7 @@ Figure 2 shows the sketch of the proposed data visualisation to replace the one 
 * Next, we will create a bar chart that will break down the survey respondents by demographics e.g. Gender. This will allow readers to compare and understand the sentiments of survey respondents of different demographics.
 * A parameter, Demographic, is created, as seen in Figure 38 and explained earlier in Figure 25. We will right click Show Parameter and readers will be able to select the demographic to show.
 
-![Figure 38: Bar Chart Part 1](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture37.png)
+![Figure 38: Bar Chart Part 1](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture37.png){width=70%}
 
 * We will also create the following calculated field (as explained in Figure 13):
   + Demographic: IF [Parameters].[Demographic]="Gender" THEN [Gender] ELSEIF [Parameters].[Demographic]="Household Children" THEN [Household Children] ELSEIF [Parameters].[Demographic]="Household Size" THEN [Household Size] ELSEIF [Parameters].[Demographic]="Employment Status" THEN [Employment Status] END
@@ -247,29 +247,29 @@ Figure 2 shows the sketch of the proposed data visualisation to replace the one 
 * The following are placed under Filters. The filters are shown and the respective properties are applied. The steps were described in Figure 19 earlier.
   + Gender (Single Value Dropdown)
   + Household Size, Household Children, Employment Status (Multiple Values Dropdown)
-  + Age (Continuous, Range of Values) (Figure 42)
+  + Age (Change to Continuous, Range of Values) (Figure 42)
 
 ![Figure 42: Filters Part 1](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture41.png)
 
 * To apply the filters across worksheets, we right click each of the relevant filters (Survey Question, Gender, Age, Household Size, Household Children, Employment Status) and apply it to all using related data sources (Figure 43).
 
-![Figure 43: Filters Part 2](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture42.png)
+![Figure 43: Filters Part 2](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture42.png){width=80%}
 
 * Next, we wish to make the filter interactive i.e. when we click the country in the dot plot with error bars and diverging stacked bar chart, the bar chart (breakdown by demographics) will be filtered accordingly in the dashboard. Figure 44 shows the steps to create this filter, which is under Actions, Add Action, Filter. A filter action will be reflected under Filters, as seen in Figure 45.
 
 ![Figure 44: Filters Part 3](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture43.png)
 
-![Figure 45: Filters Part 4](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture44.png)
+![Figure 45: Filters Part 4](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture44.png){width=30%}
 
 ## Dashboard
 
 * Finally, the dashboard is created. First, the size is changed to Automatic, as seen in Figure 46.
 
-![Figure 46: Dashboard Part 1](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture45.png)
+![Figure 46: Dashboard Part 1](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture45.png){width=30%}
 
 * The 4 worksheets (Title, Dot Plot with Error Bars, Diverging Stacked Bar Chart, Breakdown) are added to the dashboard. Relevant filters are kept in the dashboard and they are changed to Floating (Figure 47) to allow easy size adjustment.
 
-![Figure 47: Dashboard Part 2](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture46.png)
+![Figure 47: Dashboard Part 2](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture46.png){width=80%}
 
 * The relevant test descriptions are added to the dashboard to direct readers on how to use the dashboard. The data source is labelled by adding a Text object (Figure 48 and 49).
 
@@ -279,7 +279,7 @@ Figure 2 shows the sketch of the proposed data visualisation to replace the one 
 
 * To allow readers to observe the changes when different filters are applied, the animation is switched on (Figure 50).
 
-![Figure 50: Dashboard Part 5](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture49.png)
+![Figure 50: Dashboard Part 5](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture49.png){width=50%}
 
 * To allow the sorting of the dot plot and diverging stacked bar chart to be synchronised and allow better comparison of survey responses from each country, we go back to the dot plot to create two parameters (Sort By, Sort Order), as seen in Figure 51. Steps to create a parameter was earlier explained in Figure 25.
 
@@ -289,14 +289,37 @@ Figure 2 shows the sketch of the proposed data visualisation to replace the one 
   + Sort Field: CASE [Sort By] WHEN "Percentage" THEN [Percentage] * [Sort Order] WHEN "Alphabetical" THEN MIN(ASCII([Country])) * [Sort Order] END
 * Sort Field is then applied to sort Country in both the dot plot and diverging stacked bar chart (Figure 52).
 
-![Figure 52: Sorting Part 2](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture51.png)
+![Figure 52: Sorting Part 2](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture51.png){width=50%}
 
 # 3.0 Proposed Data Visualisation Using Tableau
 
-* Figure 53 shows the dashboard.
+Figure 53 shows the dashboard.
 
 ![Figure 53: Dashboard](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Dashboard.png)
 
 ## Major Observations
 
+* Observation 1: The United Kingdom had the highest percentage of survey respondents that strongly agree to getting Covid-19 vaccine if it's available this week. Out of the survey respondents aged 55 and above in the United Kingdom, a huge portion strongly agreed (Figure 54 and 55).
+  + As compared to the average across countries surveyed (42% of 34,026), the United Kingdom had 68% (2,048) of 3,004 survey respondents that strongly agreed to the statement. This could be because the vaccine is made/tested in UK e.g. AstraZeneca. As such, people in the United Kingdom tend to trust the quality check on the vaccines and are more willing to be vaccinated.
+  + Out of the 1,189 survey respondents aged 55 and above in the United Kingdom, 990 (83%) strongly agreed to the statement. This could be due to the higher Covid-19 fatality rate among older people. Thus, they are generally more willing to be vaccinated as compared to younger people to protect themselves.
+
+![Figure 54: Observation 1](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture52.png)
+
+![Figure 55: Observation 1](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture53.png)
+
+* Observation 2: France had the highest percentage of survey respondents that strongly disagree to getting Covid-19 vaccine if it's available this week. Women are more likely to strongly disagree than men in France (Figure 56 and 57).
+  + As compared to the average across countries surveyed (18% of 34,026), France had 36% (1,094) of 3,069 survey respondents that strongly disagreed to the statement. According to [CNBC](https://www.cnbc.com/2021/01/13/france-swhy-france-is-the-most-vaccine-skeptical-nation-on-earth.html), the vaccine skepticism could be due to public distrust in government and far-left and far-right expression of anti-vaccine sentiment.
+  + Out of the 1,094 survey respondents that strongly disagreed, 63% (689) is female. Women are more likely to be hesistant about vaccination than men, possibly due to higher fear of possible side effects.
+
+![Figure 56: Observation 2](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture54.png)
+
+![Figure 57: Observation 2](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture55.png)
+
+* Observation 3: Denmark had the highest percentage of survey respondents that strongly agree that the government health authorities will provide them with an effective Covid-19 vaccine. A higher percentage of survey respondents aged 55 and above in Denmark will strongly agree (Figure 58 and 59).
+  + As compared to the average across countries surveyed (31% of 34,026), Denmark had 52% (1,034) of 2,001 survey respondents that strongly agreed to the statement. According to [Bloomberg](https://www.bloomberg.com/news/articles/2021-01-14/denmark-s-covid-vaccination-program-takes-the-lead-in-eu), Denmark has one of the most effective Covid Vaccination Program in EU. Throughout the pandemic, there was clear communication with the public over the handling of Covid-19. Thus, people are more willing to place trust in the government health authorities in providing them with an effective Covid-19 vaccine.
+  + The percentage is higher for survey respondents aged 55 and above in Denmark i.e. 65% (524) of 806 strongly agreed to the statement, as compared to 52% for all ages. This shows possibly a higher level of trust by the older people in Denmark in the government health authorities.
+
+![Figure 58: Observation 3](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture56.png)
+
+![Figure 59: Observation 3](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover2/Images/Picture57.png)
 
