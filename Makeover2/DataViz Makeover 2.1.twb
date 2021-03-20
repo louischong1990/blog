@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8' ?>
 
 <!-- build 20204.21.0114.0916                               -->
-<workbook original-version='18.1' source-build='2020.4.1 (20204.21.0114.0916)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+<workbook original-version='18.1' source-build='2020.4.1 (20204.21.0114.0916)' source-platform='win' version='18.1' xml:base='https://public.tableau.com' xmlns:user='http://www.tableausoftware.com/xml/user'>
   <document-format-change-manifest>
     <AutoCreateAndUpdateDSDPhoneLayouts />
     <_.fcp.MarkAnimation.true...MarkAnimation />
@@ -16,6 +16,7 @@
     <WorksheetBackgroundTransparency />
     <ZoneBackgroundTransparency />
   </document-format-change-manifest>
+  <repository-location id='DataVizMakeover2_16137065171280' path='/workbooks' revision='1.0' />
   <preferences>
     <preference name='ui.encoding.shelf.height' value='24' />
     <preference name='ui.shelf.height' value='26' />
@@ -68,7 +69,7 @@
       <connection class='federated'>
         <named-connections>
           <named-connection caption='cleaned' name='excel-direct.1hptd1d0woc7tv15ljrxj1p7or7f'>
-            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='C:/Distill/blog/Makeover2/covid-19-tracker/data/cleaned.xlsx' interpretationMode='0' password='' server='' validate='no' />
+            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='C:/Distill/blog/Makeover2/covid-19-tracker/data/cleaned.xlsx' interpretationMode='0' password='' server='' validate='no' workgroup-auth-mode='as-is' />
           </named-connection>
         </named-connections>
         <_.fcp.ObjectModelEncapsulateLegacy.false...relation name='Pivot' type='pivot'>
@@ -413,7 +414,6 @@
               <approx-count>15</approx-count>
               <contains-null>true</contains-null>
               <collation flag='1' name='LEN_RSG_S2' />
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cleaned_1CC108A0CED14935A6202B694FB4CA4B]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>RecordNo</remote-name>
@@ -428,7 +428,6 @@
               <approx-count>38517</approx-count>
               <contains-null>true</contains-null>
               <collation flag='1' name='LEN_RSG_S2' />
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cleaned_1CC108A0CED14935A6202B694FB4CA4B]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>age</remote-name>
@@ -442,7 +441,6 @@
               <aggregation>Sum</aggregation>
               <approx-count>105</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cleaned_1CC108A0CED14935A6202B694FB4CA4B]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>gender</remote-name>
@@ -457,7 +455,6 @@
               <approx-count>2</approx-count>
               <contains-null>true</contains-null>
               <collation flag='1' name='LEN_RSG_S2' />
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cleaned_1CC108A0CED14935A6202B694FB4CA4B]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>household_size</remote-name>
@@ -472,7 +469,6 @@
               <approx-count>9</approx-count>
               <contains-null>true</contains-null>
               <collation flag='1' name='LEN_RSG_S2' />
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cleaned_1CC108A0CED14935A6202B694FB4CA4B]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>household_children</remote-name>
@@ -487,7 +483,6 @@
               <approx-count>7</approx-count>
               <contains-null>true</contains-null>
               <collation flag='1' name='LEN_RSG_S2' />
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cleaned_1CC108A0CED14935A6202B694FB4CA4B]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>employment_status</remote-name>
@@ -502,7 +497,6 @@
               <approx-count>7</approx-count>
               <contains-null>true</contains-null>
               <collation flag='1' name='LEN_RSG_S2' />
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cleaned_1CC108A0CED14935A6202B694FB4CA4B]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Pivot Field Names</remote-name>
@@ -517,7 +511,6 @@
               <approx-count>6</approx-count>
               <contains-null>true</contains-null>
               <collation flag='0' name='binary' />
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cleaned_1CC108A0CED14935A6202B694FB4CA4B]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Pivot Field Values</remote-name>
@@ -531,7 +524,6 @@
               <aggregation>Sum</aggregation>
               <approx-count>5</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cleaned_1CC108A0CED14935A6202B694FB4CA4B]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
           </metadata-records>
         </connection>
@@ -1640,8 +1632,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='2150' minheight='2150' sizing-mode='vscroll' />
           <zones>
-            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='85' w='100000' x='0' y='0'>
-              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='97826' id='84' param='vert' w='98618' x='691' y='1087'>
+            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='89' w='100000' x='0' y='0'>
+              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='97826' id='88' param='vert' w='98618' x='691' y='1087'>
                 <zone _.fcp.SetMembershipControl.false...type='filter' _.fcp.SetMembershipControl.true...type-v2='filter' h='7065' id='9' mode='dropdown' name='Title' param='[federated.0d1u3bh0jer3c51bthc6y0dm1oxb].[usr:Calculation_1369375773469884427:ok]' show-all='false' w='14495' x='84556' y='1495'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
