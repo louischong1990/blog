@@ -7,6 +7,7 @@
     <MapboxVectorStylesAndLayers />
     <_.fcp.MarkAnimation.true...MarkAnimation />
     <_.fcp.ObjectModelEncapsulateLegacy.true...ObjectModelEncapsulateLegacy />
+    <_.fcp.ObjectModelExtractV2.true...ObjectModelExtractV2 />
     <_.fcp.ObjectModelTableType.true...ObjectModelTableType />
     <_.fcp.SchemaViewerObjectModel.true...SchemaViewerObjectModel />
     <_.fcp.SetMembershipControl.true...SetMembershipControl />
@@ -667,6 +668,208 @@
           <groupfilter function='level-members' level='[LOCATION]' />
         </groupfilter>
       </group>
+      <extract _.fcp.ObjectModelExtractV2.true...object-id='' count='-1' enabled='true' units='records'>
+        <connection access_mode='readonly' authentication='auth-none' author-locale='en_US' class='hyper' dbname='C:/Users/louis/Documents/My Tableau Repository/Datasources/Sheet1 (Southeast-Asia_2010-2020_Oct31).hyper' default-settings='yes' schema='Extract' sslmode='' tablename='Extract' update-time='03/20/2021 07:58:26 AM' username='tableau_internal_user'>
+          <_.fcp.ObjectModelEncapsulateLegacy.false...relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <_.fcp.ObjectModelEncapsulateLegacy.true...relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <refresh>
+            <refresh-event add-from-file-path='Sheet1 (Southeast-Asia_2010-2020_Oct31)' increment-value='%null%' refresh-type='create' rows-inserted='38244' timestamp-start='2021-03-20 07:58:26.729' />
+          </refresh>
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>EVENT_ID_CNTY</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[EVENT_ID_CNTY]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>EVENT_ID_CNTY</remote-alias>
+              <ordinal>0</ordinal>
+              <family>Sheet1</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>38244</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RSG_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Sheet1_F22BFE465EF542A1B1A639990EDB9194]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>EVENT_DATE</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[EVENT_DATE]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>EVENT_DATE</remote-alias>
+              <ordinal>1</ordinal>
+              <family>Sheet1</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>5371</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Sheet1_F22BFE465EF542A1B1A639990EDB9194]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>EVENT_TYPE</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[EVENT_TYPE]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>EVENT_TYPE</remote-alias>
+              <ordinal>2</ordinal>
+              <family>Sheet1</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>6</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RSG_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Sheet1_F22BFE465EF542A1B1A639990EDB9194]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>SUB_EVENT_TYPE</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[SUB_EVENT_TYPE]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>SUB_EVENT_TYPE</remote-alias>
+              <ordinal>3</ordinal>
+              <family>Sheet1</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>21</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RSG_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Sheet1_F22BFE465EF542A1B1A639990EDB9194]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>ACTOR1</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[ACTOR1]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>ACTOR1</remote-alias>
+              <ordinal>4</ordinal>
+              <family>Sheet1</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>196</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RSG_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Sheet1_F22BFE465EF542A1B1A639990EDB9194]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>INTER1</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[INTER1]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>INTER1</remote-alias>
+              <ordinal>5</ordinal>
+              <family>Sheet1</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>12</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RSG_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Sheet1_F22BFE465EF542A1B1A639990EDB9194]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>REGION</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[REGION]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>REGION</remote-alias>
+              <ordinal>6</ordinal>
+              <family>Sheet1</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RSG_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Sheet1_F22BFE465EF542A1B1A639990EDB9194]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>COUNTRY</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[COUNTRY]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>COUNTRY</remote-alias>
+              <ordinal>7</ordinal>
+              <family>Sheet1</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>7</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RSG_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Sheet1_F22BFE465EF542A1B1A639990EDB9194]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>ADMIN1</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[ADMIN1]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>ADMIN1</remote-alias>
+              <ordinal>8</ordinal>
+              <family>Sheet1</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>277</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RSG_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Sheet1_F22BFE465EF542A1B1A639990EDB9194]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>LOCATION</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[LOCATION]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>LOCATION</remote-alias>
+              <ordinal>9</ordinal>
+              <family>Sheet1</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3259</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RSG_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Sheet1_F22BFE465EF542A1B1A639990EDB9194]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>LATITUDE</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[LATITUDE]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>LATITUDE</remote-alias>
+              <ordinal>10</ordinal>
+              <family>Sheet1</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>3177</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Sheet1_F22BFE465EF542A1B1A639990EDB9194]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>LONGITUDE</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[LONGITUDE]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>LONGITUDE</remote-alias>
+              <ordinal>11</ordinal>
+              <family>Sheet1</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>3208</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Sheet1_F22BFE465EF542A1B1A639990EDB9194]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>FATALITIES</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[FATALITIES]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>FATALITIES</remote-alias>
+              <ordinal>12</ordinal>
+              <family>Sheet1</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>38</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Sheet1_F22BFE465EF542A1B1A639990EDB9194]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
       <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' _.fcp.SchemaViewerObjectModel.true...common-percentage='0.801567' _.fcp.SchemaViewerObjectModel.true...user-set-layout-v2='true' dim-ordering='alphabetic' measure-ordering='alphabetic' parameter-percentage='0.198433' show-aliased-fields='true' show-structure='true' />
       <style>
         <style-rule element='mark'>
@@ -764,6 +967,9 @@
                   <column datatype='integer' name='TIMESTAMP' ordinal='28' />
                 </columns>
               </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Extract' table='[Extract].[Extract]' type='table' />
             </properties>
           </object>
         </objects>
@@ -1756,8 +1962,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='2000' minheight='2000' sizing-mode='vscroll' />
           <zones>
-            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='70' w='100000' x='0' y='0'>
-              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98184' id='69' param='vert' w='99064' x='468' y='908'>
+            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='74' w='100000' x='0' y='0'>
+              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98184' id='73' param='vert' w='99064' x='468' y='908'>
                 <zone fixed-size='56' h='8024' id='5' is-fixed='true' name='Title' w='99064' x='468' y='908'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />

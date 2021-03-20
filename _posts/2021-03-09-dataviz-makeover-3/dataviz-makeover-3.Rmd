@@ -78,7 +78,7 @@ Note: Precision is not regarded as a major concern for this data visualisation, 
 
 * The data types of the following columns are changed - Inter1 (String), Region (Geographical Role: Country/Region), Admin1 (Geographical Role: State/Province), Location (Geographical Role: County) (Figure 4). As some events have the same Admin1, Admin2 and Admin3, we will only focus on using Country, Admin1 and Location to create and label the maps. Admin2 and Admin3 will not be used.
 
-![Figure 4: Changing Data Type](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover3/Images/Picture4.png)
+![Figure 4: Changing Data Type](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover3/Images/Picture4.png){width=80%}
 
 * Next, we edit the Aliases of Inter1 by following the steps in Figure 5.
 
@@ -90,14 +90,14 @@ Note: Precision is not regarded as a major concern for this data visualisation, 
 
 * The following columns are renamed (Figure 7) - Event Id Cnty (Event ID), Actor1 (Actor), Inter1 (Actor Type), Admin1 (Province).
 
-![Figure 7: Renaming Data Columns](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover3/Images/Picture7.png)
+![Figure 7: Renaming Data Columns](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover3/Images/Picture7.png){width=50%}
 
 * The final data table to be used for the data visualisation is seen in Figure 8.
 
 ![Figure 8: Final Data Table](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover3/Images/Picture8.png)
 * Moving on to the Worksheet, Actor Type is shifted to Dimensions (Figure 9).
 
-![Figure 9: Shift to Dimensions](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover3/Images/Picture9.png)
+![Figure 9: Shift to Dimensions](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover3/Images/Picture9.png){width=50%}
 
 * Two parameters (Number, Type) are created to allow readers to choose whether to show the number of events or fatalities and event or actor type in the data visualisation (Figure 10).
 
@@ -108,18 +108,18 @@ Note: Precision is not regarded as a major concern for this data visualisation, 
   + Number: IF [Parameters].[Number]="Events" THEN [Number of Events] ELSE [Fatalities] END
   + Type: IF [Parameters].[Type]="Event" THEN [Event Type] ELSE [Actor Type] END
 
-![Figure 11: Create Calculated Fields](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover3/Images/Picture11.png)
+![Figure 11: Create Calculated Fields](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover3/Images/Picture11.png){width=50%}
 
 ## Line Graph
 
 * First, the line graph displaying the number of events or fatalities by event type, number of events or fatalities by actor type in each year is created on a new worksheet.
 * Event Date is placed under Columns and it's kept as Year(Event Date). Number is placed under Rows as it's kept as Sum. Type is placed under Color (Figure 12).
 
-![Figure 12: Line Graph Part 1](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover3/Images/Picture12.png)
+![Figure 12: Line Graph Part 1](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover3/Images/Picture12.png){width=50%}
 
 * Next, we will click on Show Parameter and readers will be able to choose to display the Number of Events or Fatalities by Event or Actor Type (Figure 13).
 
-![Figure 13: Line Graph Part 2](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover3/Images/Picture13.png)
+![Figure 13: Line Graph Part 2](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover3/Images/Picture13.png){width=80%}
 
 * It is noted that Actor Type will appear in numerical format. Thus, we edit the Aliases of Actor Type by first choosing Actor as Type under Parameter, then edit the Aliases, as seen in Figure 14.
 
@@ -135,7 +135,7 @@ Note: Precision is not regarded as a major concern for this data visualisation, 
 
 The view is changed to Entire View (Figure 17) and the final interactive line graph is seen in Figure 18.
 
-![Figure 17: Line Graph Part 6](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover3/Images/Picture17.png)
+![Figure 17: Line Graph Part 6](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover3/Images/Picture17.png){width=30%}
 
 ![Figure 18: Final Line Graph](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover3/Images/Picture18.png)
 
@@ -158,7 +158,7 @@ The view is changed to Entire View (Figure 17) and the final interactive line gr
 
 ![Figure 22: Choropleth Map Part 3](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover3/Images/Picture22.png)
 
-![Figure 23: Choropleth Map Part 4](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover3/Images/Picture23.png)
+![Figure 23: Choropleth Map Part 4](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover3/Images/Picture23.png){width=50%}
 
 * The final interactive Choropleth Map is seen in Figure 24.
 
@@ -169,7 +169,7 @@ The view is changed to Entire View (Figure 17) and the final interactive line gr
 * Next, the proportional symbol map is created on a new worksheet, which displays the number of events or fatalities in each location, coloured by event or actor type and with the size determined by the number of events or fatalities. At each point, the country, province, location (town/village) and the number of events or fatalities by event or actor type by month will be shown under tooltip.
 * The following variables are placed in the respective locations seen in Figure 25 - Longitude (Columns), Latitude (Rows), Location (Detail), Number (Size), Type (Colour), Country (Tooltip), Province (Tooltip).
 
-![Figure 25: Proportional Symbol Map Part 1](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover3/Images/Picture25.png)
+![Figure 25: Proportional Symbol Map Part 1](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover3/Images/Picture25.png){width=80%}
 
 * To allow readers to have an interactive view of the number of events or fatalities by event or actor type by month at each location under tooltip, a new worksheet (By Month) is created. Event Date is placed under Rows and Number under Text. Event Date is changed to month to account for time precision code 3, which is uncertain on the exact date of the event and only has information on the month that it occurred. The field label for Type is hidden, as it will be labelled under tooltip instead. These steps and the breakdown of number of events or fatalities are seen in Figure 26.
 
@@ -181,7 +181,7 @@ The view is changed to Entire View (Figure 17) and the final interactive line gr
 
 * To allow readers to see overlapping points, the opacity (under color) is set to 60%. The size of the dots is also increased so that the location with larger number of events or fatalities can be easily seen. The steps are shown in Figure 28.
 
-![Figure 28: Proportional Symbol Map Part 3](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover3/Images/Picture28.png)
+![Figure 28: Proportional Symbol Map Part 3](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover3/Images/Picture28.png){width=80%}
 
 * To create a border of similar and slightly darker colour tone, Latitude is placed under Rows again and we will click on Dual Axis. Next, we will click on one of the Marks card for AVG(Latitude), change it to Shape and change the opacity (under color) to 80%. The steps are shown in Figure 29.
 
@@ -198,7 +198,7 @@ The view is changed to Entire View (Figure 17) and the final interactive line gr
 
 ![Figure 31: Filter Part 1](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover3/Images/Picture31.png)
 
-![Figure 32: Filter Part 2](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover3/Images/Picture32.png)
+![Figure 32: Filter Part 2](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover3/Images/Picture32.png){width=80%}
 
 * We will then click "Show Filter". The setting of the Country, Event Type, Sub Event Type and Actor Type filters will be set to "Multiple Values (dropdown)". The setting of all the filters are also set to "Only Relevant Values", so that the filters can respond to each other e.g. only the relevant sub events will appear when a particular event is chosen as filter by the reader. These steps are shown in Figure 33.
 
@@ -210,7 +210,7 @@ The view is changed to Entire View (Figure 17) and the final interactive line gr
 
 * The final list of filters is seen in Figure 35.
 
-![Figure 35: Final Filter](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover3/Images/Picture35.png)
+![Figure 35: Final Filter](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover3/Images/Picture35.png){width=30%}
 
 ## Title / Lead-in Paragraph
 
@@ -229,11 +229,11 @@ The view is changed to Entire View (Figure 17) and the final interactive line gr
 
 * Finally, the dashboard is created. First, the size is changed to Automatic (Figure 38).
 
-![Figure 38: Dashboard Part 1](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover3/Images/Picture38.png)
+![Figure 38: Dashboard Part 1](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover3/Images/Picture38.png){width=50%}
 
 * The 4 worksheets (Title, Choropleth Map, Proportional Symbol Map, Line Graph) are added to the dashboard. A blank is added for the legends, filters and parameters to be placed. The various side bars (legends, filters, parameters) are changed to Floating to allow easy size adjustment (Figure 39).
 
-![Figure 39: Dashboard Part 2](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover3/Images/Picture39.png)
+![Figure 39: Dashboard Part 2](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover3/Images/Picture39.png){width=80%}
 
 * The relevant text descriptions are added to direct readers on how to use the filters and parameters in the dashboard and to add the data source. This is done by adding a floating text object. The parameters are changed to single value list to make it quicker for readers to choose what they want to see. Figure 40 shows the steps and the legends, filters, parameters and data source that will be shown on the dashboard.
 
@@ -245,7 +245,7 @@ The view is changed to Entire View (Figure 17) and the final interactive line gr
 
 * To allow readers to observe the changes when different filters and parameters are applied, the animation is switched on (Figure 42).
 
-![Figure 42: Dashboard Part 5](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover3/Images/Picture42.png)
+![Figure 42: Dashboard Part 5](https://raw.githubusercontent.com/louischong1990/blog/master/Makeover3/Images/Picture42.png){width=80%}
 
 # 3.0 Proposed Data Visualisation Using Tableau
 
