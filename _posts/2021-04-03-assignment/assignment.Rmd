@@ -253,11 +253,13 @@ In this section, we will use crosstalk and d3scatter packages to create interact
 
 The following scatter plots are plotted:
 
+```{r}
+shared_master <- SharedData$new(master6)
+```
+
 * GDP per capita growth vs Employment growth
 
 ```{r eval=FALSE}
-shared_master <- SharedData$new(master6)
-
 bscols(widths = c(3,NA),
        list(
          filter_select("country_name", "Country",
