@@ -249,13 +249,13 @@ master6 <- merge(master5, master2,
 
 For simplicity in this assignment, we will use master6, even though there may be less observations when the data tables are merged.
 
-In this section, we will use crosstalk and d3scatter packages to create interactive scatter plots. They are filtered by country, region, year, income level, industry section, industry, skill category and skill. By default, all options are chosen and multiple options can selected for the filters. They are also coloured by year to show the differences over the years. The limitations are the long processing time, inability to adjust the orientation of the axes labels and the inability to place the reference lines at zero for aesthetic purpose. Nonetheless, the interactive scatter plots are more for exploratory purpose for this assignment, so we won't adjust the aesthetics of the scatter plots further. 
+In this section, we will use crosstalk and d3scatter packages to create interactive scatter plots. They are filtered by country, region, year, income level, industry section, industry, skill category and skill. By default, all options are chosen and multiple options can selected for the filters. They are also coloured by year to show the differences over the years. The limitations are the inability to adjust the orientation of the axes labels and to place the reference lines at zero for aesthetic purpose. Nonetheless, the interactive scatter plots are more for exploratory purpose for this assignment, so we won't adjust the aesthetics of the scatter plots further. In addition, due to the long processing time of the interactive scatter plot and resulting large size of the R Markdown file, we will only run the code of one of the interactive scatter plot (Employment growth vs Industry migration). The remaining plots will be illustrated via image format.
 
 The following scatter plots are plotted:
 
 * GDP per capita growth vs Employment growth
 
-```{r}
+```{r eval=FALSE}
 shared_master <- SharedData$new(master6)
 
 bscols(widths = c(3,NA),
@@ -292,9 +292,11 @@ bscols(widths = c(3,NA),
 )
 ```
 
+![GDP per capita vs Employment Growth](https://raw.githubusercontent.com/louischong1990/blog/master/Assignment/Images/Picture10.png)
+
 * GDP per capita growth vs Industry migration
 
-```{r}
+```{r eval=FALSE}
 bscols(widths = c(3,NA),
        list(
          filter_select("country_name", "Country",
@@ -329,9 +331,11 @@ bscols(widths = c(3,NA),
 )
 ```
 
+![GDP per capita vs Industry migration](https://raw.githubusercontent.com/louischong1990/blog/master/Assignment/Images/Picture11.png)
+
 * GDP per capita growth vs Skill migration
 
-```{r}
+```{r eval=FALSE}
 bscols(widths = c(3,NA),
        list(
          filter_select("country_name", "Country",
@@ -365,6 +369,8 @@ bscols(widths = c(3,NA),
                  width = "100%", height = 500)
 )
 ```
+
+![GDP per capita vs Skill migration](https://raw.githubusercontent.com/louischong1990/blog/master/Assignment/Images/Picture12.png)
 
 * Employment growth vs Industry migration
 
@@ -405,7 +411,7 @@ bscols(widths = c(3,NA),
 
 * Employment growth vs Skill migration
 
-```{r}
+```{r eval=FALSE}
 bscols(widths = c(3,NA),
        list(
          filter_select("country_name", "Country",
@@ -439,6 +445,8 @@ bscols(widths = c(3,NA),
                  width = "100%", height = 500)
 )
 ```
+
+![Employment growth vs Skill migration](https://raw.githubusercontent.com/louischong1990/blog/master/Assignment/Images/Picture13.png)
 
 In this assignment, we will focus on 2019 dataset for information and communication industry or tech skills, given the relevance to SMU MITB students. By applying the filters i.e. year (2019), industry section (information and communication) and skill category (tech skills), the above interactive scatter plots will produce Figures 4-8.
 
