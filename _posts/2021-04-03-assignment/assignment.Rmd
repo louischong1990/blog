@@ -376,7 +376,7 @@ bscols(widths = c(3,NA),
 
 * Employment growth vs Industry migration
 
-```{r}
+```{r eval=FALSE}
 bscols(widths = c(3,NA),
        list(
          filter_select("country_name", "Country",
