@@ -249,11 +249,11 @@ master6 <- merge(master5, master2,
 
 For simplicity in this assignment, we will use master6, even though there may be less observations when the data tables are merged.
 
-In this section, we will use crosstalk and d3scatter packages to create interactive scatter plots. They are filtered by country, region, year, income level, industry section, industry, skill category and skill. By default, all options are chosen and multiple options can selected for the filters. They are also coloured by year to show the differences over the years. The limitations are the inability to adjust the orientation of the axes labels and to place the reference lines at zero for aesthetic purpose. Nonetheless, the interactive scatter plots are more for exploratory purpose for this assignment, so we won't adjust the aesthetics of the scatter plots further. In addition, due to the long processing time of the interactive scatter plot and resulting large size of the R Markdown file, we will only run the code of one of the interactive scatter plot (Employment growth vs Industry migration). The remaining plots will be illustrated via image format.
+In this section, we will use crosstalk and d3scatter packages to create interactive scatter plots. They are filtered by country, region, year, income level, industry section, industry, skill category and skill. By default, all options are chosen and multiple options can selected for the filters. They are also coloured by year to show the differences over the years. The limitations are the inability to adjust the orientation of the axes labels and to place the reference lines at zero for aesthetic purpose. Nonetheless, the interactive scatter plots are more for exploratory purpose for this assignment, so we won't adjust the aesthetics of the scatter plots further. In addition, due to the long processing time of the interactive scatter plot and resulting large size of the R Markdown file, we will only show the interactive scatter plot in image format in the web report.
 
 The following scatter plots are plotted:
 
-```{r}
+```{r eval=FALSE}
 shared_master <- SharedData$new(master6)
 ```
 
@@ -411,6 +411,8 @@ bscols(widths = c(3,NA),
 )
 ```
 
+![Employment growth vs Industry migration](https://raw.githubusercontent.com/louischong1990/blog/master/Assignment/Images/Picture13.png)
+
 * Employment growth vs Skill migration
 
 ```{r eval=FALSE}
@@ -448,7 +450,7 @@ bscols(widths = c(3,NA),
 )
 ```
 
-![Employment growth vs Skill migration](https://raw.githubusercontent.com/louischong1990/blog/master/Assignment/Images/Picture13.png)
+![Employment growth vs Skill migration](https://raw.githubusercontent.com/louischong1990/blog/master/Assignment/Images/Picture14.png)
 
 In this assignment, we will focus on 2019 dataset for information and communication industry or tech skills, given the relevance to SMU MITB students. By applying the filters i.e. year (2019), industry section (information and communication) and skill category (tech skills), the above interactive scatter plots will produce Figures 4-8.
 
