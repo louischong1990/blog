@@ -1503,7 +1503,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </figure>
 <p>Overall, these data visualisations mentioned are static and do not allow readers to find out how the change in GDP per capita is influenced by the change in employment and migration in each industry or skill and how the change in employment in influenced by change in migration in each industry or skill.</p>
 <h1 id="motivation">1.4 Motivation</h1>
-<p>Through this project, we will create a user-friendly, interactive dashboard that allows individuals and countries to view their competitive advantage and understand the evolving labour markets across the world in four areas: skills, occupations, migration and industries. Comparison will be allowed at both country-level and industry-level. The project will help answer the following questions:</p>
+<p>Through this project, we will create a user-friendly, interactive and reactive dashboard that allows individuals and countries to view their competitive advantage and understand the evolving labour markets across the world in four areas: skills, occupations, migration and industries. Comparison will be allowed at both country-level and industry-level. The project will help answer the following questions:</p>
 <p>For individuals:</p>
 <ul>
 <li>[1A] Increasing employability - What are the highly sought-after skills to build up to increase employability in a particular country or a particular sector?</li>
@@ -1525,13 +1525,14 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <img src="https://raw.githubusercontent.com/louischong1990/blog/master/Assignment/Images/Picture3.png" alt="Figure 3: Sketch of Proposed Data Visualisation" /><figcaption aria-hidden="true">Figure 3: Sketch of Proposed Data Visualisation</figcaption>
 </figure>
 <h1 id="advantages-and-components-of-data-visualisation">1.6 Advantages and Components of Data Visualisation</h1>
-<p>For this assignment, the proposed data visualisation is an interactive dashboard with regression and correlation plots. It can be filtered according to country, region, year, income level, industry section, industry, skill category and skill to show different plots. Users can choose two parameters and find out the relationship between GDP per capita growth and industry employment growth/industry migration/skill migration, or industry employment growth and industry/skill migration. Correlation of GDP per capita growth, industry employment growth, industry migration and skill migration can also be determined.</p>
-<p>The following packages are used to build the respective plots:</p>
+<p>For this assignment, the proposed data visualisation is a reactive and interactive dashboard with regression and correlation plots. It can be filtered according to country, region, year, income level, industry section, industry, skill category and skill to show different plots. Users can choose two parameters and find out the relationship between GDP per capita growth and industry employment growth/industry migration/skill migration, or industry employment growth and industry/skill migration. The regression plot is also interactive, where users can hover over each point to find out the values. Correlation of GDP per capita growth, industry employment growth, industry migration and skill migration will be determined as well.</p>
+<p>The following packages are used to build the respective plots or results:</p>
 <ul>
 <li>Regression Plot with Histograms as Marginal Distributions (ggstatsplot - ggscatterstats)</li>
+<li>Regression Statistical Results (olsrr - ols_regress)</li>
 <li>Correlation Plot (ggstatsplot - ggcorrmat)</li>
 </ul>
-<p>Unlike R Shiny, we are unable to have an interactive filter on R Markdown that can filter the dataset and directly change the regression and correlation plots. Crosstalk, d3scatter and lazyeval packages allow interactive filter on R Markdown, but are only compatible with data tables and scatter plots. Thus, in this assignment, we will first use crosstalk, d3scatter and lazyeval packages to filter and explore the distributions of variables on scatter plots, before we manually adjust the code and filter the dataset, which will change the regression and correlation plots.</p>
+<p>Unlike R Shiny, we are unable to have a reactive filter on R Markdown that can filter the dataset and directly change the regression and correlation plots. Crosstalk, d3scatter and lazyeval packages allow such filter on R Markdown, but are only compatible with data tables and scatter plots. Thus, in this assignment, we will first use crosstalk, d3scatter and lazyeval packages to filter and explore the distributions of variables on scatter plots, before we manually adjust the code and filter the dataset, which will change the regression and correlation plots.</p>
 <h1 id="step-by-step-data-visualisation-preparation">2.0 Step-by-Step Data Visualisation Preparation</h1>
 <h1 id="installing-and-launching-r-packages">2.1 Installing and Launching R Packages</h1>
 <p>First, we will install and launch the relevant R packages.</p>
@@ -1555,11 +1556,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </code></pre>
 </div>
 </div>
-<p>If d3scatter package has already been installed, we can run the following command to install and launch all relevant R packages. In addition to the packages mentioned in the earlier sections, the readxl package is required to read xlsx files and the tidyverse package is needed to import data (read_csv), do data cleaning and manipulation (dplyr, tidyr). The olsrr package is also used to find out detailed results of the regression plots for further discussion in this assignment.</p>
+<p>If d3scatter package has already been installed, we can run the following command to install and launch all relevant R packages. In addition to the packages mentioned in the earlier sections, the readxl package is required to read xlsx files and the tidyverse package is needed to import data (read_csv), do data cleaning and manipulation (dplyr, tidyr). The plotly package allows the regression plot to be interactive i.e. show the value of each point.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>packages</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>'readxl'</span>, <span class='st'>'devtools'</span>, <span class='st'>'crosstalk'</span>, <span class='st'>'d3scatter'</span>,
-             <span class='st'>'lazyeval'</span>, <span class='st'>'tidyverse'</span>, <span class='st'>'ggstatsplot'</span>, <span class='st'>'olsrr'</span><span class='op'>)</span>
+             <span class='st'>'lazyeval'</span>, <span class='st'>'tidyverse'</span>, <span class='st'>'ggstatsplot'</span>,
+             <span class='st'>'plotly'</span>, <span class='st'>'olsrr'</span><span class='op'>)</span>
 
 <span class='kw'>for</span><span class='op'>(</span><span class='va'>p</span> <span class='kw'>in</span> <span class='va'>packages</span><span class='op'>)</span><span class='op'>{</span>
   <span class='kw'>if</span><span class='op'>(</span><span class='op'>!</span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>require</a></span><span class='op'>(</span><span class='va'>p</span>, character.only <span class='op'>=</span> <span class='cn'>T</span><span class='op'>)</span><span class='op'>)</span><span class='op'>{</span>
@@ -1697,9 +1699,9 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </code></pre>
 </div>
 </div>
-<h1 id="interactive-scatter-plots">2.4 Interactive Scatter Plots</h1>
+<h1 id="scatter-plots">2.4 Scatter Plots</h1>
 <p>For simplicity in this assignment, we will use master6, even though there may be less observations when the data tables are merged.</p>
-<p>In this section, we will use crosstalk and d3scatter packages to create interactive scatter plots. They are filtered by country, region, year, income level, industry section, industry, skill category and skill. By default, all options are chosen and multiple options can selected for the filters. They are also coloured by year to show the differences over the years. The limitations are the inability to adjust the orientation of the axes labels and to place the reference lines at zero for aesthetic purpose. Nonetheless, the interactive scatter plots are more for exploratory purpose for this assignment, so we won’t adjust the aesthetics of the scatter plots further. In addition, due to the long processing time of the interactive scatter plot and resulting large size of the R Markdown file, we will only show the interactive scatter plot in image format in the web report.</p>
+<p>In this section, we will use crosstalk and d3scatter packages to create scatter plots that can be filtered by country, region, year, income level, industry section, industry, skill category and skill on R Markdown without the use of R Shiny. By default, all options are chosen and multiple options can selected for the filters. They are also coloured by year to show the differences over the years. The limitations are the inability to adjust the orientation of the axes labels and to place the reference lines at zero for aesthetic purpose. Nonetheless, the scatter plots are more for exploratory purpose for this assignment, so we won’t adjust the aesthetics of the scatter plots further. In addition, due to the long processing time and resulting large size of the R Markdown file, we are unable to publish the reactive scatter plots on netfily and can only show it in image format in the web report.</p>
 <p>The following scatter plots are plotted:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -1922,7 +1924,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <figure>
 <img src="https://raw.githubusercontent.com/louischong1990/blog/master/Assignment/Images/Picture14.png" alt="Employment growth vs Skill migration" /><figcaption aria-hidden="true">Employment growth vs Skill migration</figcaption>
 </figure>
-<p>In this assignment, we will focus on 2019 dataset for information and communication industry or tech skills, given the relevance to SMU MITB students. By applying the filters i.e. year (2019), industry section (information and communication) and skill category (tech skills), the above interactive scatter plots will produce Figures 4-8.</p>
+<p>In this assignment, we will focus on 2019 dataset for information and communication industry or tech skills, given the relevance to SMU MITB students. By applying the filters i.e. year (2019), industry section (information and communication) and skill category (tech skills), the above reactive scatter plots will produce Figures 4-8.</p>
 <figure>
 <img src="https://raw.githubusercontent.com/louischong1990/blog/master/Assignment/Images/Picture4.png" alt="Figure 4: GDP per capita vs Employment Growth" /><figcaption aria-hidden="true">Figure 4: GDP per capita vs Employment Growth</figcaption>
 </figure>
@@ -1953,7 +1955,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 </div>
 <h1 id="regression-plots">2.6 Regression Plots</h1>
-<p>Using the filtered data tables, we will create the respective regression plots as seen below. ggstatsplot package is used instead of ggplot package, as it allows histograms to be plotted (marginal distributions) and we can analyse the distributions of both variables in the regression plots.</p>
+<p>Using the filtered data tables, we will create the respective regression plots as seen below. ggstatsplot package is used instead of ggplot package, as it provides the statistical results, allows histograms to be plotted (marginal distributions) and we can analyse the distributions of both variables in the regression plots. We had intended to make the regression plots interactive. However, the plotly package is not compatible with ggstatsplot (ggscatterstats). Thus, we decided to prioritise showing the statistical results using ggstatsplot (ggscatterstats). The regression plots will not be interactive but will be reactive to respond to the filters and chosen parameters.</p>
 <p>For the regression plots, the title, axes (xlab, ylab) and source (caption) are labelled appropriately. The y axis label is rotated to improve readability. The plots are coloured by year. Note that since the filtered data tables contain data only from year 2019, there will only be one colour seen here. Reference lines are drawn at zero to allow users to distinguish between positive and negative easily. The default 95% confidence interval is used and the results of the statistical tests are displayed. From the plots, we note that the distributions of all the variables follow a normal distribution. We will further discuss the results in the later section.</p>
 <p>In addition, we will use the olsrr package to show the results of each regression plot, as it’s easier to understand and interpret.</p>
 <ul>
@@ -2277,7 +2279,7 @@ skill_migration    0.048         0.001        0.498    43.202    0.000    0.046 
 </div>
 <h1 id="multiple-regression">2.8 Multiple Regression</h1>
 <p>In addition to the simple regression plots, we will build a multiple regression model in this assignment using the olsrr package to study the relationship between GDP per capita growth and multiple variables i.e. employment growth, industry and skill migration. 3 multiple regression models are created, one with employment growth, industry and skill migration as dependent variables and we will remove industry migration or skill migration for the other two, as they are highly correlated, as seen in the earlier correlation plots.</p>
-<p>All the regression models show weak relationship (low R-squared values) between GDP per capita growth and the dependent variables. We will further discuss the results in the later section.</p>
+<p>All the regression models show weak relationship (low R-squared values) between GDP per capita growth and the dependent variables. Hence, they are not useful and we opt not to show it for the final data visualisation on the dashboard.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ols_regress</span><span class='op'>(</span><span class='va'>GDP_per_capita_growth</span> <span class='op'>~</span> <span class='va'>employment_growth</span> <span class='op'>+</span> <span class='va'>industry_migration</span>
@@ -2405,7 +2407,7 @@ Full Model           -19375.641    16.663     0.236    0.01398      0.01351
 employment_growth    -19377.640    16.663     0.236    0.01398      0.01366 
 ---------------------------------------------------------------------------</code></pre>
 </div>
-<p>As seen in the backward stepwise regression result, employment growth is removed. We will build a regression model without employment growth to explore the results. However, the regression model still shows a weak relationship (low R-squared values) between GDP per capita growth and the dependent variables. We will further discuss the results in the later section.</p>
+<p>As seen in the backward stepwise regression result, employment growth is removed. We will build a regression model without employment growth to explore the results. However, the regression model still shows a weak relationship (low R-squared values) between GDP per capita growth and the dependent variables. Hence, they are not useful and we opt not to use it for the final data visualisation on the dashboard.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ols_regress</span><span class='op'>(</span><span class='va'>GDP_per_capita_growth</span> <span class='op'>~</span> <span class='va'>industry_migration</span> <span class='op'>+</span> <span class='va'>skill_migration</span>, <span class='va'>filtered_master1</span><span class='op'>)</span>
@@ -2441,10 +2443,10 @@ industry_migration    -0.012         0.006       -0.043    -2.062    0.039    -0
    skill_migration    -0.022         0.006       -0.081    -3.913    0.000    -0.033    -0.011 
 -----------------------------------------------------------------------------------------------</code></pre>
 </div>
-<h1 id="final-data-visualisation">3.0 Final Data Visualisation</h1>
-<p>Subsequently, we will combine the interactive filters, regression plot and correlation plot on R Shiny app to produce an interactive, user-friendly dashboard. Figure 9 shows the final dashboard or data visualisation.</p>
+<h1 id="proposed-data-visualisation-in-dashboard">3.0 Proposed Data Visualisation in Dashboard</h1>
+<p>Subsequently, we will combine the reactive filters, regression plot, regression results and correlation plot on R Shiny app to produce an reactive, user-friendly dashboard. We can also have a button to show either the regression results or correlation plot. Figure 9 shows the proposed data visualisation in the dashboard.</p>
 <figure>
-<img src="https://raw.githubusercontent.com/louischong1990/blog/master/Assignment/Images/Picture9.png" alt="Figure 9: Final Data Visualisation" /><figcaption aria-hidden="true">Figure 9: Final Data Visualisation</figcaption>
+<img src="https://raw.githubusercontent.com/louischong1990/blog/master/Assignment/Images/Picture9.png" alt="Figure 9: Proposed Data Visualisation in Dashboard" /><figcaption aria-hidden="true">Figure 9: Proposed Data Visualisation in Dashboard</figcaption>
 </figure>
 <h1 id="discussion-of-results">3.1 Discussion of Results</h1>
 <p>Finally, we discuss the results for the filtered dataset, which is for year 2019, information and communication industry and tech skills.</p>
