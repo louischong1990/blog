@@ -487,6 +487,26 @@ In this assignment, we will focus on 2019 dataset for information and communicat
 
 ![Figure 8: Employment growth vs Skill migration](https://raw.githubusercontent.com/louischong1990/blog/master/Assignment/Images/Picture8.png)
 
+In addition, we will create an interactive scatter plot that will be displayed in the R Shiny App. The scatterD3 package will be used. An example of the employment growth vs industry migration interactive scatter plot is seen in Figure 9. Due to the long processing time and resulting large size of the R Markdown file, we are unable to publish this interactive scatter plot on netfily and can only show it in image format. The plot is coloured by year and will show the country, year, industry, skill and values of variables under the tooltip.
+
+```{r eval=FALSE}
+tooltips <- paste("Country: ", master6$country_name,
+                  "Year: ", master6$year,
+                  "Industry: ", master6$industry_name,
+                  "Skill: ", master6$skill_group_name,
+                  "Employment Growth: ", master6$employment_growth,
+                  "Industry Migration: ", master6$industry_migration)
+
+scatterD3(data = master6,
+          x = industry_migration, y = employment_growth,
+          xlab = "Industry Migration (Net Per 10)",
+          ylab = "Employment Growth",
+          col_var = year,
+          tooltip_text = tooltips)
+```
+
+![Figure 9: Employment growth vs Industry migration (Interactive)](https://raw.githubusercontent.com/louischong1990/blog/master/Assignment/Images/Picture15.png)
+
 # 3.2 Filtered Datasets
 
 Next, we will edit the code to filter master6. Two filtered data tables are created, one filtered by year 2019 and information and communication industry and the other filtered by year 2019 and tech skills. These will be used to find specific results under the regression and correlation plots. With the results, countries can find out how GDP per capita growth is impacted by changes in employment and migration for information and communication industry and tech skill. Users can also find out the relationship between employment growth and migration for information and communication industry and tech skill to find potential job opportunities.
@@ -691,11 +711,11 @@ As seen in the result, employment growth is removed. We will build a regression 
 
 # 4.1 Packages Used for R Shiny App
 
-Finally, we will combine the reactive filters, interactive scatter plot, regression plot, regression results and correlation plot on R Shiny app to produce an interactive, reactive, user-friendly dashboard. We can have a button to show either the interactive scatter plot or regression plot and regression results or correlation plot. Figure 9 shows the proposed data visualisation in the dashboard.
+Finally, we will combine the reactive filters, interactive scatter plot, regression plot, regression results and correlation plot on R Shiny app to produce an interactive, reactive, user-friendly dashboard. We can have a button to show either the interactive scatter plot or regression plot and regression results or correlation plot. Figure 10 shows the proposed data visualisation in the dashboard.
 
 In summary, the scatterD3 (interactive scatter plot), ggstatsplot (regression plot, correlation plot) and parameters (regression results) packages will be used to create the proposed R Shiny app. These will be the outputs and they will respond to the input i.e. whether the user chooses to view the interactive scatter plot or regression plot and the correlation plot or regression results, which parameters (GDP per capita, employment growth, industry migration, skill migration) the user chooses to show (selectInput under ui) and how the users choose to filter the data (checkboxInput under ui).
 
-![Figure 9: Proposed Data Visualisation in Dashboard](https://raw.githubusercontent.com/louischong1990/blog/master/Assignment/Images/Picture9.png)
+![Figure 10: Proposed Data Visualisation in Dashboard](https://raw.githubusercontent.com/louischong1990/blog/master/Assignment/Images/Picture9.png)
 
 # 4.2 Discussion of Results
 

@@ -117,7 +117,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["assignment_files/anchor-4.2.2/anchor.min.js","assignment_files/bowser-1.9.3/bowser.min.js","assignment_files/distill-2.2.21/template.v2.js","assignment_files/figure-html5/unnamed-chunk-18-1.png","assignment_files/figure-html5/unnamed-chunk-20-1.png","assignment_files/figure-html5/unnamed-chunk-22-1.png","assignment_files/figure-html5/unnamed-chunk-24-1.png","assignment_files/figure-html5/unnamed-chunk-26-1.png","assignment_files/figure-html5/unnamed-chunk-28-1.png","assignment_files/figure-html5/unnamed-chunk-29-1.png","assignment_files/figure-html5/unnamed-chunk-30-1.png","assignment_files/figure-html5/unnamed-chunk-31-1.png","assignment_files/header-attrs-2.7/header-attrs.js","assignment_files/jquery-1.11.3/jquery.min.js","assignment_files/popper-2.6.0/popper.min.js","assignment_files/tippy-6.2.7/tippy-bundle.umd.min.js","assignment_files/tippy-6.2.7/tippy-light-border.css","assignment_files/tippy-6.2.7/tippy.css","assignment_files/tippy-6.2.7/tippy.umd.min.js","assignment_files/webcomponents-2.0.0/webcomponents.js","data/API_NY.GDP.PCAP.CD_DS2_en_csv_v2_2055804.csv","data/public_use-industry-employment-growth.xlsx","data/public_use-industry-skills-needs.xlsx","data/public_use-skill-penetration.xlsx","data/public_use-talent-migration.xlsx"]}
+  {"type":"character","attributes":{},"value":["assignment_files/anchor-4.2.2/anchor.min.js","assignment_files/bowser-1.9.3/bowser.min.js","assignment_files/distill-2.2.21/template.v2.js","assignment_files/figure-html5/unnamed-chunk-18-1.png","assignment_files/figure-html5/unnamed-chunk-20-1.png","assignment_files/figure-html5/unnamed-chunk-21-1.png","assignment_files/figure-html5/unnamed-chunk-22-1.png","assignment_files/figure-html5/unnamed-chunk-23-1.png","assignment_files/figure-html5/unnamed-chunk-24-1.png","assignment_files/figure-html5/unnamed-chunk-25-1.png","assignment_files/figure-html5/unnamed-chunk-26-1.png","assignment_files/figure-html5/unnamed-chunk-27-1.png","assignment_files/figure-html5/unnamed-chunk-28-1.png","assignment_files/figure-html5/unnamed-chunk-29-1.png","assignment_files/figure-html5/unnamed-chunk-30-1.png","assignment_files/figure-html5/unnamed-chunk-31-1.png","assignment_files/figure-html5/unnamed-chunk-32-1.png","assignment_files/header-attrs-2.7/header-attrs.js","assignment_files/jquery-1.11.3/jquery.min.js","assignment_files/popper-2.6.0/popper.min.js","assignment_files/tippy-6.2.7/tippy-bundle.umd.min.js","assignment_files/tippy-6.2.7/tippy-light-border.css","assignment_files/tippy-6.2.7/tippy.css","assignment_files/tippy-6.2.7/tippy.umd.min.js","assignment_files/webcomponents-2.0.0/webcomponents.js","data/API_NY.GDP.PCAP.CD_DS2_en_csv_v2_2055804.csv","data/public_use-industry-employment-growth.xlsx","data/public_use-industry-skills-needs.xlsx","data/public_use-skill-penetration.xlsx","data/public_use-talent-migration.xlsx"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2579,6 +2579,28 @@ document.addEventListener('DOMContentLoaded', function() {
 <figure>
 <img src="https://raw.githubusercontent.com/louischong1990/blog/master/Assignment/Images/Picture8.png" alt="Figure 8: Employment growth vs Skill migration" /><figcaption aria-hidden="true">Figure 8: Employment growth vs Skill migration</figcaption>
 </figure>
+<p>In addition, we will create an interactive scatter plot that will be displayed in the R Shiny App. The scatterD3 package will be used. An example of the employment growth vs industry migration interactive scatter plot is seen in Figure 9. Due to the long processing time and resulting large size of the R Markdown file, we are unable to publish this interactive scatter plot on netfily and can only show it in image format. The plot is coloured by year and will show the country, year, industry, skill and values of variables under the tooltip.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>tooltips</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='st'>"Country: "</span>, <span class='va'>master6</span><span class='op'>$</span><span class='va'>country_name</span>,
+                  <span class='st'>"Year: "</span>, <span class='va'>master6</span><span class='op'>$</span><span class='va'>year</span>,
+                  <span class='st'>"Industry: "</span>, <span class='va'>master6</span><span class='op'>$</span><span class='va'>industry_name</span>,
+                  <span class='st'>"Skill: "</span>, <span class='va'>master6</span><span class='op'>$</span><span class='va'>skill_group_name</span>,
+                  <span class='st'>"Employment Growth: "</span>, <span class='va'>master6</span><span class='op'>$</span><span class='va'>employment_growth</span>,
+                  <span class='st'>"Industry Migration: "</span>, <span class='va'>master6</span><span class='op'>$</span><span class='va'>industry_migration</span><span class='op'>)</span>
+
+<span class='fu'>scatterD3</span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>master6</span>,
+          x <span class='op'>=</span> <span class='va'>industry_migration</span>, y <span class='op'>=</span> <span class='va'>employment_growth</span>,
+          xlab <span class='op'>=</span> <span class='st'>"Industry Migration (Net Per 10)"</span>,
+          ylab <span class='op'>=</span> <span class='st'>"Employment Growth"</span>,
+          col_var <span class='op'>=</span> <span class='va'>year</span>,
+          tooltip_text <span class='op'>=</span> <span class='va'>tooltips</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<figure>
+<img src="https://raw.githubusercontent.com/louischong1990/blog/master/Assignment/Images/Picture15.png" alt="Figure 9: Employment growth vs Industry migration (Interactive)" /><figcaption aria-hidden="true">Figure 9: Employment growth vs Industry migration (Interactive)</figcaption>
+</figure>
 <h1 id="filtered-datasets">3.2 Filtered Datasets</h1>
 <p>Next, we will edit the code to filter master6. Two filtered data tables are created, one filtered by year 2019 and information and communication industry and the other filtered by year 2019 and tech skills. These will be used to find specific results under the regression and correlation plots. With the results, countries can find out how GDP per capita growth is impacted by changes in employment and migration for information and communication industry and tech skill. Users can also find out the relationship between employment growth and migration for information and communication industry and tech skill to find potential job opportunities.</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -2621,7 +2643,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                    size <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="assignment_files/figure-html5/unnamed-chunk-20-1.png" width="624" /></p>
+<p><img src="assignment_files/figure-html5/unnamed-chunk-21-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2658,7 +2680,7 @@ employment_growth |       -0.14 |     0.03 | [-0.20, -0.09] |   -5.29 | &lt; .00
                                    size <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="assignment_files/figure-html5/unnamed-chunk-22-1.png" width="624" /></p>
+<p><img src="assignment_files/figure-html5/unnamed-chunk-23-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2695,7 +2717,7 @@ industry_migration |       -0.03 | 3.45e-03 | [-0.04, -0.02] |   -8.56 | &lt; .0
                                    size <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="assignment_files/figure-html5/unnamed-chunk-24-1.png" width="624" /></p>
+<p><img src="assignment_files/figure-html5/unnamed-chunk-25-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2732,7 +2754,7 @@ skill_migration |       -0.03 | 3.40e-03 | [-0.04, -0.02] |   -9.19 | &lt; .001<
                                    size <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="assignment_files/figure-html5/unnamed-chunk-26-1.png" width="624" /></p>
+<p><img src="assignment_files/figure-html5/unnamed-chunk-27-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2769,7 +2791,7 @@ industry_migration |        0.07 | 1.07e-03 | [0.07, 0.08] |   69.31 | &lt; .001
                                    size <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="assignment_files/figure-html5/unnamed-chunk-28-1.png" width="624" /></p>
+<p><img src="assignment_files/figure-html5/unnamed-chunk-29-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2791,7 +2813,7 @@ skill_migration |        0.05 | 1.07e-03 | [0.05, 0.05] |   49.11 | &lt; .001</c
           cor.vars <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>7</span>, <span class='fl'>10</span>, <span class='fl'>11</span>, <span class='fl'>12</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="assignment_files/figure-html5/unnamed-chunk-30-1.png" width="624" /></p>
+<p><img src="assignment_files/figure-html5/unnamed-chunk-31-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2799,7 +2821,7 @@ skill_migration |        0.05 | 1.07e-03 | [0.05, 0.05] |   49.11 | &lt; .001</c
           cor.vars <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>7</span>, <span class='fl'>10</span>, <span class='fl'>11</span>, <span class='fl'>12</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="assignment_files/figure-html5/unnamed-chunk-31-1.png" width="624" /></p>
+<p><img src="assignment_files/figure-html5/unnamed-chunk-32-1.png" width="624" /></p>
 </div>
 <h1 id="multiple-regression">3.5 Multiple Regression</h1>
 <p>In addition to the simple regression plots, we will build a multiple regression model in this assignment using the parameters package to study the relationship between GDP per capita growth and multiple variables i.e. employment growth, industry and skill migration.</p>
@@ -2871,10 +2893,10 @@ F-statistic: 44.42 on 2 and 6266 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>As seen in the result, employment growth is removed. We will build a regression model without employment growth to explore the results. However, the regression model still shows a weak relationship (low R-squared values) between GDP per capita growth and the dependent variables. Hence, they are not useful and we opt not to use it for the final data visualisation on the dashboard.</p>
 <h1 id="proposed-data-visualisation-in-dashboard">4.0 Proposed Data Visualisation in Dashboard</h1>
 <h1 id="packages-used-for-r-shiny-app">4.1 Packages Used for R Shiny App</h1>
-<p>Finally, we will combine the reactive filters, interactive scatter plot, regression plot, regression results and correlation plot on R Shiny app to produce an interactive, reactive, user-friendly dashboard. We can have a button to show either the interactive scatter plot or regression plot and regression results or correlation plot. Figure 9 shows the proposed data visualisation in the dashboard.</p>
+<p>Finally, we will combine the reactive filters, interactive scatter plot, regression plot, regression results and correlation plot on R Shiny app to produce an interactive, reactive, user-friendly dashboard. We can have a button to show either the interactive scatter plot or regression plot and regression results or correlation plot. Figure 10 shows the proposed data visualisation in the dashboard.</p>
 <p>In summary, the scatterD3 (interactive scatter plot), ggstatsplot (regression plot, correlation plot) and parameters (regression results) packages will be used to create the proposed R Shiny app. These will be the outputs and they will respond to the input i.e. whether the user chooses to view the interactive scatter plot or regression plot and the correlation plot or regression results, which parameters (GDP per capita, employment growth, industry migration, skill migration) the user chooses to show (selectInput under ui) and how the users choose to filter the data (checkboxInput under ui).</p>
 <figure>
-<img src="https://raw.githubusercontent.com/louischong1990/blog/master/Assignment/Images/Picture9.png" alt="Figure 9: Proposed Data Visualisation in Dashboard" /><figcaption aria-hidden="true">Figure 9: Proposed Data Visualisation in Dashboard</figcaption>
+<img src="https://raw.githubusercontent.com/louischong1990/blog/master/Assignment/Images/Picture9.png" alt="Figure 10: Proposed Data Visualisation in Dashboard" /><figcaption aria-hidden="true">Figure 10: Proposed Data Visualisation in Dashboard</figcaption>
 </figure>
 <h1 id="discussion-of-results">4.2 Discussion of Results</h1>
 <p>Finally, we discuss the results for the filtered dataset, which is for year 2019, information and communication industry and tech skills.</p>
