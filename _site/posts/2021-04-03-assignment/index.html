@@ -117,7 +117,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["assignment_files/anchor-4.2.2/anchor.min.js","assignment_files/bowser-1.9.3/bowser.min.js","assignment_files/distill-2.2.21/template.v2.js","assignment_files/figure-html5/unnamed-chunk-18-1.png","assignment_files/figure-html5/unnamed-chunk-20-1.png","assignment_files/figure-html5/unnamed-chunk-22-1.png","assignment_files/figure-html5/unnamed-chunk-24-1.png","assignment_files/figure-html5/unnamed-chunk-26-1.png","assignment_files/figure-html5/unnamed-chunk-28-1.png","assignment_files/figure-html5/unnamed-chunk-29-1.png","assignment_files/header-attrs-2.7/header-attrs.js","assignment_files/jquery-1.11.3/jquery.min.js","assignment_files/popper-2.6.0/popper.min.js","assignment_files/tippy-6.2.7/tippy-bundle.umd.min.js","assignment_files/tippy-6.2.7/tippy-light-border.css","assignment_files/tippy-6.2.7/tippy.css","assignment_files/tippy-6.2.7/tippy.umd.min.js","assignment_files/webcomponents-2.0.0/webcomponents.js","data/API_NY.GDP.PCAP.CD_DS2_en_csv_v2_2055804.csv","data/public_use-industry-employment-growth.xlsx","data/public_use-industry-skills-needs.xlsx","data/public_use-skill-penetration.xlsx","data/public_use-talent-migration.xlsx"]}
+  {"type":"character","attributes":{},"value":["assignment_files/anchor-4.2.2/anchor.min.js","assignment_files/bowser-1.9.3/bowser.min.js","assignment_files/distill-2.2.21/template.v2.js","assignment_files/figure-html5/unnamed-chunk-18-1.png","assignment_files/figure-html5/unnamed-chunk-20-1.png","assignment_files/figure-html5/unnamed-chunk-22-1.png","assignment_files/figure-html5/unnamed-chunk-24-1.png","assignment_files/figure-html5/unnamed-chunk-26-1.png","assignment_files/figure-html5/unnamed-chunk-28-1.png","assignment_files/figure-html5/unnamed-chunk-29-1.png","assignment_files/figure-html5/unnamed-chunk-30-1.png","assignment_files/figure-html5/unnamed-chunk-31-1.png","assignment_files/header-attrs-2.7/header-attrs.js","assignment_files/jquery-1.11.3/jquery.min.js","assignment_files/popper-2.6.0/popper.min.js","assignment_files/tippy-6.2.7/tippy-bundle.umd.min.js","assignment_files/tippy-6.2.7/tippy-light-border.css","assignment_files/tippy-6.2.7/tippy.css","assignment_files/tippy-6.2.7/tippy.umd.min.js","assignment_files/webcomponents-2.0.0/webcomponents.js","data/API_NY.GDP.PCAP.CD_DS2_en_csv_v2_2055804.csv","data/public_use-industry-employment-growth.xlsx","data/public_use-industry-skills-needs.xlsx","data/public_use-skill-penetration.xlsx","data/public_use-talent-migration.xlsx"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2147,18 +2147,20 @@ document.addEventListener('DOMContentLoaded', function() {
 <img src="https://raw.githubusercontent.com/louischong1990/blog/master/Assignment/Images/Picture3.png" alt="Figure 3: Sketch of Proposed Data Visualisation" /><figcaption aria-hidden="true">Figure 3: Sketch of Proposed Data Visualisation</figcaption>
 </figure>
 <h1 id="advantages-and-components-of-data-visualisation">1.6 Advantages and Components of Data Visualisation</h1>
-<p>For this assignment, the proposed data visualisation is a reactive and interactive dashboard with regression and correlation plots. It can be filtered according to country, region, year, income level, industry section, industry, skill category and skill to show different plots. Users can choose two parameters and find out the relationship between GDP per capita growth and industry employment growth/industry migration/skill migration, or industry employment growth and industry/skill migration. The regression plot is also interactive, where users can hover over each point to find out the values. Correlation of GDP per capita growth, industry employment growth, industry migration and skill migration will be determined as well.</p>
+<p>For this assignment, the proposed data visualisation is a reactive and interactive dashboard with scatter, regression and correlation plots. It can be filtered according to country, region, year, income level, industry section, industry, skill category and skill to show different plots. Users can choose two parameters and find out the relationship between GDP per capita growth and industry employment growth/industry migration/skill migration, or industry employment growth and industry/skill migration. The scatter plot is interactive, where users can hover over each point to find out the values. Correlation of GDP per capita growth, industry employment growth, industry migration and skill migration will be determined as well.</p>
 <p>The following packages are used to build the respective plots or results:</p>
 <ul>
+<li>Scatter Plot (scatterD3)</li>
 <li>Regression Plot with Histograms as Marginal Distributions (ggstatsplot - ggscatterstats)</li>
-<li>Regression Statistical Results (olsrr - ols_regress)</li>
+<li>Regression Statistical Results (parameters)</li>
 <li>Correlation Plot (ggstatsplot - ggcorrmat)</li>
 </ul>
-<p>Unlike R Shiny, we are unable to have a reactive filter on R Markdown that can filter the dataset and directly change the regression and correlation plots. Crosstalk, d3scatter and lazyeval packages allow such filter on R Markdown, but are only compatible with data tables and scatter plots. Thus, in this assignment, we will first use crosstalk, d3scatter and lazyeval packages to filter and explore the distributions of variables on scatter plots, before we manually adjust the code and filter the dataset, which will change the regression and correlation plots.</p>
-<h1 id="step-by-step-data-visualisation-preparation">2.0 Step-by-Step Data Visualisation Preparation</h1>
+<h1 id="packages-and-data-preparation">2.0 Packages and Data Preparation</h1>
 <h1 id="installing-and-launching-r-packages">2.1 Installing and Launching R Packages</h1>
 <p>First, we will install and launch the relevant R packages.</p>
-<p>If d3scatter package has not been installed before, we can run the following two commands.</p>
+<p>Unlike R Shiny, we are unable to have a reactive filter on R Markdown that can filter the dataset and directly change the regression and correlation plots. Crosstalk, d3scatter and lazyeval packages allow such filter on R Markdown, but are only compatible with data tables and scatter plots. In this assignment, we will use crosstalk, d3scatter and lazyeval packages to filter and explore the distributions of variables on scatter plots, before we manually adjust the code and filter the dataset, which will change the regression and correlation plots.</p>
+<p>As for the scatterD3 package, it allows the scatter plot to be interactive on R Markdown and R Shiny.</p>
+<p>If d3scatter and scatterD3 packages have not been installed before, we can run the following commands.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>packages</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>'devtools'</span><span class='op'>)</span>
@@ -2178,12 +2180,19 @@ document.addEventListener('DOMContentLoaded', function() {
 </code></pre>
 </div>
 </div>
-<p>If d3scatter package has already been installed, we can run the following command to install and launch all relevant R packages. In addition to the packages mentioned in the earlier sections, the readxl package is required to read xlsx files and the tidyverse package is needed to import data (read_csv), do data cleaning and manipulation (dplyr, tidyr). The plotly package allows the regression plot to be interactive i.e. show the value of each point.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>devtools</span><span class='fu'>::</span><span class='fu'><a href='https://devtools.r-lib.org//reference/remote-reexports.html'>install_github</a></span><span class='op'>(</span><span class='st'>"juba/scatterD3"</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>If d3scatter and scatterD3 packages have already been installed, we can run the following command to install and launch all relevant R packages.</p>
+<p>In addition to the packages mentioned in Section 1.6, the readxl package is required to read xlsx files and the tidyverse package is needed to import data (read_csv), do data cleaning and manipulation (dplyr, tidyr). The plotly package also allows the regression plot to be interactive i.e. show the value of each point.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>packages</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>'readxl'</span>, <span class='st'>'devtools'</span>, <span class='st'>'crosstalk'</span>, <span class='st'>'d3scatter'</span>,
-             <span class='st'>'lazyeval'</span>, <span class='st'>'tidyverse'</span>, <span class='st'>'ggstatsplot'</span>,
-             <span class='st'>'plotly'</span>, <span class='st'>'olsrr'</span><span class='op'>)</span>
+             <span class='st'>'lazyeval'</span>, <span class='st'>'scatterD3'</span>, <span class='st'>'tidyverse'</span>, <span class='st'>'ggstatsplot'</span>,
+             <span class='st'>'plotly'</span>, <span class='st'>'parameters'</span><span class='op'>)</span>
 
 <span class='kw'>for</span><span class='op'>(</span><span class='va'>p</span> <span class='kw'>in</span> <span class='va'>packages</span><span class='op'>)</span><span class='op'>{</span>
   <span class='kw'>if</span><span class='op'>(</span><span class='op'>!</span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>require</a></span><span class='op'>(</span><span class='va'>p</span>, character.only <span class='op'>=</span> <span class='cn'>T</span><span class='op'>)</span><span class='op'>)</span><span class='op'>{</span>
@@ -2321,7 +2330,15 @@ document.addEventListener('DOMContentLoaded', function() {
 </code></pre>
 </div>
 </div>
-<h1 id="scatter-plots">2.4 Scatter Plots</h1>
+<p>master6 is saved into a csv file, so that it can be easily used for future analysis. row.names is set as false, as it’s not necessary to store the row numbers.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/utils/write.table.html'>write.csv</a></span><span class='op'>(</span><span class='va'>master6</span>, <span class='st'>"C:\\Distill\\blog\\Assignment\\master.csv"</span>, row.names <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<h1 id="bivariate-data-visualisation-and-analysis">3.0 Bivariate Data Visualisation and Analysis</h1>
+<h1 id="scatter-plots">3.1 Scatter Plots</h1>
 <p>For simplicity in this assignment, we will use master6, even though there may be less observations when the data tables are merged.</p>
 <p>In this section, we will use crosstalk and d3scatter packages to create scatter plots that can be filtered by country, region, year, income level, industry section, industry, skill category and skill on R Markdown without the use of R Shiny. By default, all options are chosen and multiple options can selected for the filters. They are also coloured by year to show the differences over the years. The limitations are the inability to adjust the orientation of the axes labels and to place the reference lines at zero for aesthetic purpose. Nonetheless, the scatter plots are more for exploratory purpose for this assignment, so we won’t adjust the aesthetics of the scatter plots further. In addition, due to the long processing time and resulting large size of the R Markdown file, we are unable to publish the reactive scatter plots on netfily and can only show it in image format in the web report.</p>
 <p>The following scatter plots are plotted:</p>
@@ -2562,7 +2579,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <figure>
 <img src="https://raw.githubusercontent.com/louischong1990/blog/master/Assignment/Images/Picture8.png" alt="Figure 8: Employment growth vs Skill migration" /><figcaption aria-hidden="true">Figure 8: Employment growth vs Skill migration</figcaption>
 </figure>
-<h1 id="filtered-datasets">2.5 Filtered Datasets</h1>
+<h1 id="filtered-datasets">3.2 Filtered Datasets</h1>
 <p>Next, we will edit the code to filter master6. Two filtered data tables are created, one filtered by year 2019 and information and communication industry and the other filtered by year 2019 and tech skills. These will be used to find specific results under the regression and correlation plots. With the results, countries can find out how GDP per capita growth is impacted by changes in employment and migration for information and communication industry and tech skill. Users can also find out the relationship between employment growth and migration for information and communication industry and tech skill to find potential job opportunities.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2576,10 +2593,10 @@ document.addEventListener('DOMContentLoaded', function() {
 </code></pre>
 </div>
 </div>
-<h1 id="regression-plots">2.6 Regression Plots</h1>
+<h1 id="regression-plots">3.3 Regression Plots</h1>
 <p>Using the filtered data tables, we will create the respective regression plots as seen below. ggstatsplot package is used instead of ggplot package, as it provides the statistical results, allows histograms to be plotted (marginal distributions) and we can analyse the distributions of both variables in the regression plots. We had intended to make the regression plots interactive. However, the plotly package is not compatible with ggstatsplot (ggscatterstats). Thus, we decided to prioritise showing the statistical results using ggstatsplot (ggscatterstats). The regression plots will not be interactive but will be reactive to respond to the filters and chosen parameters.</p>
 <p>For the regression plots, the title, axes (xlab, ylab) and source (caption) are labelled appropriately. The y axis label is rotated to improve readability. The plots are coloured by year. Note that since the filtered data tables contain data only from year 2019, there will only be one colour seen here. Reference lines are drawn at zero to allow users to distinguish between positive and negative easily. The default 95% confidence interval is used and the results of the statistical tests are displayed. From the plots, we note that the distributions of all the variables follow a normal distribution. We will further discuss the results in the later section.</p>
-<p>In addition, we will use the olsrr package to show the results of each regression plot, as it’s easier to understand and interpret.</p>
+<p>In addition, we will use the parameters package to show the results of each regression model. The package streamlines the reporting and provides an easy and intuitive calculation of standardized estimates or robust standard errors and p-values. It also implements parameter reduction and enables us to identify key variables for the regression model.</p>
 <ul>
 <li>GDP per capita growth vs Employment growth</li>
 </ul>
@@ -2604,41 +2621,18 @@ document.addEventListener('DOMContentLoaded', function() {
                                    size <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="assignment_files/figure-html5/unnamed-chunk-18-1.png" width="624" /></p>
+<p><img src="assignment_files/figure-html5/unnamed-chunk-20-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ols_regress</span><span class='op'>(</span><span class='va'>GDP_per_capita_growth</span> <span class='op'>~</span> <span class='va'>employment_growth</span>, <span class='va'>filtered_master1</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>GDP_per_capita_growth</span> <span class='op'>~</span> <span class='va'>employment_growth</span>, <span class='va'>filtered_master1</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>model_parameters</span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
-<pre><code>                          Model Summary                           
------------------------------------------------------------------
-R                       0.067       RMSE                   0.052 
-R-Squared               0.004       Coef. Var          -1103.029 
-Adj. R-Squared          0.004       MSE                    0.003 
-Pred R-Squared          0.004       MAE                    0.036 
------------------------------------------------------------------
- RMSE: Root Mean Square Error 
- MSE: Mean Square Error 
- MAE: Mean Absolute Error 
-
-                                ANOVA                                 
----------------------------------------------------------------------
-               Sum of                                                
-              Squares          DF    Mean Square      F         Sig. 
----------------------------------------------------------------------
-Regression      0.075           1          0.075    27.976    0.0000 
-Residual       16.824        6267          0.003                     
-Total          16.899        6268                                    
----------------------------------------------------------------------
-
-                                     Parameter Estimates                                       
-----------------------------------------------------------------------------------------------
-            model      Beta    Std. Error    Std. Beta      t        Sig      lower     upper 
-----------------------------------------------------------------------------------------------
-      (Intercept)    -0.004         0.001                 -6.351    0.000    -0.005    -0.003 
-employment_growth    -0.144         0.027       -0.067    -5.289    0.000    -0.197    -0.091 
-----------------------------------------------------------------------------------------------</code></pre>
+<pre><code>Parameter         | Coefficient |       SE |         95% CI | t(6267) |      p
+------------------------------------------------------------------------------
+(Intercept)       |   -4.20e-03 | 6.61e-04 | [-0.01,  0.00] |   -6.35 | &lt; .001
+employment_growth |       -0.14 |     0.03 | [-0.20, -0.09] |   -5.29 | &lt; .001</code></pre>
 </div>
 <ul>
 <li>GDP per capita growth vs Industry migration</li>
@@ -2664,41 +2658,18 @@ employment_growth    -0.144         0.027       -0.067    -5.289    0.000    -0.
                                    size <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="assignment_files/figure-html5/unnamed-chunk-20-1.png" width="624" /></p>
+<p><img src="assignment_files/figure-html5/unnamed-chunk-22-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ols_regress</span><span class='op'>(</span><span class='va'>GDP_per_capita_growth</span> <span class='op'>~</span> <span class='va'>industry_migration</span>, <span class='va'>filtered_master1</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>GDP_per_capita_growth</span> <span class='op'>~</span> <span class='va'>industry_migration</span>, <span class='va'>filtered_master1</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>model_parameters</span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
-<pre><code>                          Model Summary                           
------------------------------------------------------------------
-R                       0.108       RMSE                   0.052 
-R-Squared               0.012       Coef. Var          -1099.075 
-Adj. R-Squared          0.011       MSE                    0.003 
-Pred R-Squared          0.011       MAE                    0.035 
------------------------------------------------------------------
- RMSE: Root Mean Square Error 
- MSE: Mean Square Error 
- MAE: Mean Absolute Error 
-
-                                ANOVA                                 
----------------------------------------------------------------------
-               Sum of                                                
-              Squares          DF    Mean Square      F         Sig. 
----------------------------------------------------------------------
-Regression      0.196           1          0.196    73.357    0.0000 
-Residual       16.704        6267          0.003                     
-Total          16.899        6268                                    
----------------------------------------------------------------------
-
-                                      Parameter Estimates                                       
------------------------------------------------------------------------------------------------
-             model      Beta    Std. Error    Std. Beta      t        Sig      lower     upper 
------------------------------------------------------------------------------------------------
-       (Intercept)    -0.004         0.001                 -6.049    0.000    -0.005    -0.003 
-industry_migration    -0.030         0.003       -0.108    -8.565    0.000    -0.036    -0.023 
------------------------------------------------------------------------------------------------</code></pre>
+<pre><code>Parameter          | Coefficient |       SE |         95% CI | t(6267) |      p
+-------------------------------------------------------------------------------
+(Intercept)        |   -3.98e-03 | 6.57e-04 | [-0.01,  0.00] |   -6.05 | &lt; .001
+industry_migration |       -0.03 | 3.45e-03 | [-0.04, -0.02] |   -8.56 | &lt; .001</code></pre>
 </div>
 <ul>
 <li>GDP per capita growth vs Skill migration</li>
@@ -2724,41 +2695,18 @@ industry_migration    -0.030         0.003       -0.108    -8.565    0.000    -0
                                    size <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="assignment_files/figure-html5/unnamed-chunk-22-1.png" width="624" /></p>
+<p><img src="assignment_files/figure-html5/unnamed-chunk-24-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ols_regress</span><span class='op'>(</span><span class='va'>GDP_per_capita_growth</span> <span class='op'>~</span> <span class='va'>skill_migration</span>, <span class='va'>filtered_master2</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>GDP_per_capita_growth</span> <span class='op'>~</span> <span class='va'>skill_migration</span>, <span class='va'>filtered_master1</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>model_parameters</span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
-<pre><code>                         Model Summary                           
-----------------------------------------------------------------
-R                       0.129       RMSE                  0.050 
-R-Squared               0.017       Coef. Var          -810.651 
-Adj. R-Squared          0.017       MSE                   0.003 
-Pred R-Squared          0.016       MAE                   0.034 
-----------------------------------------------------------------
- RMSE: Root Mean Square Error 
- MSE: Mean Square Error 
- MAE: Mean Absolute Error 
-
-                                ANOVA                                 
----------------------------------------------------------------------
-               Sum of                                                
-              Squares          DF    Mean Square      F         Sig. 
----------------------------------------------------------------------
-Regression      0.237           1          0.237    93.927    0.0000 
-Residual       13.971        5537          0.003                     
-Total          14.208        5538                                    
----------------------------------------------------------------------
-
-                                    Parameter Estimates                                      
---------------------------------------------------------------------------------------------
-          model      Beta    Std. Error    Std. Beta      t        Sig      lower     upper 
---------------------------------------------------------------------------------------------
-    (Intercept)    -0.005         0.001                 -7.341    0.000    -0.006    -0.004 
-skill_migration    -0.037         0.004       -0.129    -9.692    0.000    -0.044    -0.029 
---------------------------------------------------------------------------------------------</code></pre>
+<pre><code>Parameter       | Coefficient |       SE |         95% CI | t(6267) |      p
+----------------------------------------------------------------------------
+(Intercept)     |   -4.15e-03 | 6.54e-04 | [-0.01,  0.00] |   -6.34 | &lt; .001
+skill_migration |       -0.03 | 3.40e-03 | [-0.04, -0.02] |   -9.19 | &lt; .001</code></pre>
 </div>
 <ul>
 <li>Employment growth vs Industry migration</li>
@@ -2784,41 +2732,18 @@ skill_migration    -0.037         0.004       -0.129    -9.692    0.000    -0.04
                                    size <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="assignment_files/figure-html5/unnamed-chunk-24-1.png" width="624" /></p>
+<p><img src="assignment_files/figure-html5/unnamed-chunk-26-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ols_regress</span><span class='op'>(</span><span class='va'>employment_growth</span> <span class='op'>~</span> <span class='va'>industry_migration</span>, <span class='va'>filtered_master1</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>employment_growth</span> <span class='op'>~</span> <span class='va'>industry_migration</span>, <span class='va'>filtered_master1</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>model_parameters</span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
-<pre><code>                         Model Summary                          
----------------------------------------------------------------
-R                       0.655       RMSE                 0.019 
-R-Squared               0.429       Coef. Var          733.385 
-Adj. R-Squared          0.428       MSE                  0.000 
-Pred R-Squared          0.428       MAE                  0.014 
----------------------------------------------------------------
- RMSE: Root Mean Square Error 
- MSE: Mean Square Error 
- MAE: Mean Absolute Error 
-
-                                 ANOVA                                  
------------------------------------------------------------------------
-               Sum of                                                  
-              Squares          DF    Mean Square       F          Sig. 
------------------------------------------------------------------------
-Regression      1.680           1          1.680    4803.486    0.0000 
-Residual        2.240        6406          0.000                       
-Total           3.920        6407                                      
------------------------------------------------------------------------
-
-                                    Parameter Estimates                                      
---------------------------------------------------------------------------------------------
-             model     Beta    Std. Error    Std. Beta      t        Sig     lower    upper 
---------------------------------------------------------------------------------------------
-       (Intercept)    0.002         0.000                  7.822    0.000    0.001    0.002 
-industry_migration    0.074         0.001        0.655    69.307    0.000    0.072    0.076 
---------------------------------------------------------------------------------------------</code></pre>
+<pre><code>Parameter          | Coefficient |       SE |       95% CI | t(6406) |      p
+-----------------------------------------------------------------------------
+(Intercept)        |    1.83e-03 | 2.34e-04 | [0.00, 0.00] |    7.82 | &lt; .001
+industry_migration |        0.07 | 1.07e-03 | [0.07, 0.08] |   69.31 | &lt; .001</code></pre>
 </div>
 <ul>
 <li>Employment growth vs Skill migration</li>
@@ -2844,43 +2769,20 @@ industry_migration    0.074         0.001        0.655    69.307    0.000    0.0
                                    size <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="assignment_files/figure-html5/unnamed-chunk-26-1.png" width="624" /></p>
+<p><img src="assignment_files/figure-html5/unnamed-chunk-28-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ols_regress</span><span class='op'>(</span><span class='va'>employment_growth</span> <span class='op'>~</span> <span class='va'>skill_migration</span>, <span class='va'>filtered_master2</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>employment_growth</span> <span class='op'>~</span> <span class='va'>skill_migration</span>, <span class='va'>filtered_master1</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>model_parameters</span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
-<pre><code>                         Model Summary                          
----------------------------------------------------------------
-R                       0.498       RMSE                 0.019 
-R-Squared               0.248       Coef. Var          632.051 
-Adj. R-Squared          0.248       MSE                  0.000 
-Pred R-Squared          0.248       MAE                  0.013 
----------------------------------------------------------------
- RMSE: Root Mean Square Error 
- MSE: Mean Square Error 
- MAE: Mean Absolute Error 
-
-                                 ANOVA                                  
------------------------------------------------------------------------
-               Sum of                                                  
-              Squares          DF    Mean Square       F          Sig. 
------------------------------------------------------------------------
-Regression      0.647           1          0.647    1866.413    0.0000 
-Residual        1.958        5648          0.000                       
-Total           2.604        5649                                      
------------------------------------------------------------------------
-
-                                   Parameter Estimates                                    
------------------------------------------------------------------------------------------
-          model     Beta    Std. Error    Std. Beta      t        Sig     lower    upper 
------------------------------------------------------------------------------------------
-    (Intercept)    0.002         0.000                  8.863    0.000    0.002    0.003 
-skill_migration    0.048         0.001        0.498    43.202    0.000    0.046    0.050 
------------------------------------------------------------------------------------------</code></pre>
+<pre><code>Parameter       | Coefficient |       SE |       95% CI | t(6406) |      p
+--------------------------------------------------------------------------
+(Intercept)     |    2.68e-03 | 2.63e-04 | [0.00, 0.00] |   10.18 | &lt; .001
+skill_migration |        0.05 | 1.07e-03 | [0.05, 0.05] |   49.11 | &lt; .001</code></pre>
 </div>
-<h1 id="correlation-plots">2.7 Correlation Plots</h1>
+<h1 id="correlation-plots">3.4 Correlation Plots</h1>
 <p>Next, we will find out the correlation of the variables. Given that there are very few variables (only 4), we will use ggcorrmat (under ggstatsplot package) instead of corrplot and other packages, as it will produce a simple correlation plot. We will use the default properties i.e. upper triangular matrix and significance level of 0.05. Both filtered data tables are used for the correlation plots.</p>
 <p>It is noted that GDP per capita growth is weakly correlated with employment growth, industry and skill migration. Industry and skill migration are highly correlated (&gt;0.8) for both plots. The results will be further discussed in the later section.</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -2889,7 +2791,7 @@ skill_migration    0.048         0.001        0.498    43.202    0.000    0.046 
           cor.vars <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>7</span>, <span class='fl'>10</span>, <span class='fl'>11</span>, <span class='fl'>12</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="assignment_files/figure-html5/unnamed-chunk-28-1.png" width="624" /></p>
+<p><img src="assignment_files/figure-html5/unnamed-chunk-30-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2897,186 +2799,90 @@ skill_migration    0.048         0.001        0.498    43.202    0.000    0.046 
           cor.vars <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>7</span>, <span class='fl'>10</span>, <span class='fl'>11</span>, <span class='fl'>12</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="assignment_files/figure-html5/unnamed-chunk-29-1.png" width="624" /></p>
+<p><img src="assignment_files/figure-html5/unnamed-chunk-31-1.png" width="624" /></p>
 </div>
-<h1 id="multiple-regression">2.8 Multiple Regression</h1>
-<p>In addition to the simple regression plots, we will build a multiple regression model in this assignment using the olsrr package to study the relationship between GDP per capita growth and multiple variables i.e. employment growth, industry and skill migration. 3 multiple regression models are created, one with employment growth, industry and skill migration as dependent variables and we will remove industry migration or skill migration for the other two, as they are highly correlated, as seen in the earlier correlation plots.</p>
-<p>All the regression models show weak relationship (low R-squared values) between GDP per capita growth and the dependent variables. Hence, they are not useful and we opt not to show it for the final data visualisation on the dashboard.</p>
+<h1 id="multiple-regression">3.5 Multiple Regression</h1>
+<p>In addition to the simple regression plots, we will build a multiple regression model in this assignment using the parameters package to study the relationship between GDP per capita growth and multiple variables i.e. employment growth, industry and skill migration.</p>
+<p>The regression model shows weak relationship (low R-squared values) between GDP per capita growth and the dependent variables. Hence, it is not useful and we opt not to show it for the final data visualisation on the dashboard.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ols_regress</span><span class='op'>(</span><span class='va'>GDP_per_capita_growth</span> <span class='op'>~</span> <span class='va'>employment_growth</span> <span class='op'>+</span> <span class='va'>industry_migration</span>
-            <span class='op'>+</span> <span class='va'>skill_migration</span>,
-            <span class='va'>filtered_master1</span><span class='op'>)</span>
-</code></pre>
-</div>
-<pre><code>                          Model Summary                           
------------------------------------------------------------------
-R                       0.118       RMSE                   0.052 
-R-Squared               0.014       Coef. Var          -1097.910 
-Adj. R-Squared          0.014       MSE                    0.003 
-Pred R-Squared          0.013       MAE                    0.035 
------------------------------------------------------------------
- RMSE: Root Mean Square Error 
- MSE: Mean Square Error 
- MAE: Mean Absolute Error 
-
-                                ANOVA                                 
----------------------------------------------------------------------
-               Sum of                                                
-              Squares          DF    Mean Square      F         Sig. 
----------------------------------------------------------------------
-Regression      0.236           3          0.079    29.608    0.0000 
-Residual       16.663        6265          0.003                     
-Total          16.899        6268                                    
----------------------------------------------------------------------
-
-                                      Parameter Estimates                                       
------------------------------------------------------------------------------------------------
-             model      Beta    Std. Error    Std. Beta      t        Sig      lower     upper 
------------------------------------------------------------------------------------------------
-       (Intercept)    -0.004         0.001                 -6.108    0.000    -0.005    -0.003 
- employment_growth     0.000         0.035        0.000     0.013    0.990    -0.068     0.069 
-industry_migration    -0.012         0.006       -0.043    -1.844    0.065    -0.024     0.001 
-   skill_migration    -0.022         0.006       -0.081    -3.911    0.000    -0.033    -0.011 
------------------------------------------------------------------------------------------------</code></pre>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ols_regress</span><span class='op'>(</span><span class='va'>GDP_per_capita_growth</span> <span class='op'>~</span> <span class='va'>employment_growth</span> <span class='op'>+</span> <span class='va'>industry_migration</span>,
-            <span class='va'>filtered_master1</span><span class='op'>)</span>
-</code></pre>
-</div>
-<pre><code>                          Model Summary                           
------------------------------------------------------------------
-R                       0.108       RMSE                   0.052 
-R-Squared               0.012       Coef. Var          -1099.162 
-Adj. R-Squared          0.011       MSE                    0.003 
-Pred R-Squared          0.011       MAE                    0.035 
------------------------------------------------------------------
- RMSE: Root Mean Square Error 
- MSE: Mean Square Error 
- MAE: Mean Absolute Error 
-
-                                ANOVA                                 
----------------------------------------------------------------------
-               Sum of                                                
-              Squares          DF    Mean Square      F         Sig. 
----------------------------------------------------------------------
-Regression      0.196           2          0.098    36.678    0.0000 
-Residual       16.704        6266          0.003                     
-Total          16.899        6268                                    
----------------------------------------------------------------------
-
-                                      Parameter Estimates                                       
------------------------------------------------------------------------------------------------
-             model      Beta    Std. Error    Std. Beta      t        Sig      lower     upper 
------------------------------------------------------------------------------------------------
-       (Intercept)    -0.004         0.001                 -6.038    0.000    -0.005    -0.003 
- employment_growth     0.004         0.035        0.002     0.105    0.917    -0.065     0.072 
-industry_migration    -0.030         0.004       -0.109    -6.722    0.000    -0.039    -0.021 
------------------------------------------------------------------------------------------------</code></pre>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ols_regress</span><span class='op'>(</span><span class='va'>GDP_per_capita_growth</span> <span class='op'>~</span> <span class='va'>employment_growth</span> <span class='op'>+</span> <span class='va'>skill_migration</span>,
-            <span class='va'>filtered_master1</span><span class='op'>)</span>
-</code></pre>
-</div>
-<pre><code>                          Model Summary                           
------------------------------------------------------------------
-R                       0.116       RMSE                   0.052 
-R-Squared               0.013       Coef. Var          -1098.120 
-Adj. R-Squared          0.013       MSE                    0.003 
-Pred R-Squared          0.012       MAE                    0.035 
------------------------------------------------------------------
- RMSE: Root Mean Square Error 
- MSE: Mean Square Error 
- MAE: Mean Absolute Error 
-
-                                ANOVA                                 
----------------------------------------------------------------------
-               Sum of                                                
-              Squares          DF    Mean Square      F         Sig. 
----------------------------------------------------------------------
-Regression      0.227           2          0.114    42.695    0.0000 
-Residual       16.672        6266          0.003                     
-Total          16.899        6268                                    
----------------------------------------------------------------------
-
-                                     Parameter Estimates                                       
-----------------------------------------------------------------------------------------------
-            model      Beta    Std. Error    Std. Beta      t        Sig      lower     upper 
-----------------------------------------------------------------------------------------------
-      (Intercept)    -0.004         0.001                 -6.197    0.000    -0.005    -0.003 
-employment_growth    -0.029         0.031       -0.013    -0.922    0.356    -0.090     0.032 
-  skill_migration    -0.030         0.004       -0.109    -7.561    0.000    -0.037    -0.022 
-----------------------------------------------------------------------------------------------</code></pre>
-</div>
-<h1 id="stepwise-regression">2.9 Stepwise Regression</h1>
-<p>Finally, we also carry out stepwise regression to remove variable(s) that is not important to the regression model, based on the p value. The olsrr package (ols_step_backward_aic) is used to carry out backward stepwise regression.</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ols_step_backward_aic</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>GDP_per_capita_growth</span> <span class='op'>~</span> <span class='va'>employment_growth</span> <span class='op'>+</span> <span class='va'>industry_migration</span>
-                         <span class='op'>+</span> <span class='va'>skill_migration</span>, <span class='va'>filtered_master1</span><span class='op'>)</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>GDP_per_capita_growth</span> <span class='op'>~</span> <span class='va'>employment_growth</span>
+   <span class='op'>+</span> <span class='va'>industry_migration</span> <span class='op'>+</span> <span class='va'>skill_migration</span>,
+   <span class='va'>filtered_master1</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code>
-                        Backward Elimination Summary                         
----------------------------------------------------------------------------
-Variable                AIC         RSS      Sum Sq     R-Sq      Adj. R-Sq 
----------------------------------------------------------------------------
-Full Model           -19375.641    16.663     0.236    0.01398      0.01351 
-employment_growth    -19377.640    16.663     0.236    0.01398      0.01366 
----------------------------------------------------------------------------</code></pre>
+Call:
+lm(formula = GDP_per_capita_growth ~ employment_growth + industry_migration + 
+    skill_migration, data = filtered_master1)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.309330 -0.021722 -0.003649  0.028596  0.192260 
+
+Coefficients:
+                     Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)        -0.0040245  0.0006589  -6.108 1.07e-09 ***
+employment_growth   0.0004486  0.0348529   0.013   0.9897    
+industry_migration -0.0118106  0.0064041  -1.844   0.0652 .  
+skill_migration    -0.0220432  0.0056355  -3.911 9.27e-05 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 0.05157 on 6265 degrees of freedom
+  (139 observations deleted due to missingness)
+Multiple R-squared:  0.01398,   Adjusted R-squared:  0.01351 
+F-statistic: 29.61 on 3 and 6265 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
-<p>As seen in the backward stepwise regression result, employment growth is removed. We will build a regression model without employment growth to explore the results. However, the regression model still shows a weak relationship (low R-squared values) between GDP per capita growth and the dependent variables. Hence, they are not useful and we opt not to use it for the final data visualisation on the dashboard.</p>
+<h1 id="parameter-selection">3.6 Parameter Selection</h1>
+<p>We also carried out parameter selection to remove variable(s) that is not important to the regression model, based on the p value. The parameters package (select_parameters) is used.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ols_regress</span><span class='op'>(</span><span class='va'>GDP_per_capita_growth</span> <span class='op'>~</span> <span class='va'>industry_migration</span> <span class='op'>+</span> <span class='va'>skill_migration</span>, <span class='va'>filtered_master1</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>GDP_per_capita_growth</span> <span class='op'>~</span> <span class='va'>employment_growth</span>
+   <span class='op'>+</span> <span class='va'>industry_migration</span> <span class='op'>+</span> <span class='va'>skill_migration</span>,
+   <span class='va'>filtered_master1</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>select_parameters</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
-<pre><code>                          Model Summary                           
------------------------------------------------------------------
-R                       0.118       RMSE                   0.052 
-R-Squared               0.014       Coef. Var          -1097.822 
-Adj. R-Squared          0.014       MSE                    0.003 
-Pred R-Squared          0.013       MAE                    0.035 
------------------------------------------------------------------
- RMSE: Root Mean Square Error 
- MSE: Mean Square Error 
- MAE: Mean Absolute Error 
+<pre><code>
+Call:
+lm(formula = GDP_per_capita_growth ~ industry_migration + skill_migration, 
+    data = filtered_master1)
 
-                                ANOVA                                 
----------------------------------------------------------------------
-               Sum of                                                
-              Squares          DF    Mean Square      F         Sig. 
----------------------------------------------------------------------
-Regression      0.236           2          0.118    44.419    0.0000 
-Residual       16.663        6266          0.003                     
-Total          16.899        6268                                    
----------------------------------------------------------------------
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.309333 -0.021722 -0.003659  0.028594  0.192246 
 
-                                      Parameter Estimates                                       
------------------------------------------------------------------------------------------------
-             model      Beta    Std. Error    Std. Beta      t        Sig      lower     upper 
------------------------------------------------------------------------------------------------
-       (Intercept)    -0.004         0.001                 -6.126    0.000    -0.005    -0.003 
-industry_migration    -0.012         0.006       -0.043    -2.062    0.039    -0.023    -0.001 
-   skill_migration    -0.022         0.006       -0.081    -3.913    0.000    -0.033    -0.011 
------------------------------------------------------------------------------------------------</code></pre>
+Coefficients:
+                     Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)        -0.0040238  0.0006568  -6.126 9.54e-10 ***
+industry_migration -0.0117732  0.0057089  -2.062   0.0392 *  
+skill_migration    -0.0220449  0.0056335  -3.913 9.21e-05 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 0.05157 on 6266 degrees of freedom
+  (139 observations deleted due to missingness)
+Multiple R-squared:  0.01398,   Adjusted R-squared:  0.01366 
+F-statistic: 44.42 on 2 and 6266 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
-<h1 id="proposed-data-visualisation-in-dashboard">3.0 Proposed Data Visualisation in Dashboard</h1>
-<p>Subsequently, we will combine the reactive filters, regression plot, regression results and correlation plot on R Shiny app to produce an reactive, user-friendly dashboard. We can also have a button to show either the regression results or correlation plot. Figure 9 shows the proposed data visualisation in the dashboard.</p>
+<p>As seen in the result, employment growth is removed. We will build a regression model without employment growth to explore the results. However, the regression model still shows a weak relationship (low R-squared values) between GDP per capita growth and the dependent variables. Hence, they are not useful and we opt not to use it for the final data visualisation on the dashboard.</p>
+<h1 id="proposed-data-visualisation-in-dashboard">4.0 Proposed Data Visualisation in Dashboard</h1>
+<h1 id="packages-used-for-r-shiny-app">4.1 Packages Used for R Shiny App</h1>
+<p>Finally, we will combine the reactive filters, interactive scatter plot, regression plot, regression results and correlation plot on R Shiny app to produce an interactive, reactive, user-friendly dashboard. We can have a button to show either the interactive scatter plot or regression plot and regression results or correlation plot. Figure 9 shows the proposed data visualisation in the dashboard.</p>
+<p>In summary, the scatterD3 (interactive scatter plot), ggstatsplot (regression plot, correlation plot) and parameters (regression results) packages will be used to create the proposed R Shiny app. These will be the outputs and they will respond to the input i.e. whether the user chooses to view the interactive scatter plot or regression plot and the correlation plot or regression results, which parameters (GDP per capita, employment growth, industry migration, skill migration) the user chooses to show (selectInput under ui) and how the users choose to filter the data (checkboxInput under ui).</p>
 <figure>
 <img src="https://raw.githubusercontent.com/louischong1990/blog/master/Assignment/Images/Picture9.png" alt="Figure 9: Proposed Data Visualisation in Dashboard" /><figcaption aria-hidden="true">Figure 9: Proposed Data Visualisation in Dashboard</figcaption>
 </figure>
-<h1 id="discussion-of-results">3.1 Discussion of Results</h1>
+<h1 id="discussion-of-results">4.2 Discussion of Results</h1>
 <p>Finally, we discuss the results for the filtered dataset, which is for year 2019, information and communication industry and tech skills.</p>
 <ul>
-<li>The relationship between GDP per capita growth vs industry employment growth, industry migration or skill migration is not strong. This is shown in the low R-squared values (below 0.02) in Section 2.6. Even when multiple variables are used to build a multiple regression model with GDP per capita growth and the less important variables (by p-value) as well as the correlated variables are removed in Section 2.8-2.9, the R-squared values are still low. Furthermore, in Section 2.7, we can see the weak correlation between GDP per capita growth and the other variables. Hence, even though we observe a slight negative relationship between GDP per capita growth and the other variables in Section 2.6 i.e. lower GDP per capita growth with higher employment growth and migration, we are unable to provide a firm conclusion on how GDP per capita growth is impacted by migration and employment growth in a country. Further study can be done to understand how GDP per capita growth is influenced by a combination of many other variables or how different filters used (e.g. year, industry) can change the results.</li>
-<li>The relationship between industry employment growth vs industry or skill migration is stronger, as seen in the R-squared values in Section 2.6 i.e. 0.429 (industry employment growth vs industry migration) and 0.248 (industry employment growth vs skill migration). There is also moderate correlation between industry employment growth vs industry or skill migration, as seen in Section 2.7 i.e. ~0.6 (industry employment growth vs industry migration) and ~0.5 (industry employment growth vs skill migration). Even though the R-squared and correlation results are still not ideal, the results are able to give a glimpse of how much employment growth changes with industry or skill migration. Ideally, the employment growth to industry or skill migration ratio should be positive (i.e. higher employment growth with higher migration, as seen in Section 2.6) and high value to give job seekers confidence that they are more likely to find a job in certain industry and country if they have certain skill. Further study can be done to compare the ratio for different industries and skills. This will give job seekers knowledge of which industries and skills to focus on.</li>
+<li>The relationship between GDP per capita growth vs industry employment growth, industry migration or skill migration is not strong. This is shown in the low R-squared values (below 0.02) in Section 3.3. Even when multiple variables are used to build a multiple regression model with GDP per capita growth and the less important variables (by p-value) as well as the correlated variables are removed in Section 3.5-3.6, the R-squared values are still low. Furthermore, in Section 3.4, we can see the weak correlation between GDP per capita growth and the other variables. Hence, even though we observe a slight negative relationship between GDP per capita growth and the other variables in Section 3.3 i.e. lower GDP per capita growth with higher employment growth and migration, we are unable to provide a firm conclusion on how GDP per capita growth is impacted by migration and employment growth in a country. Further study can be done to understand how GDP per capita growth is influenced by a combination of many other variables or how different filters used (e.g. year, industry) can change the results.</li>
+<li>The relationship between industry employment growth vs industry or skill migration is stronger, as seen in the R-squared values in Section 3.3 i.e. 0.429 (industry employment growth vs industry migration) and 0.248 (industry employment growth vs skill migration). There is also moderate correlation between industry employment growth vs industry or skill migration, as seen in Section 3.4 i.e. ~0.6 (industry employment growth vs industry migration) and ~0.5 (industry employment growth vs skill migration). Even though the R-squared and correlation results are still not ideal, the results are able to give a glimpse of how much employment growth changes with industry or skill migration. Ideally, the employment growth to industry or skill migration ratio should be positive (i.e. higher employment growth with higher migration, as seen in Section 3.3) and high value to give job seekers confidence that they are more likely to find a job in certain industry and country if they have certain skill. Further study can be done to compare the ratio for different industries and skills. This will give job seekers knowledge of which industries and skills to focus on.</li>
 </ul>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
