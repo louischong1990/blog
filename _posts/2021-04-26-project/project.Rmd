@@ -11,8 +11,6 @@ author:
   - name: Louis Chong
     url: https://www.linkedin.com/in/louis-chong-jia-jun/
 date: 04-20-2021
-categories:
-  - Project
 output:
   distill::distill_article:
     self_contained: false
